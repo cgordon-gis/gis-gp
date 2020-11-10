@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Clare Gordon">
+  <link rel="canonical" href="https://cgordon-gis.github.io/GIS-gp/introduction/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Introduction - GIS for Geophysicists</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduction";
+    var mkdocs_page_input_path = "introduction.md";
+    var mkdocs_page_url = "/GIS-gp/introduction/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GIS for Geophysicists</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Introduction</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction-to-the-exercises">Introduction to the exercises</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#obtaining-the-data-for-this-chapter">Obtaining the data for this chapter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#opening-the-map-project-in-qgis">Opening the map project in QGIS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navigation-in-qgis">Navigation in QGIS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#zoom-to-layer">Zoom to Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-map-navigation-toolbar">The Map Navigation Toolbar</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-with-map-layers-in-qgis">Working with map layers in QGIS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#viewing-contents-of-layers">Viewing contents of layers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#making-layers-visible-and-invisible">Making layers visible and invisible</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#locating-features">Locating features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-layers-to-qgis-with-the-browser">Adding layers to QGIS with the Browser</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-raster-data-to-a-map-with-the-data-source-manager">Adding raster data to a map with the Data Source Manager</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-vector-data-to-a-map">Adding vector data to a map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#removing-layers">Removing layers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ordering-the-layers-in-the-layers-panel">Ordering the layers in the Layers panel</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#saving-your-map">Saving your map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checking-and-setting-the-coordinate-system">Checking and setting the coordinate system</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-final-map-for-this-chapter">The final map for this chapter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further-information-and-suggested-reading">Further information and suggested reading</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-gis-and-some-example-applications">What is GIS? and some example applications</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../finding_data/">Finding spatial data</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GIS for Geophysicists</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cgordon-gis/GIS-gp/edit/master/docs/introduction.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction-to-gis-with-qgis">Introduction to GIS with QGIS</h1>
+<p>The background to GIS and an explanation of what it is will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>When you have completed this section of the workbook you should be able to</p>
+<ul>
+<li>demonstrate how to open a map project in QGIS</li>
+<li>select appropriate tools to navigate in a map document</li>
+<li>use layers to organise and display information on a map</li>
+</ul>
+<h2 id="introduction-to-the-exercises">Introduction to the exercises</h2>
+<!-- TODO: Have used v. 3.10 (LTR) to write this, check all works in latest version. -->
+
+<!-- TODO: Add data acknowledgements to screenshots? -->
+
+<p>The exercises in this workbook will build on each other so that by the end of this part of the module you will have used data from a variety of sources to create a map layout covering an area of North Wales near the village of Llanbedr.  You will be able to include maps showing the gravity anomaly for the area and the geology.  You will also include some interpretation of your maps.</p>
+<p><img alt="The view across Llanbedr Airfield, North Wales." src="../images/introduction/LlanbedrAirfield_small.jpg" title="The view across Llanbedr Airfield, North Wales." /></p>
+<p>In this first section I have provided the data for you but as the exercises progress you will find out more about how to find your own data.</p>
+<h2 id="obtaining-the-data-for-this-chapter">Obtaining the data for this chapter</h2>
+<p>You can download the data for this chapter from Minerva.</p>
+<ul>
+<li>Go to this module in Minerva, then to <code>Learning Resources &gt; GIS information &gt; Week 7</code></li>
+<li>Download <code>NorthWalesDataQ.zip</code> from this folder by right-clicking and saving to your local disk.</li>
+<li>Create a folder called <code>gis</code> in your file system.  <strong>You&rsquo;ll need a total of about 170 MB of free space to complete the following exercises</strong>.
+<!-- TODO: Check the actual size of the final project at end of 4th week. --></li>
+<li>Move the downloaded data into your <code>gis</code> folder</li>
+<li><code>Unzip</code> the file in this location<ul>
+<li>In <code>My Computer</code> right-click on the zip file</li>
+<li>If you have <code>7-zip</code> go to <code>7-zip &gt; Extract Here</code><sup id="fnref:101"><a class="footnote-ref" href="#fn:101">1</a></sup></li>
+<li>If you don&rsquo;t have 7-zip, right-click <code>Extract files...</code> and select the location to save the files, then <code>OK</code><sup id="fnref:102"><a class="footnote-ref" href="#fn:102">2</a></sup></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Never try to use the contents of a zipped file in QGIS without extracting it first - it won&rsquo;t work.  If you are looking for a file in QGIS and can&rsquo;t find it, always check via My Computer that the file isn&rsquo;t inside a zip or 7zip archive.</p>
+</blockquote>
+<p>The contents of the zip file should look something like the following image when they are unzipped, with two further folders, a <code>OSM.gpkg</code> file and a <code>NorthWales.qgz</code> file.</p>
+<p><img alt="The data inside the zip file for this project." src="../images/introduction/Data_small.png" title="The data inside the zip file for this project." /></p>
+<h2 id="opening-the-map-project-in-qgis">Opening the map project in QGIS</h2>
+<ul>
+<li>The simplest way is to double-click on the <code>NorthWales.qgz</code> file in <code>File Explorer</code>.</li>
+<li>Alternatively first open QGIS by searching for it in the Start Menu box<ul>
+<li>Then <code>Project &gt; Open</code></li>
+<li>navigate to where you put the project files and select <code>NorthWales.qgz</code></li>
+<li>click <code>Open</code></li>
+</ul>
+</li>
+</ul>
+<p>The image below shows how the project will look in QGIS when you first open it.  Note that yours may look different to mine as buttons and toolbars can vary in location.  If you are using a version higher than 3.10.11 you may also get a notice at the top warning you about that.  Just ignore it or close it, this won&rsquo;t be a problem for you.</p>
+<p><img alt="The QGIS window when you open the &quot;NorthWales&quot; project.  Your toolbars and buttons may be different to mine." src="../images/introduction/QGISOpenProjectAnno.png" title="The QGIS window when you open the &quot;NorthWales&quot; project.  Your toolbars and buttons may be different to mine." /></p>
+<h2 id="navigation-in-qgis">Navigation in QGIS</h2>
+<p>Once you have data on a map in QGIS there are various tools which will allow you to zoom in and out and move around the map view.</p>
+<h3 id="zoom-to-layer">Zoom to Layer</h3>
+<p>A lot of the work that you do in GIS will be layer-based.  Each file that you add is a <strong><code>layer</code></strong> and will appear in the <code>Layers panel</code> on the left.</p>
+<p><code>Zoom to Layer</code> is an extremely useful command to know and you&rsquo;ll probably find yourself using it a lot.</p>
+<ul>
+<li>Right-click on the <code>Places</code> layer (sub-heading) in the Layers panel</li>
+<li>Select <code>Zoom to Layer</code></li>
+</ul>
+<p>Your map should zoom out so that you can see a bigger area of the Welsh coast.  You&rsquo;re zoomed well out so this particular map looks a bit messy and may take a bit of time to load, but once it does you should be able to see Harlech and Dolgellau.</p>
+<h3 id="the-map-navigation-toolbar">The Map Navigation Toolbar</h3>
+<p>Tools for zooming in and out and for moving around the map are available on the <code>Map Navigation Toolbar</code>.</p>
+<p><img alt="The Map Navigation Toolbar." src="../images/introduction/MapNavigationToolbarAnno.png" title="The Map Navigation Toolbar." /></p>
+<p>If the toolbar isn&rsquo;t already visible in QGIS go to</p>
+<ul>
+<li><code>View &gt; Toolbars</code></li>
+<li>and tick the box next to <code>Map Navigation Toolbar</code></li>
+</ul>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Trying out the navigation</strong></p>
+<p>Try out the following tools in turn on your map so that you are aware of what they do.</p>
+<p><code>Pan</code> - use the hand cursor to &ldquo;grab&rdquo; the map and move it around</p>
+<p><code>Zoom in</code> - click on the button, then on the map.  You can also use the middle mouse wheel to zoom in and out of your map.</p>
+<p><code>Zoom out</code> - click on the button, then on the map.  You can also use the middle mouse wheel to zoom in and out of your map.</p>
+<p><code>Full extent</code> to see the whole map (again be patient while it loads) - then use <a href="#zoom-to-layer">Zoom to Layer</a> to get back to the extent of the <code>Places</code> layer.</p>
+</blockquote>
+<h2 id="working-with-map-layers-in-qgis">Working with map layers in QGIS</h2>
+<p>Layers are an essential part of any GIS.  Each layer is a <strong>reference</strong> to a particular data source.</p>
+<p>In this project the layers so far include:</p>
+<ul>
+<li>Places</li>
+<li>Line features</li>
+<li>Polygon features</li>
+<li>Tidal water</li>
+</ul>
+<p>The Layers panel on the left hand side of the map window shows the layers that are in your map and how their features look and allows you to control their visibility.</p>
+<h3 id="viewing-contents-of-layers">Viewing contents of layers</h3>
+<p>If you have added vector data, which all of the layers so far are, you&rsquo;ll also be able to refer to the layers panel as a key to your symbols.  This is particularly useful if a layer has multiple symbols.</p>
+<ul>
+<li>Click on the little arrow next to the <code>Polygon features</code> layer - assuming it started &ldquo;closed&rdquo;, you should now be able to see lots of different symbols and an explanation of what they show.</li>
+<li>Click on the little arrow again to fold the list away and repeat this for the <code>Places</code> and <code>Line features</code> layers.</li>
+</ul>
+<h3 id="making-layers-visible-and-invisible">Making layers visible and invisible</h3>
+<p>There will be times when you don&rsquo;t want all of the layers to be visible on your map, but you won&rsquo;t necessarily want to actually remove them completely.  It is simple to make layers visible and invisible.</p>
+<ul>
+<li>Click in the little box next to one of the layers - the tick will disappear and so will that layer in your map</li>
+<li>To make the layer visible click in the little box again.</li>
+</ul>
+<p><img alt="The box is unticked, so the Polygon features layer no longer shows on the map. Tick it again to make it visible once more." src="../images/introduction/LayersVisibleInvisible_small.png" title="The box is unticked, so the Polygon features layer no longer shows on the map. Tick it again to make it visible once more." /></p>
+<p>You&rsquo;ll notice in layers with multiple symbols that you can turn each of those off individually too. For example, </p>
+<ul>
+<li>Fold down the Places layer in the contents</li>
+<li>then untick next to <code>Town</code></li>
+</ul>
+<p>The names for Harlech and Dolgellau should disappear, but if you zoom in you will still be able to see the other place names.</p>
+<ul>
+<li>Make sure you tick back in the <code>Town</code> box.</li>
+</ul>
+<h3 id="locating-features">Locating features</h3>
+<p>The layers in your map at the moment are <strong>vector feature classes</strong> and are searchable (you&rsquo;ll find out more about the data types raster and vector later).</p>
+<ul>
+<li>Click in the <code>Type to locate</code> box at the lower left, or use <code>Ctrl+K</code> on the keyboard</li>
+<li>Have a look at the list of options that pops up - it looks a bit confusing to start with but is simple to use.</li>
+</ul>
+<p><img alt="Click in the Type to locate box to get a list of options." src="../images/introduction/TypeToLocateOptions_small.png" title="Click in the Type to locate box to get a list of options." /></p>
+<ul>
+<li>Type the following in the box - <code>af Harlech</code>.  The <code>af</code> shows that you want to search for <strong>Features in all layers</strong></li>
+<li>As you type a list of options will appear - double-click on one of the options for <code>Harlech Castle</code> (it doesn&rsquo;t matter which)</li>
+</ul>
+<p><img alt="Clicking on one of the Type to Locate results should take you to the feature you choose." src="../images/introduction/TypeToLocateHarlech_small.png" title="Clicking on one of the Type to Locate results should take you to the feature you choose." /></p>
+<p>This can be a useful way of finding things on your map if you are using vector layers.</p>
+<h3 id="adding-layers-to-qgis-with-the-browser">Adding layers to QGIS with the Browser</h3>
+<p>Now have a look at the <code>Browser panel</code></p>
+<p>If you can&rsquo;t see the <code>Browser</code> which shows you where files are on your file system, go to:</p>
+<ul>
+<li><code>View &gt; Panels</code> and tick in the box next to <code>Browser</code></li>
+</ul>
+<p>Using the Browser you should be able to navigate to the folder in which you saved your downloads.</p>
+<p>If you have saved your data in the same folder as the map you should be able to find everything under the <code>Project Home</code> heading, otherwise you&rsquo;ll have to browse through your file system.</p>
+<ul>
+<li>Browse to your downloaded files and look for a folder called <code>gb-overview</code></li>
+<li>have a look in the folder and find a file called <code>GBOverview.tif</code></li>
+<li>drag and drop that file to the <code>Layers panel</code></li>
+<li>Right-click on the GBOverview layer in the Layers panel and <code>Zoom to layer</code></li>
+</ul>
+<p>You should now be able to see a map of Great Britain in the main panel.</p>
+<p><img alt="QGIS once you have added the GBOverview layer to a map." src="../images/introduction/GBOverview.png" title="QGIS once you have added the GBOverview layer to a map." /></p>
+<p>This is probably the easiest way to add data to your maps.</p>
+<h3 id="adding-raster-data-to-a-map-with-the-data-source-manager">Adding raster data to a map with the Data Source Manager</h3>
+<p>As with so many tasks in GIS there is more than one way to add data to QGIS.</p>
+<ul>
+<li>On the menu bar go to <code>Layer &gt; Data Source Manager</code></li>
+<li>Click on <code>Raster</code> on the left</li>
+<li>then click on the button with three dots next to the <code>Source</code> box</li>
+<li>Navigate to the <code>raster-25k</code> folder and select <code>raster-25k_3706482.tif</code></li>
+<li>Click on <code>Open</code></li>
+<li>Then click on <code>Add</code>, and then on <code>Close</code></li>
+</ul>
+<p><img alt="Adding a layer via the Data Source Manager." src="../images/introduction/DataSourceManager.png" title="Adding a layer via the Data Source Manager." /></p>
+<p>The new layer will be added to your Layers panel, but you probably won&rsquo;t be able to see it on your map as it only covers a small area.</p>
+<ul>
+<li>Right-click on the <code>raster-25k</code> layer in the Layers panel and <code>Zoom to Layer</code> to be able to see the new map.</li>
+</ul>
+<p>It won&rsquo;t look great at this zoom level, but you can use the <code>Zoom in</code> button, or the middle mouse button, to see it more clearly.</p>
+<p>These two new layers are <code>raster</code> data types.  Again, you&rsquo;ll find out more about these later.</p>
+<h3 id="adding-vector-data-to-a-map">Adding vector data to a map</h3>
+<p>The <strong>vector</strong> files on this map are all stored in a <code>Geopackage</code> called <code>OSM.gpkg</code>.</p>
+<p>This is a form of database which stores and retrieves spatial data efficiently.  If you look at this in File Explorer you&rsquo;ll note that it looks like a single file.  If you look at it in the <code>Browser</code> in QGIS you&rsquo;ll see there is a little arrow next to it - the advantage of using the browser is that it is specifically designed to work with spatial data.</p>
+<p><img alt="The OSM geopackage with the layers that it contains visible in the Browser." src="../images/introduction/OSMGeopackage_small.png" title="The OSM geopackage with the layers that it contains visible in the Browser." /></p>
+<ul>
+<li>Drop down the little arrow next to <code>OSM.gpkg</code></li>
+<li>You should be able to see the layers that are stored in the geopackage - as in the image above</li>
+<li>Select the <code>multilinestrings</code> layer in the Browser and drag and drop it into the Layers panel</li>
+</ul>
+<p>You may need to <code>Zoom to layer</code> to see what you have just added.  It should be a few lines in a random colour.</p>
+<p>You can also add vector layers via the <code>Data Source Manager</code></p>
+<ul>
+<li>Go to <code>Layer &gt; Data Source Manager</code></li>
+<li>Click on <code>Vector</code> on the left</li>
+<li>then click on the button with three dots next to the <code>Source</code> box</li>
+<li>Navigate to the <code>OSM.gpkg</code> file and select it</li>
+<li>Click on <code>Open</code> (If you&rsquo;re using a newer version of QGIS you&rsquo;ll also need to click on <code>Add</code>)</li>
+<li>You&rsquo;ll get a choice of vector layers to add - select the <code>points</code> layer</li>
+<li>Then click on <code>OK</code>, and then on <code>Close</code></li>
+</ul>
+<p><img alt="Adding a vector layer via the Data Source Manager." src="../images/introduction/DataSourceManagerVector_small.png" title="Adding a vector layer via the Data Source Manager." /></p>
+<p>The new layer will be added to your Layers panel and you should see a lot of randomly coloured point symbols on your map.</p>
+<p><img alt="Your map with the four new layers.  Your colours will probably be different." src="../images/introduction/InterimMap01_small.png" title="Your map with the four new layers.  Your colours will probably be different." /></p>
+<h3 id="removing-layers">Removing layers</h3>
+<p>Your map is looking rather a mess now, so let&rsquo;s clear it up a bit.</p>
+<p>You won&rsquo;t need the GBOverview, points and multilinestrings layers for the rest of this exercise so they can be <strong>removed</strong>.</p>
+<p>Note that removing layers from your map does just that.  You are not deleting the data from your disk, they still exist, but you are removing the link between the map and your data.</p>
+<ul>
+<li>Right-click on the <code>points</code> layer (it may appear as <code>OSM points</code>)</li>
+<li><code>Remove layer...</code></li>
+<li>You&rsquo;ll be asked to confirm that you want to remove the layer, click on <code>OK</code></li>
+<li>Repeat the process with the <code>multilinestrings</code> and <code>GBOverview</code> layers.  The process is identical for raster and vector layers.</li>
+</ul>
+<h3 id="ordering-the-layers-in-the-layers-panel">Ordering the layers in the Layers panel</h3>
+<p>The order of the layers in the Layers panel affects how they appear on the map.  Layers at the top of the list appear <strong>on top</strong> of the layers lower down.</p>
+<p>At the moment you probably have the <code>raster-25</code> layer above the other layers, so you can&rsquo;t see them at the moment - though the labels still appear.</p>
+<ul>
+<li>Drag and drop the <code>raster-25k</code> layer from the top of the list in the Layers panel to the bottom.</li>
+</ul>
+<p>Again, your map will look rather a mess.  Just make the following layers invisible for now.</p>
+<ul>
+<li>Places</li>
+<li>Line features</li>
+<li>Polygon features</li>
+<li>Tidal water</li>
+</ul>
+<p>You will be working with this map for the rest of the course so go to the correct area by using <a href="#locating-features">Type to locate</a> to find <code>Llanbedr Airfield</code>.</p>
+<h2 id="saving-your-map">Saving your map</h2>
+<p><strong>Save your map projects at regular intervals.</strong>  You will be doing a lot of work on them and can lose a lot of time if you have to do your work again because the program has crashed.</p>
+<ul>
+<li><code>Project &gt; Save</code> or alternatively <code>Ctrl + S</code> (Windows)</li>
+<li>If this is the first time you&rsquo;ve saved it, make sure you remember where you have saved it to and give the file a name which will help you remember what it is.  It is a good idea to save all of your files to the same <code>gis</code> folder and make sub folders for each individual project.</li>
+</ul>
+<p>It is also a good idea to keep back up copies of your project and of the data files.  Particularly once you start editing, problems can corrupt the whole file, so make a copy of your <code>gis</code> folder on a separate disk/drive/usb stick each time you finish a session working on them.</p>
+<h2 id="checking-and-setting-the-coordinate-system">Checking and setting the coordinate system</h2>
+<p>The coordinate system is an important property which tells QGIS where data is located on the surface of the Earth and what measurement system is used for your datasets.  It is important to have this set correctly or the layers in your map will not display correctly.</p>
+<p>If you are working in Great Britain then the coordinate system is most likely to be British National Grid, though you may also have data in the unprojected WGS 1984.  For this project we will be working in <code>British National Grid</code>.</p>
+<p>QGIS will set the coordinate system of the map to that of the first data layer that is added.  In this case it was the <code>Places</code> layer.</p>
+<p>Check whether the coordinate system is set correctly as follows:</p>
+<ul>
+<li>Go to <code>Project &gt; Properties</code> and click on the <code>CRS</code> heading to the left</li>
+</ul>
+<p><img alt="The CRS dialog of the Project Properties.  This is set to British National Grid." src="../images/introduction/ProjectPropertiesCRS_small.png" title="The CRS dialog of the Project Properties.  This is set to British National Grid." /></p>
+<p>This rather complex-looking dialog controls the CRS or <code>Coordinate Reference System</code> for the whole project.</p>
+<p>Look at the box to the left of the map - this shows that the CRS is currently set to British National Grid.  The map on the right confirms that this CRS covers the correct area.</p>
+<p>It is possible to use the <code>Filter</code> box at the top to search for other coordinate systems, though this isn&rsquo;t necessary for this project.</p>
+<ul>
+<li>Click <code>OK</code> to close the project properties.</li>
+</ul>
+<p>If you look at the bottom right of the map window you should also see that the CRS is shown there, but this time only as a short numerical code - <code>EPSG:27700</code>.</p>
+<p><img alt="The short form of the CRS shown in the bottom right of the map window.  Click on this to get to the CRS properties quickly." src="../images/introduction/CRS_small.png" title="The short form of the CRS shown in the bottom right of the map window.  Click on this to get to the CRS properties quickly." /></p>
+<p>If you click on this you will be taken to the CRS tab of the project properties.</p>
+<h2 id="the-final-map-for-this-chapter">The final map for this chapter</h2>
+<p>You should finish this chapter with a map of the Llanbedr Airfield on the Welsh coast.  Your map and the rest of the project should look something like the image below, though your map may cover a slightly different area.  It isn&rsquo;t a problem if it does.</p>
+<p><img alt="The final map for this chapter showing the 1:25 000 raster image covering Llanbedr Airfield." src="../images/introduction/FinalMap.png" title="The final map for this chapter showing the 1:25 000 raster image covering Llanbedr Airfield." /></p>
+<p>If you want me to give you feedback on this map, or on any stage of the process, please upload a screenshot to your GIS Portfolio - you&rsquo;ll be given instructions on how to get access to this in the class.  If you upload anything please <a href="c.e.gordon@leeds.ac.uk">email me</a> to let me know that you have done so.</p>
+<p>Don&rsquo;t forget to save and backup this project.  You&rsquo;ll be using it for the rest of this course so make sure that you have it with you next week.</p>
+<h2 id="further-information-and-suggested-reading">Further information and suggested reading</h2>
+<p>Many of the books in the reading list<sup id="fnref:103"><a class="footnote-ref" href="#fn:103">3</a></sup> have a general introduction to GIS which explain what it is and how it is used.  Suggestions include the following:</p>
+<ul>
+<li>Chapter 1, <em>What is GIS?</em> in Heywood, I., Cornelius, S. and Carver, S. (2011), pp. 2-30</li>
+<li>Chapter 1, <em>Systems, Science and Study</em> in Longley, P.A. et al. (2011), pp. 3-37</li>
+</ul>
+<h3 id="what-is-gis-and-some-example-applications">What is GIS? and some example applications</h3>
+<ul>
+<li>ESRI UK (who publish proprietry GIS software ArcGIS) have a web page which includes an <a href="https://www.esriuk.com/en-gb/what-is-gis/overview">Overview of GIS</a> and a <a href="https://www.esriuk.com/en-gb/what-is-gis/showcase">GIS Showcase</a> which includes examples of how GIS can be used.</li>
+<li>The webpage <a href="https://www.gisforscience.com/">GIS for Science</a> gives a lot more ideas for how GIS can be used by scientists.</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:101">
+<p>7-zip is also open-source so if you want to install a copy on your own Windows computer you can - just download it from the <a href="https://www.7-zip.org/">7-zip webpage</a>.&#160;<a class="footnote-backref" href="#fnref:101" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:102">
+<p>Note that these instructions are for Windows, if you are on a Mac or Linux computer you will still need to unzip the files, but I don&rsquo;t have access to one of these to write the instructions.&#160;<a class="footnote-backref" href="#fnref:102" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:103">
+<p>The reading list is available in Minerva and from the <a href="http://lib5.leeds.ac.uk/rlists/index.php">library</a> (search for the number of this module).&#160;<a class="footnote-backref" href="#fnref:103" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../finding_data/" class="btn btn-neutral float-right" title="Finding spatial data">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; Clare Gordon, University of Leeds 2020. This work is licensed under the Creative Commons Attribution-NonCommercial-Sharealike 4.0 International Licence.  To view a copy of this licence visit <a href="http://creativecommons.org/licences/by-nc-sa/4.0/" >http://creativecommons.org/licenses/by-nc-sa/4.0/</a> <br /> Icons downloaded from <a href="http://google.github.io/material-design-icons/">Materials Icons</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cgordon-gis/GIS-gp/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../finding_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Clare Gordon">
+  <link rel="canonical" href="https://cgordon-gis.github.io/GIS-gp/finding_data/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Finding spatial data - GIS for Geophysicists</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Finding spatial data";
+    var mkdocs_page_input_path = "finding_data.md";
+    var mkdocs_page_url = "/GIS-gp/finding_data/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GIS for Geophysicists</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Finding spatial data</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#digimap">Digimap</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#logging-in-to-digimap">Logging in to Digimap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#browsing-maps-on-screen">Browsing maps on screen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#downloading-data-from-digimap">Downloading data from Digimap</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#selecting-an-area">Selecting an area</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#selecting-data-sets">Selecting data sets</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#downloading-your-data">Downloading your data.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#viewing-your-data">Viewing your data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#copyright-acknowledgements-for-digimap-data">Copyright acknowledgements for Digimap data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#other-digimap-collections">Other Digimap collections</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#digimap-collections-online-help">Digimap Collections online help</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-from-the-web">Data from the web</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#natural-earth-data">Natural Earth Data</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#natural-earth-data-copyright">Natural Earth data copyright</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#finding-other-data-online">Finding other data online</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GIS for Geophysicists</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Finding spatial data</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cgordon-gis/GIS-gp/edit/master/docs/finding_data.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="finding-spatial-data-to-use-in-gis">Finding spatial data to use in GIS</h1>
+<p>The background to finding data will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>When you have completed this section of the workbook you should be able to</p>
+<ul>
+<li>demonstrate that you can find suitable data for GIS projects from a variety of sources</li>
+<li>describe the main types of data used in GIS</li>
+<li>acknowledge the data that you use in your maps in a suitable fashion</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Being able to find, download and prepare your own data is an essential part of using GIS.  While the data will be provided for you for many of the exercises in this module, you will find it useful to have some idea of where the data comes from, and what there is available for you to use for your own maps.</p>
+<p>While downloading shouldn&rsquo;t take too long, don&rsquo;t leave it until the last minute before you have to produce a map.  Websites can become unavailable either permanently or temporarily, or computers can crash.</p>
+<h2 id="digimap">Digimap</h2>
+<p>Digimap is a service provided to Higher Education in the U.K. by EDINA at Edinburgh University.  Digimap provides a front end to digital maps and data of Great Britain from the Ordnance Survey and British Geological Survey, amongst others.  The University of Leeds subscribes to the collections and as a student you have access to maps and data for use as part of your studies.</p>
+<h3 id="logging-in-to-digimap">Logging in to Digimap</h3>
+<p>If you have not used Digimap before you will need to register and log in using your University ID, that is the username and password that you use to access University systems such as Minerva.</p>
+<p>Full instructions for logging in are on the <a href="https://digimap.edina.ac.uk/webhelp/digimapsupport/about.htm#access/access_to_digimap.htm">Digimap help pages</a>.</p>
+<ul>
+<li>Go to the Digimap Collections page at <a href="https://digimap.edina.ac.uk">https://digimap.edina.ac.uk</a></li>
+</ul>
+<p><img alt="The Digimap initial page - note the &quot;Log in&quot; button at top right." src="../images/finding_data/login.png" title="The Digimap initial page - note the &quot;Log in&quot; button at top right." /></p>
+<ul>
+<li>Click the <code>Log in</code> button at the top right of the screen</li>
+<li>type <code>Leeds</code> in the box and select <code>University of Leeds</code> from the list of available institutions</li>
+<li>You should get the familiar University of Leeds log in page, so type your <strong>University username and password</strong> into the appropriate boxes and then click the <code>Log in</code> button.  If you are already logged in to Minerva you may find that you don&rsquo;t have to enter your login details again.</li>
+</ul>
+<p>If this is the first time that you&rsquo;ve logged in to Digimap you&rsquo;ll be asked to register for each collection separately, though you can do all at one go.  You won&rsquo;t need to use all of the collections during this module, but it&rsquo;s worth registering for all that are available to you so that you can explore them for yourself.  The University does not subscribe to Marine or Global Digimap.</p>
+<ul>
+<li>Go through the list of collections, read and accept the conditions for each one, selecting <code>Academic Works (coursework, projects, dissertations etc.)</code> in the <code>Purpose</code> dropdown for each.</li>
+</ul>
+<p>Once you submit all of those you should be taken to the Digimap initial page again, as shown below, but this time you should see your name at top right rather than the log in button.</p>
+<p><img alt="The Digimap main page again, this time with your name at the top right.  You can now select a collection from the menu across the top." src="../images/finding_data/ChoosingDataCollection_small.png" title="The Digimap main page again, this time with your name at the top right.  You can now select a collection from the menu across the top." /></p>
+<p>The list includes options for a large number of collections.  In this workbook we&rsquo;ll only be looking at the collections that are the most relevant for creating the maps you&rsquo;ll need during your course, but if you are interested in any of the others feel free to explore them.  EDINA have worked to make all of the tools similar across each collection, so just have a go!</p>
+<h3 id="browsing-maps-on-screen">Browsing maps on screen</h3>
+<p>Each Digimap collection provides a <strong>Roam</strong> and a <strong>Download</strong> interface.  The Roam interface allows you to view the data from that collection on a map on screen.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Using Digimap OS Roam</strong></p>
+<p>As an example click on <code>Ordnance Survey</code> on the menu at the top of the main screen</p>
+<p>Then select <code>Roam</code> under <code>View, annotate &amp; print a map</code> on the right.</p>
+<p>Have a go at zooming in and out and exploring the map at different scales.</p>
+<p>Try searching for a location in the <code>Search</code> box at the top left.</p>
+<p>In this module we&rsquo;ll be making most use of the Download interface, but it&rsquo;s worth knowing what the Roam interface will do too, so have a quick go with a few of the tools on the left before continuing with the next exercise.</p>
+</blockquote>
+<p><img alt="The Digimap Roam interface for Ordnance Survey data." src="../images/finding_data/Roam2.png" title="The Digimap Roam interface for Ordnance Survey data." /></p>
+<p>If you want more information about using the Roam interface have a look at the <a href="https://digimap.edina.ac.uk/webhelp/resources/index.html">Digimap Resource Centre</a> which is linked from <code>Resources</code> on the main page.</p>
+<h3 id="downloading-data-from-digimap">Downloading data from Digimap</h3>
+<p><strong>Data Download</strong> is the tool for downloading data for use in GIS or CAD software.  The format that the data is delivered in will determine whether you will be able to open it directly in a software package or whether you will need to convert it.</p>
+<p>We&rsquo;ll be using data from Digimap in QGIS for various exercises in the rest of this module, so you need to know your way around this section.  Instructions for converting, importing and viewing file types that need it will be given later in the workbook.</p>
+<p>As an example of the download interface we&rsquo;ll download some <strong>Ordnance Survey</strong> data.</p>
+<ul>
+<li>Start from the Digimap main page (you can get back to it by clicking on the icon at the top right of the map - hover over to see a tool tip)</li>
+<li>click on <code>Ordnance Survey</code> in the menu at the top of the page</li>
+<li>from the Ordnance Survey page choose <code>Data Download</code></li>
+</ul>
+<p><img alt="The Data Download link on the Ordnance Survey page." src="../images/finding_data/DataDownload_small.png" title="The Data Download link on the Ordnance Survey page." /></p>
+<p>Data Download takes you to a map that looks very similar to Digimap Roam, but with some important differences.</p>
+<h4 id="selecting-an-area">Selecting an area</h4>
+<p>On the left there is a menu panel with options for selecting an area, with a search box above it.</p>
+<p><img alt="Digimap Download - search for and select an area." src="../images/finding_data/DownloadSearch.png" title="Digimap Download - search for and select an area." /></p>
+<ul>
+<li>Click in the <code>Search</code> box and type <code>Otley</code>, then press <code>Enter</code> or click on the magnifying glass to search</li>
+<li>When you get the results click on <code>Otley (Leeds)</code> to zoom in, then close the search results</li>
+<li>Under <code>Draw</code> click on the rectangle and use the mouse to draw a box around the area shown by an orange box in the image below, clicking to start and finish the box.  It doesn&rsquo;t matter if the box you draw is a bit bigger, but try not to make it any smaller.</li>
+</ul>
+<p><img alt="The minimum area to select using the rectangle tool." src="../images/finding_data/DownloadArea.png" title="The minimum area to select using the rectangle tool." /></p>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Area view</strong></p>
+<p>Note that the map you see on the screen only shows the area that you will be downloading data for, <strong>not</strong> the actual data that you&rsquo;ll be downloading.  You&rsquo;ll select the data in the next section so don&rsquo;t worry what it looks like for now.</p>
+</blockquote>
+<h4 id="selecting-data-sets">Selecting data sets</h4>
+<p>Now that you have selected an area you have to select the data that you need.</p>
+<ul>
+<li>Back in the panel on the left, under <code>Select Data Products</code>, drop down each of the headings, e.g. Backdrop Mapping, in turn by clicking on the arrow next to them.</li>
+</ul>
+<p><img alt="The list of data products - click the arrow next to each subheading to see the full list." src="../images/finding_data/DownloadChoices.png" title="The list of data products - click the arrow next to each subheading to see the full list." /></p>
+<ul>
+<li>There are a lot of different data sets here and most of them won&rsquo;t mean anything to you.  For now select the following data sets when you find them, by putting a tick in the box next to them.<ul>
+<li>Backdrop mapping: VectorMap Local Raster</li>
+<li>Land and Height data: OS Terrain 5 Contours</li>
+</ul>
+</li>
+</ul>
+<p>You can get more information about the data sets by clicking on the arrow next to them.  This includes information on licences - which you will need to know later.</p>
+<p>The number on the right in brackets under <code>Order Size</code> shows how many tiles your selected area uses out of the maximum downloadable number.  If you have chosen a slightly different area to me your number may be different but you should still be well within the limit.</p>
+<p><img alt="Selecting datasets.  The image shows the information for the VectorMap Local Raster dataset and that I am going to download one tile out of the maximum limit of 400." src="../images/finding_data/DownloadDatasetsInfo.png" title="Selecting datasets.  The image shows the information for the VectorMap Local Raster dataset and that I am going to download one tile out of the maximum limit of 400." /></p>
+<ul>
+<li>When you have selected the data you require click on <code>Add to Basket</code> (Don&rsquo;t worry, despite the Basket and Checkout you won&rsquo;t be charged.  The University has already paid the subscription.)</li>
+</ul>
+<p>Your basket should appear with details of your order.</p>
+<p><img alt="Details of your order in the Basket.  Yellow highlights show choices that you need to make before you can request download." src="../images/finding_data/DownloadBasket.png" title="Details of your order in the Basket.  Yellow highlights show choices that you need to make before you can request download." /></p>
+<ul>
+<li>Some datasets will give you an option to change the format.  In this case click on <code>Select Format</code> next to the OS Terrain 5 Contours.  The choices are <strong>Shape, GML3</strong> or <strong>DWG</strong>.  Choose <code>Shape</code> in this case.</li>
+<li>You may also need to select a theme.  For the VectorMap Local Raster there is a choice of themes - pick <code>Black and white</code> for this exercise, though it is worth downloading the others to have a look at them too.</li>
+<li>Some items will have a <code>Clip</code> option.  This means that the data will be sent to you clipped to the area outline that you requested.  If you are short of disk space this is very useful as it restricts the amount of data you need to download, but otherwise it doesn&rsquo;t hurt to have extra data around the outside of your study area.  I prefer to untick this box and download full map tiles.</li>
+<li>Give the order a name, e.g. <code>OtleyOS</code> (for Ordnance Survey).  This will be part of the file name of the zip file that you download, so try to make it short but helpful!</li>
+<li>Click on <code>Request Download</code></li>
+</ul>
+<h4 id="downloading-your-data">Downloading your data.</h4>
+<p>You&rsquo;ll receive an email confirming your order, then another with a download link.  This can sometimes take a while to arrive, depending on how busy the service is.</p>
+<p>Make sure that you are still logged in to Digimap before you click on the download link.</p>
+<p><img alt="The download link in the email - click on this to download your data, not on any of the other links in your email!" src="../images/finding_data/DownloadLink.png" title="The download link in the email - click on this to download your data, not on any of the other links in your email!" /></p>
+<p>Once you have clicked on the link a browser window should open telling you that your order is ready to download.</p>
+<p><img alt="Order ready to download, showing the name and size.  Click on the Download button." src="../images/finding_data/DownloadDownload.png" title="Order ready to download, showing the name and size.  Click on the Download button." /></p>
+<ul>
+<li>Click on <code>Download</code></li>
+<li>You&rsquo;ll download a zip file.  <strong>NOTE:</strong> Don&rsquo;t run or open the file directly from your browser, and make sure that you <strong>DON&rsquo;T</strong> save your zip file to a <strong>temp</strong> folder where you will probably be unable to unzip it.</li>
+</ul>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Make sure that you remember where you have saved the zip file.</p>
+</blockquote>
+<p>Now open <code>File Explorer</code> (in Windows) and navigate to the location where you saved the zip file.</p>
+<ul>
+<li>Right-click on the compressed map data file that downloaded and choose to <code>Extract files...</code> - or <code>7-zip &gt; Extract files...</code> if you have 7-zip available.</li>
+<li>Select where you want to save the extracted files, and make a note of where you save them to</li>
+</ul>
+<p>You should end up with a folder for each dataset that you requested plus text files showing citations and contents.  The folders will also have the order number as part of their name.</p>
+<p><img alt="The unzipped Ordnance Survey data showing the folder for each dataset and text files containing citations and contents lists." src="../images/finding_data/DownloadUnzipped.png" title="The unzipped Ordnance Survey data showing the folder for each dataset and text files containing citations and contents lists." /></p>
+<h4 id="viewing-your-data">Viewing your data</h4>
+<p>In this case the files that you have downloaded are either tiff graphics files or shapefiles.</p>
+<ul>
+<li>Navigate to the data that you downloaded in the file explorer and find the folder called something like <code>vml-raster_bwr_3612556</code> (your order number will be different).</li>
+<li>you&rsquo;ll also need to go into a folder with the OS grid letters - in this case for Otley it should be <code>se</code></li>
+<li>Open one of the <code>.tif</code> files by double-clicking on it - the file should open in a graphics program, but that depends what you have set up on your computer.  Don&rsquo;t worry if it doesn&rsquo;t!</li>
+</ul>
+<p>You should be able to see that this is basically a &ldquo;picture&rdquo; of a map.</p>
+<ul>
+<li>Try opening one of the <code>.shp</code> files from the <code>terrain-5_3612555</code> folder too.  It&rsquo;s unlikely that you&rsquo;ll be able to.  Just cancel that and don&rsquo;t try finding software that will open it!</li>
+</ul>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Both folders will contain files that have similar names to the .shp and .tif files, but different file extensions.  These won&rsquo;t open in any programme but are essential for using the data in GIS programs such as QGIS, so make sure that you always keep these files together.</p>
+</blockquote>
+<p>Both of these formats will open in QGIS in the same way that you added data to your map in the <a href="/introduction/#adding-layers-to-qgis-with-the-browser">Introduction to GIS</a>.</p>
+<p>You don&rsquo;t need to keep the files that you have just downloaded.</p>
+<h3 id="copyright-acknowledgements-for-digimap-data">Copyright acknowledgements for Digimap data</h3>
+<p>Copyright is important.  Remember that most data providers ask you to sign up to conditions that include an obligation to add a copyright acknowledgement to your map.  Check what that copyright statement is and add it.</p>
+<p>When you signed up to use the Digimap collections you agreed to add copyright acknowledgements whenever you created a map with the data.  The wording does change from time to time so it&rsquo;s worth knowing how to check it for yourself.</p>
+<p>To find these copyright acknowledgements:</p>
+<ul>
+<li>go back to the main Digimap home page</li>
+<li>go to the <code>Digimap Resource Centre</code> (<code>Resources</code> at the top of the main Digimap page)</li>
+<li>Look for a link to <code>Digimap Licence Agreements</code> under <strong>Popular Resources</strong> and click on it</li>
+<li>Click on the End User or Sub-licence agreement for the data that you&rsquo;ve used - in this case the Ordnance Survey Collection</li>
+<li>You may need to download a pdf file rather than see it on a web page - do so and then open the pdf.</li>
+<li>then look for the information under <code>In return, you must:</code> - that gives you the acknowledgement text.</li>
+</ul>
+<p>For example, as of August 2020 when you use Ordnance Survey data obtained from Digimap you are expected to add the following text to your maps.</p>
+<blockquote>
+<p>&copy; Crown copyright and database rights <em>year</em>. Ordnance Survey (100025252).</p>
+</blockquote>
+<p>Where <em>year</em> is replaced by the current year.</p>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Adding the copyright symbol to your text</strong></p>
+<p>To add the <strong>copyright symbol</strong> - &copy; - to your text</p>
+<ul>
+<li>
+<p>check that the <code>Num lock</code> is on on the keyboard</p>
+</li>
+<li>
+<p>hold down the <code>Alt</code> key on the keyboard</p>
+</li>
+<li>
+<p>then use the number pad to type <code>0169</code></p>
+</li>
+<li>
+<p>release the <code>Alt</code> key</p>
+</li>
+</ul>
+</blockquote>
+<p>Remember that you do have to acknowledge each different dataset that you use and will have signed up to that when you registered.</p>
+<p>If you are <strong>not</strong> using U.K. Ordnance Survey data this is <strong>not</strong> the correct copyright acknowledgement to use.  For example, if you are using data for Spain or the United States, or indeed UK data that you haven&rsquo;t downloaded from Digimap.  You&rsquo;ll need to find the correct copyright acknowledgement for yourself.</p>
+<p><a href="https://digimap.edina.ac.uk/webhelp/resources/citation/services.html">Advice on <strong>citing</strong> Digimap data</a>, as opposed to the copyright acknowledgement is given in the Digimap Resource Centre.</p>
+<p>The <a href="http://bit.ly/1ZSifnd">GIS Lounge page on How to cite GIS materials</a> gives some information about citing the software as well as the data.  Have a look at that and follow the suggestions to cite non-Digimap data.</p>
+<h3 id="other-digimap-collections">Other Digimap collections</h3>
+<p>In addition to Ordnance Survey Digimap you will also find that you&rsquo;ll make use of some of the other collections, in particular <strong>Geology Digimap</strong> and <strong>Aerial Digimap</strong>.  The Roam and Download interfaces work in a very similar way to the Ordnance Survey collection so you should find that you already know how to use them.  You&rsquo;ll be downloading BGS data from Digimap and adding it to your map of the Llanbedr area later in the course.</p>
+<p>You have access to all of these collections so feel free to have a look at what is available and make use of any of the data or maps in your work.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Exploring other Digimap collections</strong></p>
+<p>Go into the <code>Historic Digimap</code> Collection and use <code>Historic Roam</code> to look up either your house or the University using old maps.  Try the <code>2 up</code> view to see how you can compare old and new mapping of the same area.</p>
+</blockquote>
+<h3 id="digimap-collections-online-help">Digimap Collections online help</h3>
+<p>Digimap help is available from each of the collection pages.  Click on the links in the left-hand menu for more information about how to use the services and file formats.</p>
+<p>Alternatively use the Help links from within Roam or Download or use the <a href="http://www.youtube.com/user/EDINADigimap">videos that EDINA have uploaded to YouTube</a></p>
+<p>If you want more detailed information EDINA provide e-learning units which are linked from the <a href="https://digimap.edina.ac.uk">main Digimap home page</a>.</p>
+<h2 id="data-from-the-web">Data from the web</h2>
+<p>EDINA Digimap provides a wide range of useful data covering the UK, but you are also likely to need data from outwith the UK, or UK data that isn&rsquo;t provided by Digimap.  It isn&rsquo;t possible to cover everything in this session, but I will show you one particular source which you should find useful.</p>
+<h3 id="natural-earth-data">Natural Earth Data</h3>
+<p>Natural Earth is a free, public domain dataset consisting of raster and vector data that will allow you to make maps at general scales.  If you want a map of the World, or a general map of a particular country, this is a good starting point.</p>
+<ul>
+<li>Start by going to <a href="https://www.naturalearthdata.com">Natural Earth</a> in your browser</li>
+</ul>
+<p><img alt="The Natural Earth front page.  Free vector and raster map data at three general scales." src="../images/finding_data/NaturalEarth01.png" title="The Natural Earth front page.  Free vector and raster map data at three general scales." /></p>
+<p>The front page gives an overview of the principles behind the data and an idea of the scales at which it is available.  You can find more information under the <code>Features</code> tab, including the file formats and the coordinate system - both important for using the data within GIS.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Natural Earth data</strong></p>
+<p>Go to the <code>Features</code> page and make a note of the file types of both the raster and vector data provided by Natural Earth and of the coordinate system that the data comes in.</p>
+</blockquote>
+<p>To download data either</p>
+<ul>
+<li>Click the <code>Get the Data</code> green button on the front page</li>
+<li>or click on the <code>Downloads</code> tab at the top of the site</li>
+<li>Choose the scale that you want to download and the type of data that you want, e.g. cultural, physical or raster</li>
+</ul>
+<p>For this exercise download the following data:</p>
+<ul>
+<li>
+<p><code>Medium scale data, 1:50m &gt; Cultural &gt; Admin 0 - Countries</code> - click on the <code>Download countries</code> button to download a zip file.  Make a note of where this file is saved to on your disk.</p>
+</li>
+<li>
+<p><code>Medium scale data, 1:50m &gt; Raster &gt; Natural Earth 1</code> - click the <code>Download small size</code> button under <code>Natural Earth 1 with Shaded Relief and Water</code>.  Again, make a note of where the zip file is saved.</p>
+</li>
+</ul>
+<p>Keep these data layers for later exercises.  If you are working on a University computer you will need to make sure that the files are within your own disk space, either on your M: drive, or a USB drive.  If you are working on the VWD make sure that you save the data to your network (M:/ drive).</p>
+<p>Have a look at the summary of the data on the <code>Features</code> page. If you wish try downloading other datasets.  You can try adding them to a blank map in QGIS in the same way that you added data in the Introduction to GIS.</p>
+<h4 id="natural-earth-data-copyright">Natural Earth data copyright</h4>
+<p>Finding and acknowledging the copyright of data is very important.</p>
+<ul>
+<li>Return to the <a href="https://www.naturalearthdata.com">Natural Earth front page</a></li>
+<li>Look at the text in the box next to the <code>Get the Data</code> button.  One of the links there is to the <code>Terms of Use</code> page.  Click on that now.</li>
+</ul>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Acknowledging Natural Earth data</strong></p>
+<p>Read the Terms of Use of Natural Earth data</p>
+<p>How should you acknowledge the Natural Earth data if you use it in one of your maps?</p>
+</blockquote>
+<p>The terms of use do say that &ldquo;Crediting the authors is unnecessary&rdquo;, however, it is still a good idea to add the data acknowledgement to your map to avoid any possibility of plagiarism.  You can choose whether to use the short or long text listed on the page.  Adding the url of the data can also be a very good idea.</p>
+<h3 id="finding-other-data-online">Finding other data online</h3>
+<p>These are just a few examples of finding useful data for GIS.  Through out the rest of the workbook you&rsquo;ll be downloading your own data from Digimap.  If you need data from elsewhere I&rsquo;ll either give full instructions or provide the data for you, but tell you where I got it from.</p>
+<p>If you are looking for data for a particular project it is well worth searching online using your favourite search engine (e.g. Google).  Put the words &ldquo;gis&rdquo; and &ldquo;data&rdquo; into your searches and it should help you to find relevant data.</p>
+<p>I have put together a short <a href="https://cgordon-gis.github.io/links.htm">list of possible data sources</a> which you are welcome to use to find data and maps.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../introduction/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; Clare Gordon, University of Leeds 2020. This work is licensed under the Creative Commons Attribution-NonCommercial-Sharealike 4.0 International Licence.  To view a copy of this licence visit <a href="http://creativecommons.org/licences/by-nc-sa/4.0/" >http://creativecommons.org/licenses/by-nc-sa/4.0/</a> <br /> Icons downloaded from <a href="http://google.github.io/material-design-icons/">Materials Icons</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cgordon-gis/GIS-gp/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../introduction/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

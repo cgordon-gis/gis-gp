@@ -1,0 +1,105 @@
+/* Add css here to override theme css */
+
+h1 {
+   font-size: 36px;
+}
+
+h2 {
+   font-size: 26px;
+}
+
+h3 {
+   font-size: 20px;
+}
+
+img {
+   /* padding: 8px; */
+   /* border-radius: 6px; */
+   max-width: 100%;
+   /* then centre image horizontally */
+   display:block;
+   margin-left:auto;
+   margin-right:auto;
+   padding: 5px;
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   margin: 20px auto 30px auto;
+}
+
+h2 {
+   margin-top: 14px;
+}
+
+.rst-content code {
+   color: #404040;
+   font-size: 90%;
+}
+
+/* tip boxes etc are formatted as blockquotes */
+/* these styles set those up */
+
+blockquote {
+   font-size: 14px;
+   border-top: 1px solid #eee;
+   border-right: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   border-left: 5px solid #eee;
+   padding-left: 6px;
+   padding-right: 5px;
+}
+
+blockquote img {
+   margin: 6px auto 0 auto;
+   display: inline;
+}
+
+blockquote p {
+   margin-bottom: 8px;
+}
+
+/* Pale background colour for accessibility */
+
+.wy-nav-content {
+   background: #f8f8f8;
+}
+
+/* Altering colour contrast for accessibility */
+
+.section a {
+   color: #2470a2;
+}
+
+.section a:visited {
+   color: #8747a3;
+}
+
+.wy-breadcrumbs a {
+   color: #2470a2;
+}
+
+.wy-breadcrumbs a:visited {
+   color: #8747a3;
+}
+
+.wy-breadcrumbs-aside a {
+   color: #2470a2;
+}
+
+.wy-breadcrumbs-aside a:visited {
+   color: #8747a3;
+}
+
+footer {
+   color: #595959;
+}
+
+footer a {
+   color: #2470a2;
+}
+
+footer a:visited {
+   color: #8747a3;
+}
+
+
