@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Clare Gordon">
+  <link rel="canonical" href="https://cgordon-gis.github.io/GIS-gp/import_xyz/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Importing point data from xyz files - GIS for Geophysicists</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Importing point data from xyz files";
+    var mkdocs_page_input_path = "import_xyz.md";
+    var mkdocs_page_url = "/GIS-gp/import_xyz/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GIS for Geophysicists</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../finding_data/">Finding spatial data</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gps/">Creating point data with GPS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../creating_data/">Creating data by digitising</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Importing point data from xyz files</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-to-download">Data to download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-xyz-files">Creating xyz files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#import-points-from-xyz-file-to-qgis">Import points from xyz file to QGIS</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../analysis/">Analysing and viewing point data</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bgs_data/">Using BGS data from Digimap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout and presentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../three_d/">Viewing your data in 3D</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GIS for Geophysicists</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Importing point data from xyz files</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cgordon-gis/GIS-gp/edit/master/docs/import_xyz.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="importing-point-data-from-xyz-files">Importing point data from xyz files</h1>
+<p>The background to importing point data from xyz files will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>When you have completed this section of the workbook you should be able to</p>
+<!-- TODO: Need to fill in learning outcomes -->
+
+<h2 id="introduction">Introduction</h2>
+<p>The data that you collected using GPS imported in to QGIS shows you one way of adding point data.  You will almost certainly also come across point data as an Excel file or as a text file.  If these contain x and y coordinates they can easily be added to GIS.</p>
+<h2 id="data-to-download">Data to download</h2>
+<p>You will be using the North Wales project that you created in the Introduction chapter.  If you no longer have that project then you can download another copy from the Week 7 folder in Minerva.</p>
+<ul>
+<li>The data that you downloaded in Week 7 should contain a folder called <code>GP_data</code></li>
+<li>That folder should contain an Excel spreadsheet called <code>LlanbedrGravity.xls</code></li>
+</ul>
+<h2 id="creating-xyz-files">Creating xyz files</h2>
+<p>Xyz files can be either comma separated value text files (often with an extension of <code>.csv</code>) or Excel or OpenOffice spreadsheets.  They contain point data which includes coordinates for a geographic location either in two dimensions (x and y) or three (x,y and z).</p>
+<ul>
+<li>Open the <code>LlanbedrGravity.xls</code> spreadsheet now and have a look at the data it contains.</li>
+</ul>
+<p><img alt="The first few rows of the spreadsheet containing the gravity data for this exercise." src="../images/import_xyz/LlanbedrGravitySpreadsheet_small.png" title="The first few rows of the spreadsheet containing the gravity data for this exercise." /></p>
+<p>QGIS can only import xyz data from <code>.csv</code> files either saved from Excel or OpenOffice or created in a text editor such as Notepad++ (not Word!).  So use Excel or OpenOffice to convert the Excel file to csv -</p>
+<ul>
+<li><code>File &gt; Save As...</code></li>
+<li>set the format to <code>CSV (Comma delimited) (*.csv)</code> (not to any of the other versions of csv)</li>
+</ul>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Note that column headings need to be short and contain no spaces or non-standard characters - so text and numbers only.  Also note that the column heading mustn&rsquo;t start with a number.</p>
+</blockquote>
+<p>In particular note the <code>Eastings</code> and <code>Northings</code> columns - these are in effect the x and y columns.  These are in <strong>British National Grid 1 m coordinates</strong> (The grid numbers such as SH or SJ have been replaced with numbers - 22 and 23).  Other numerical columns can be used for the z values, or the data.  In this case we&rsquo;ll be using the <code>CorrBA</code> (Corrected Bouguer Anomaly in mGal) as the z values.</p>
+<h2 id="import-points-from-xyz-file-to-qgis">Import points from xyz file to QGIS</h2>
+<p>Start by opening your map of Llanbedr in North Wales in QGIS.  You should have a view of the 1:25 000 raster map from Ordnance Survey.  If not, turn layers on and off as required.</p>
+<p>If you add the xyz file to your map directly it won&rsquo;t appear.  You need to tell QGIS which fields contain the x and y data before it can display it.</p>
+<ul>
+<li>Open the <code>Data Source Manager</code> - <code>Layer &gt; Data Source Manager</code></li>
+<li>In the <code>File name</code> field at the top browse to your csv file and select it</li>
+<li>Under <code>Layer name</code> type a name for your new layer, e.g. <code>LlanbedrGravity</code></li>
+<li>Check that the <code>File Format</code> is set to <code>CSV</code></li>
+<li>Next to <code>Point coordinates</code> set<ul>
+<li><code>X field</code> = <code>Eastings</code></li>
+<li><code>Y field</code> = <code>Northings</code></li>
+</ul>
+</li>
+<li>and check that the <code>Geometry CRS</code> is set to <code>British National Grid</code></li>
+<li>Check that <code>Use spatial index</code> is ticked and that the <code>Sample data</code> below looks like your original spreadsheet.</li>
+<li>Click on <code>Add</code> to convert the file then <code>Close</code> the window.</li>
+</ul>
+<p><img alt="The Data Source Manager set up to open an xyz file." src="../images/import_xyz/DataSourceManagerXY_small.png" title="The Data Source Manager set up to open an xyz file." /></p>
+<p>You should find that you have a series of dots spread across your map.  If you can&rsquo;t see them make sure that the new layer is above the background map in the Layers panel.</p>
+<p>At the moment this file is still not in a GIS format.  You need to export it to a geopackage to make it permanent.</p>
+<ul>
+<li>Right-click on the layer in the Layers panel</li>
+<li><code>Export &gt; Save Features As...</code><ul>
+<li>The <code>Format</code> should be <code>GeoPackage</code></li>
+<li>Using the button on the right of the <code>File name</code> field navigate to the <code>GP_data</code> folder then type <code>Llanbedr</code> as the name of your new GeoPackage</li>
+<li>The <code>Layer name</code> should be something which tells you what the layer contains, e.g. <code>LlanbedrGravity</code></li>
+<li>The <code>CRS</code> should already be set to <code>EPSG:27700 - OSGB 1936 / British National Grid</code>.  If it isn&rsquo;t, set that now.</li>
+</ul>
+</li>
+<li>Check that <code>Add saved file to map</code> is ticked</li>
+<li>Click <code>OK</code> to export the layer to the geopackage.</li>
+</ul>
+<p><img alt="Filling in the form to save the spreadsheet as a geopackage layer." src="images/import_xy/SaveVectorLayerAs.png" title="Filling in the form to save the spreadsheet as a geopackage layer." /></p>
+<ul>
+<li>Remove the original gravity layer to keep your map tidy.</li>
+<li>Save your map.</li>
+<li><code>Zoom to layer</code> to check that your new layer is in the correct location.  Your map should look something like the one below.  Note that I&rsquo;ve changed the symbology so that the points are more visible.</li>
+</ul>
+<p><img alt="The locations of the gravity points in the new layer." src="../images/import_xyz/LlanbedrGravityLocations_small.png" title="The locations of the gravity points in the new layer." /></p>
+<ul>
+<li>Right-click on the <code>LlanbedrGravity</code> layer in the Layers panel and open the <code>Attribute table</code></li>
+<li>Have a look at the table - it should basically look the same as the original spreadsheet except that is has gained a field called <code>fid</code> for Feature ID.</li>
+</ul>
+<p>You should finish this chapter with a project containing the points imported from the original spreadsheet with the 1:25 000 raster background from Ordnance Survey providing a background map.</p>
+<p>In the next chapter we&rsquo;ll look at how we can analyse the points and display the data in different ways.</p>
+<p>Make sure you have this project saved.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../analysis/" class="btn btn-neutral float-right" title="Analysing and viewing point data">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../creating_data/" class="btn btn-neutral" title="Creating data by digitising"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; Clare Gordon, University of Leeds 2020. This work is licensed under the Creative Commons Attribution-NonCommercial-Sharealike 4.0 International Licence.  To view a copy of this licence visit <a href="http://creativecommons.org/licences/by-nc-sa/4.0/" >http://creativecommons.org/licenses/by-nc-sa/4.0/</a> <br /> Icons downloaded from <a href="http://google.github.io/material-design-icons/">Materials Icons</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cgordon-gis/GIS-gp/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../creating_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Clare Gordon">
+  <link rel="canonical" href="https://cgordon-gis.github.io/GIS-gp/analysis/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Analysing and viewing point data - GIS for Geophysicists</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Analysing and viewing point data";
+    var mkdocs_page_input_path = "analysis.md";
+    var mkdocs_page_url = "/GIS-gp/analysis/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GIS for Geophysicists</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../finding_data/">Finding spatial data</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gps/">Creating point data with GPS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../creating_data/">Creating data by digitising</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../import_xyz/">Importing point data from xyz files</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Analysing and viewing point data</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-a-raster-surface-from-your-point-data">Creating a raster surface from your point data</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bgs_data/">Using BGS data from Digimap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout and presentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../three_d/">Viewing your data in 3D</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GIS for Geophysicists</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Analysing and viewing point data</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cgordon-gis/GIS-gp/edit/master/docs/analysis.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="analysing-and-viewing-point-data">Analysing and viewing point data</h1>
+<p>The background to analysing and viewing point data will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>When you have completed this section of the workbook you should be able to</p>
+<!-- TODO: Need to fill in the learning outcomes -->
+
+<h2 id="introduction">Introduction</h2>
+<p>This chapter continues working with the Llanbedr, North Wales map project, so <code>open</code> that now if it isn&rsquo;t already open.</p>
+<p>Now that you have the point data in QGIS you can start to analyse it and display it.</p>
+<p>At the moment you have data in point format.  That gives measurements for particular locations, but what happens if you want to know the measurement at a location between the samples?  This is where GIS analysis becomes essential.</p>
+<h2 id="creating-a-raster-surface-from-your-point-data">Creating a raster surface from your point data</h2>
+<p>QGIS can create a surface in raster format which is derived from point data.  This will show z values for the spaces between the observed points which QGIS will have work out from available data - a process known as <strong>interpolation</strong>.  Inevitably the accuracy of the surface will increase if you have more data points in a particular area, but it still works if your points are widely spaced.</p>
+<p>There are several different methods of interpolation available in QGIS.  The instructions below use IDW (Inverse Distance Weighted) as an example, but you&rsquo;ll get a chance to try others too and have a look at the differences.  Different methods work best for different data.</p>
+<p>ESRI, who make the ArcGIS software, have a useful <a href="http://www.esri.com/news/arcuser/0704/files/interpolating.pdf">article about interpolation</a> freely available online and you should refer to this during this chapter.</p>
+<p>The analysis tools in QGIS are available in the <code>Processing Toolbox</code>.</p>
+<ul>
+<li>Open the toolbox by going to `Processing &gt; Toolbox&rsquo;</li>
+</ul>
+<p>There are a choice of tool providers in the toolbox.  Depending on your settings you should see a series of QGIS logos denoting native QGIS tools, but there may also be GDAL, GRASS and SAGA.</p>
+<ul>
+<li>Start by searching for <code>IDW</code> in the box at the top of the toolbox</li>
+<li>Several options should appear, double-click on the one under the QGIS Interpolation heading called <code>IDW interpolation</code></li>
+<li>Fill in the dialog as follows<ul>
+<li>The <code>Vector layer</code> input is your <code>LlanbedrGravity</code> layer - you should be able to find it by dropping down the list of layers</li>
+<li>The <code>Interpolation attribute</code> is the field holding the data - in this case it&rsquo;s <code>CorrBA</code>, again use the dropdown to find it</li>
+<li>Click on the plus button underneath to add your input to the list.</li>
+<li>Click on the button next to the <code>Extent</code> field and select <code>Use Layer Extent...</code> then select the <code>LlanbedrGravity</code> layer as the extent</li>
+<li>Set the <code>Pixel size</code> x and y to <code>5.0</code>.  You can set it lower, e.g. to 2, but the size of the output file will be larger, and it will take longer for the tool to run.</li>
+<li>at the bottom choose where to save the output - I usually create a subfolder of the project folder called <code>output</code> then save all the raster data there</li>
+<li>Give your output a short name which will tell you what it contains, e.g. <code>IDWgrav</code></li>
+</ul>
+</li>
+<li>Click on <code>Run</code> and wait for the process to finish - it can take a while</li>
+<li>The <code>Close</code> the window.</li>
+</ul>
+<p><img alt="The IDW Interpolation form." src="../images/analysis/InterpolationIDW_small.png" title="The IDW Interpolation form." /></p>
+<p>Your new layer should be automatically added to your map.  If it isn&rsquo;t, drag it there from the Browser now.</p>
+<p>The tool will have interpolated the surface from your data points.  You should end up with something similar, but probably not identical, to the picture below.</p>
+<p><img alt="The output of the IDW processing tool." src="../images/analysis/IDWoutput_small.png" title="The output of the IDW processing tool." /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bgs_data/" class="btn btn-neutral float-right" title="Using BGS data from Digimap">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../import_xyz/" class="btn btn-neutral" title="Importing point data from xyz files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; Clare Gordon, University of Leeds 2020. This work is licensed under the Creative Commons Attribution-NonCommercial-Sharealike 4.0 International Licence.  To view a copy of this licence visit <a href="http://creativecommons.org/licences/by-nc-sa/4.0/" >http://creativecommons.org/licenses/by-nc-sa/4.0/</a> <br /> Icons downloaded from <a href="http://google.github.io/material-design-icons/">Materials Icons</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cgordon-gis/GIS-gp/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../import_xyz/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../bgs_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

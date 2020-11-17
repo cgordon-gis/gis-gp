@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Clare Gordon">
+  <link rel="canonical" href="https://cgordon-gis.github.io/GIS-gp/gps/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Creating point data with GPS - GIS for Geophysicists</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Creating point data with GPS";
+    var mkdocs_page_input_path = "gps.md";
+    var mkdocs_page_url = "/GIS-gp/gps/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GIS for Geophysicists</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../finding_data/">Finding spatial data</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Creating point data with GPS</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#collecting-data-with-a-gps-unit">Collecting data with a GPS unit</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-to-download">Data to download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#starting-a-new-project-in-qgis">Starting a new project in QGIS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-the-browser-to-find-information-about-a-layer">Using the Browser to find information about a layer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-a-gpx-layer-to-a-map">Adding a gpx layer to a map</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exporting-gpx-layer-to-a-geopackage">Exporting gpx layer to a geopackage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-qgis-plugin-to-display-a-background-map">Installing QGIS plugin to display a background map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-extra-data-to-feature-classes">Adding extra data to feature classes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#styling-the-point-layer">Styling the point layer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#styling-a-layer-as-a-single-symbol">Styling a layer as a single symbol</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#styling-a-layer-as-categories">Styling a layer as categories</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changing-to-svg-markers">Changing to svg markers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#changing-the-coordinate-system-crs-of-data">Changing the coordinate system (CRS) of data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#copying-styles">Copying styles</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-final-map">The final map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further-information-and-suggested-reading">Further information and suggested reading</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../creating_data/">Creating data by digitising</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../import_xyz/">Importing point data from xyz files</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../analysis/">Analysing and viewing point data</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bgs_data/">Using BGS data from Digimap</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout and presentation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../three_d/">Viewing your data in 3D</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GIS for Geophysicists</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Creating point data with GPS</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/cgordon-gis/GIS-gp/edit/master/docs/gps.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="creating-point-data-with-gps">Creating point data with GPS</h1>
+<p>The background to creating point data with gps will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
+<h2 id="learning-outcomes">Learning outcomes</h2>
+<p>When you have completed this section of the workbook you should be able to</p>
+<ul>
+<li>Explain what a geopackage consists of and why it is used to store GIS data</li>
+<li>understand how you can collect your own spatial data for use in GIS</li>
+<li>explain how to symbolise data on a map so that it displays clearly and informatively to your audience</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>The previous chapter should have given you some idea of the variety of data that is available for you to use, but there is nothing to replace going out and collecting your own data and it is very likely that you will be using GPS units for fieldwork at some point.</p>
+<p>If you are new to GPS and would like to find out more about the background and technology there is a beginners guide at:</p>
+<ul>
+<li><a href="http://www8.garmin.com/aboutGPS/index.html">Garmin</a></li>
+</ul>
+<h3 id="collecting-data-with-a-gps-unit">Collecting data with a GPS unit</h3>
+<p>Unfortunately this year (2020) it isn&rsquo;t possible for us to go out onto campus as a group and collect waypoints with a GPS unit so I will provide the data for you.</p>
+<p>If you have access to a GPS unit you could go outside on your own and collect <strong>waypoints</strong>.  Note that this exercise doesn&rsquo;t make use of tracks or routes.  You should then download a <code>.gpx</code> file from your GPS and follow the instructions in the rest of this chapter.</p>
+<h2 id="data-to-download">Data to download</h2>
+<ul>
+<li>Download the file <code>GPS_dataCC.zip</code> from the Week 8 folder in Minerva</li>
+<li>Save the file to your disk and <a href="/introduction/#obtaining-the-data-for-this-chapter">unzip it</a></li>
+</ul>
+<p>The zip file should contain the following items</p>
+<ul>
+<li>a folder called <code>mastermap</code></li>
+<li>several files which make up a single shapefile called <code>LocationBNG.shp</code> - make sure that you keep all of these files together</li>
+<li><code>Waypoints_26-FEB-14.gpx</code> - waypoints which I collected back in 2014 and luckily still have.  This is the file downloaded from gps unit.</li>
+<li><code>Waypoints_type_26-FEB-14_map.pdf</code> - a map showing the location and type of all of the waypoints that I collected.</li>
+</ul>
+<p><img alt="The contents of the zip file.  Note that your icons will probably look different to mine as you'll have different software available." src="../images/gps/UnzippedFiles_small.png" title="The contents of the zip file.  Note that your icons will probably look different to mine as you'll have different software available." /></p>
+<h2 id="starting-a-new-project-in-qgis">Starting a new project in QGIS</h2>
+<p>You can just open QGIS and start adding data, but it will help you later if you take more care at this stage.</p>
+<ul>
+<li>Open QGIS </li>
+<li>Go to <code>Project &gt; Save</code> and navigate to the folder in which you would like to save your project.  This could be a folder called <code>gis</code> with a subfolder called <code>ChancellorsCourt</code> - note that there should not be any spaces in the folder name.</li>
+<li>Give your project a name, e.g. <code>ChanCourt</code> - short and no spaces.</li>
+<li><code>Save</code></li>
+</ul>
+<p>Having done that you should have a file in your folder called <code>ChanCourt.qgz</code>.</p>
+<ul>
+<li>Go to <code>Project &gt; Properties</code> in the menu in QGIS and click on the <code>General</code> heading on the left</li>
+<li>The <code>Project file</code> should already be filled in</li>
+<li>Set <code>Project home</code> to the folder in which you saved the qgz file</li>
+<li>Set the <code>Project title</code> to something like <code>Chancellors Court, University of Leeds</code> - basically a description of what your map is going to show.</li>
+<li>Check that <code>Save paths</code> is set to <code>relative</code></li>
+<li>Click <code>OK</code></li>
+</ul>
+<p><img alt="The general tab of the Project Properties showing the settings you should fill in." src="../images/gps/ProjectProperties_small.png" title="The general tab of the Project Properties showing the settings you should fill in." /></p>
+<p><strong>Save paths</strong> is probably the most important project setting as it can save you from having data go missing if you move your project to another computer.  By setting this to <strong>relative</strong>, as long as you move the whole folder, your data and your map will stay linked.</p>
+<h2 id="using-the-browser-to-find-information-about-a-layer">Using the Browser to find information about a layer</h2>
+<p>Now that you have the <strong>Project home</strong> set it is possible to use that heading in the Browser to find everything associated with this project (assuming all of your files are in that folder).</p>
+<ul>
+<li>Go to the <code>Browser</code> (if it isn&rsquo;t already open go to <code>View &gt; Panels</code> and put a tick next to <code>Browser</code>).</li>
+<li>Click on the little arrow next to <code>Project Home</code> to see the contents of the folder.  You should see all of the files that you unzipped earlier.</li>
+</ul>
+<p>One of the benefits of the browser is being able to have a look at the details of your data before you add it to a map.</p>
+<p>If you are in version 3.16 or above of QGIS</p>
+<ul>
+<li>click on the little arrow next to <code>Waypoints_26-FEB-14.gpx</code></li>
+</ul>
+<p>You should see that the file includes several <strong>layers</strong>.  For this exercise the only one we want is <code>waypoints</code></p>
+<ul>
+<li>Right-click on the <code>waypoints</code> layer and go to <code>Layer Properties</code></li>
+</ul>
+<p>If you are in version 3.10 of QGIS</p>
+<ul>
+<li>Right-click on the <code>Waypoints_26-FEB-14.gpx</code> layer and go to <code>Layer Properties</code></li>
+</ul>
+<p>In both versions</p>
+<ul>
+<li>Use the three tabs at the top of the layer properties - <code>Metadata</code><sup id="fnref:301"><a class="footnote-ref" href="#fn:301">1</a></sup>, <code>Preview</code> and <code>Attributes</code> - to have a look at your file.</li>
+</ul>
+<p><img alt="The layer properties showing metadata about the layer you right-clicked on." src="../images/gps/LayerProperties_small.png" title="The layer properties showing metadata about the layer you right-clicked on." /></p>
+<p>The <code>Metadata</code> tab tells you quite a lot, but the preview tab can confirm that your data looks correct, and the Attributes tab will let you see the table of data that you have.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Make a note of the CRS</strong></p>
+<p>One particularly important piece of information is the CRS, or Coordinate Reference System.  You&rsquo;ll need to know this later.</p>
+<p>Make a note of the text next to the <code>CRS</code> subheading in the Metadata then close the Layer Properties.</p>
+</blockquote>
+<h2 id="adding-a-gpx-layer-to-a-map">Adding a gpx layer to a map</h2>
+<p>This is slightly different in the older and newer versions of QGIS.</p>
+<p>In version 3.16:</p>
+<ul>
+<li>Drag and drop the waypoints layer from the Browser to the Layers panel.</li>
+</ul>
+<p>In version 3.10:</p>
+<ul>
+<li>Double-click on `Waypoints_26-FEB-14.gpx&rsquo; in the Browser</li>
+<li>In the <code>Select Vector Layers to Add</code> dialog select <code>waypoints</code></li>
+<li>Click on <code>OK</code></li>
+</ul>
+<p>In both versions</p>
+<p>You should now have a map showing small circles for each of the waypoints which looks something like the image below. (Your colours may be different.)</p>
+<p><img alt="The map once you have added the Waypoints.  Your colours may be different to these." src="../images/gps/WaypointsAdded.png" title="The map once you have added the Waypoints.  Your colours may be different to these." /></p>
+<h3 id="exporting-gpx-layer-to-a-geopackage">Exporting gpx layer to a geopackage</h3>
+<p>As they are at the moment, this is not a proper GIS layer. If you are going to use these points for further analysis you need to <strong>export</strong> them to a GIS format, such as a layer in a <code>Geopackage</code>. </p>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Geopackage format</strong></p>
+<p>A <code>geopackage</code> is a form of database designed to store spatial data.  It has been relatively recently developed but it&rsquo;s use as a GIS format has spread very quickly.  QGIS encourages the use of geopackages and it is increasingly possible to use them in other GIS software.</p>
+<p>You will store vector data in a geopackage as multiple layers.</p>
+<p>If you want more information about the format there is a lot on the <a href="http://www.geopackage.org/">GeoPackage website</a>.</p>
+</blockquote>
+<p>To export the waypoints to a geopackage layer:</p>
+<ul>
+<li>In the <code>Layers</code> panel right-click on the <code>waypoints</code> layer</li>
+<li><code>Export &gt; Save Features As...</code></li>
+<li>Fill in the panel that opens as follows:<ul>
+<li><code>Format</code> = <code>GeoPackage</code></li>
+<li>Click on the <code>...</code> button at the end of the <code>File name</code> box, navigate to the folder in which you want to store your geopackage - preferably the same folder as your .qgz file, then give your geopackage a name, e.g. <code>University.gpkg</code>.  The location tends to be a good idea here.</li>
+<li><code>Save</code></li>
+<li>In the <code>Layer name</code> box give your layer a name such as <code>Waypoints</code> - it needs to be a name that will tell you what data this layer contains.</li>
+<li>Check that the <code>CRS</code> field is the same as the CRS you made a note of earlier - in this case that should be <code>EPSG:4326 - WGS 84</code></li>
+<li>Check the bottom of the form to make sure that <code>Add saved file to map</code> is ticked.</li>
+</ul>
+</li>
+<li>Click <code>OK</code> to create the geopackage and add the new layer to your map.</li>
+</ul>
+<p><img alt="Filling in the form to save your waypoints as a vector layer in a geopackage." src="../images/gps/SaveVectorLayerAs_small.png" title="Filling in the form to save your waypoints as a vector layer in a geopackage." /></p>
+<p>Your map won&rsquo;t look much different, though the dots may have changed colour.</p>
+<!-- TODO: Look at the data in the Geopackage to show it's there... Also in explorer to show single file? -->
+
+<p>To keep the Layers panel tidy right click on the original waypoints layer and <code>Remove layer...</code></p>
+<h2 id="installing-qgis-plugin-to-display-a-background-map">Installing QGIS plugin to display a background map</h2>
+<p>At the moment you have your waypoints on a map, but can&rsquo;t check where they are located.</p>
+<p>One of the strengths of QGIS is that it has a wide variety of plugins that you can install to carry out extra tasks.  One of these plugins allows you to add maps from the web as background maps so we&rsquo;ll install that now.</p>
+<ul>
+<li>In the menu go to <code>Plugins &gt; Manage And Install Plugins...</code></li>
+</ul>
+<p><img alt="The plugin manager showing the core plugins that are installed when you install QGIS." src="../images/gps/PluginsInstalled_small.png" title="The plugin manager showing the core plugins that are installed when you install QGIS." /></p>
+<p>To install a new plugin:</p>
+<ul>
+<li>Click on <code>Not installed</code> on the left</li>
+<li>Type <code>QuickMapServices</code> into the search box at the top</li>
+<li>From the list that appears click on <code>QuickMapServices</code> and have a look at the description</li>
+<li>This plugin will do what you want it to do so click on <code>Install Plugin</code></li>
+</ul>
+<p><img alt="Installing the QuickMapServices plugin." src="../images/gps/PluginsQuickMapServices_small.png" title="Installing the QuickMapServices plugin." /></p>
+<p>Once it has installed you should get a message at the top telling you it has been successful and QuickMap Services should now be in the list of Installed plugins.</p>
+<ul>
+<li>You can <code>Close</code> the plugin manager now.</li>
+</ul>
+<p>Once the plugin is installed you will have new menu items and toolbar buttons available to you.</p>
+<ul>
+<li>On the menu go to <code>Web &gt; QuickMapServices</code>.</li>
+<li>You should have a very long list of choices available.  Go to <code>OSM &gt; OSM Standard</code>.</li>
+</ul>
+<p>OSM stands for <a href="https://www.openstreetmap.org/">OpenStreetMap</a> which is a crowd-sourced map of the World.  It can be very useful for quick maps, but isn&rsquo;t always completely reliable and some areas don&rsquo;t have much data.</p>
+<p>Now that you&rsquo;ve added the OSM Standard basemap you should be able to see the details of Chancellors Court at the University with your waypoints shown on top.  If you can&rsquo;t see your waypoints check that they are above the basemap in the Layers pane.</p>
+<ul>
+<li>Zoom to 1:500 to see the buildings around Chancellors Court too.</li>
+</ul>
+<p><img alt="Your map, showing your waypoints on top of the OSM Standard basemap from QuickMapServices." src="../images/gps/QuickMapServicesOSM.png" title="Your map, showing your waypoints on top of the OSM Standard basemap from QuickMapServices." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Other QuickMapServices basemaps</strong></p>
+<p>Have a look at some of the other basemaps from QuickMapServices.  Not all will cover this area, and some need a licence key, but there are plenty of choices.  You will need to switch off other basemaps in the Layers when you add new ones so that you can see them.  For example, try</p>
+<p>Bing Map</p>
+<p>Bing Satellite</p>
+<p>OSM Cycle map</p>
+<p>OSM monochrome</p>
+</blockquote>
+<p>Finish with the <code>OSM monochrome</code> basemap on your map with all of the other basemap layers removed.  The monochrome (black and white) background map will make your data easier to see.</p>
+<h2 id="adding-extra-data-to-feature-classes">Adding extra data to feature classes</h2>
+<p>The layer that you have saved to a Geopackage is known in GIS terms as a <code>feature class</code>.  This contains your <code>features</code> and data for each one which are called <code>attributes</code>.</p>
+<ul>
+<li>In the Layers panel right-click on your <code>waypoints</code> layer and select <code>Open Attribute Table</code>.</li>
+</ul>
+<p>The attribute table is the GIS equivalent of a spreadsheet and contains features and their attributes.</p>
+<p><img alt="The attribute table annotated with some of the terminology." src="../images/gps/AttributeTable_anno.png" title="The attribute table annotated with some of the terminology." /></p>
+<p>Amongst many other attributes there should be one for <code>name</code> which should include the label or name of each waypoint as stored by the GPS unit.  In this case the name field holds a number which matches the numbers of the points on the <code>Waypoints_type_26-FEB-14_map.pdf</code> file which you downloaded from Minerva.</p>
+<ul>
+<li>Open the file <code>Waypoints_type_26-FEB-14_map.pdf</code> from the downloaded data and have a look at the information there</li>
+</ul>
+<p>Labels on the map show the <code>name</code> field followed by a description of the <code>type</code> of feature, e.g. Rock, Sign post, Planter.</p>
+<p>Somehow we need to get that extra information in to the attribute table and unfortunately that has to be done manually!</p>
+<ul>
+<li>Have another look at the waypoints attribute table.  There is a field there called <code>desc</code> for description.  This seems to be a sensible field in which to put the new information.</li>
+</ul>
+<p>To start adding attributes to a table you need to start <strong>editing</strong> the feature class.</p>
+<ul>
+<li>On the attribute table window click on the <code>Toggle Editing Mode</code> button at top right (see the annotated picture of the attribute table above, and remember that tool tips are visible if you hover over buttons).</li>
+<li>Click in the space under <code>desc</code> for the point with the name <code>001</code> - the word <code>NULL</code> should be selected</li>
+<li>Look at the pdf map and find point <code>001</code> (it&rsquo;s top left of Chancellors Court) - what is the description of it?</li>
+<li>If you have trouble finding it try selecting the feature in the attribute table by clicking on the number in the grey space on the left.  The point will then be highlighted on your map in QGIS</li>
+<li>The description for point 001 should be <code>Sign post</code> so type that in to the attribute table.</li>
+<li>Click on the <code>Save edits</code> button on the attribute table toolbar to write your edits to the feature class in the geopackage.</li>
+</ul>
+<p>Continue doing this for some more of the points.  Don&rsquo;t worry if you can&rsquo;t find some of them on the map - just leave those blank (NULL).  Try to do a minimum of about 20 of the points.  There are rather a lot there and you don&rsquo;t need to do all of them on this occasion!</p>
+<p><img alt="The attribute table in edit mode with the desc fields filled in.  Note some are still NULL." src="../images/gps/AttributeTableDesc.png" title="The attribute table in edit mode with the desc fields filled in.  Note some are still NULL." /></p>
+<ul>
+<li>Once you&rsquo;ve input the descriptions (and saved your edits) click on the <code>Toggle Editing Mode</code> button again to stop editing</li>
+<li>then close the attribute table by clicking on the cross in the top right.</li>
+</ul>
+<h2 id="styling-the-point-layer">Styling the point layer</h2>
+<p>Now that you have the description in your attribute table you can style your point layer.</p>
+<h3 id="styling-a-layer-as-a-single-symbol">Styling a layer as a single symbol</h3>
+<p>The default styling is for single symbols.</p>
+<ul>
+<li>Select the <code>waypoints</code> layer in the Layers panel and click on the <code>Open the Layer Styling panel</code> button - at the top of the Layers panel on the left.</li>
+<li>This should open on the right of the map window and gives you choices for the way your layer looks.</li>
+</ul>
+<p><img alt="The Layer Styling panel showing single symbols." src="../images/gps/Symbols_small.png" title="The Layer Styling panel showing single symbols." /></p>
+<p>In this view you can click on any of the symbols in the gallery and the symbols on your map will change to match them.  Try this now.</p>
+<p>The section at the top allows you to change the size, opacity and colour of the symbols.  Again, try changing the choices there and see what they do.</p>
+<h3 id="styling-a-layer-as-categories">Styling a layer as categories</h3>
+<p>So far you have a single coloured symbol representing every point.  Your map would be much more informative if each type of feature had it&rsquo;s own symbol.</p>
+<ul>
+<li>At the top of the Layer Styling panel click on the dropdown that says <code>Single symbol</code> and change it to <code>Categorized</code></li>
+<li>Now drop down the list next to <code>Value</code> and select the field that you want to categorize your symbols on - in this case <code>desc</code></li>
+<li>Lower down the panel click on the button that says <code>Classify</code></li>
+</ul>
+<p>Your descriptions should appear as a list and the symbols on your map should change to a variety of random colours.</p>
+<p><img alt="The Layer Styling on the right is set to Categorized and the desc field has been added as the Value.  The different types of item have been added to the list by clicking on Classify. Note the different colours on the map." src="../images/gps/SymbolsCategories_small.png" title="The Layer Styling on the right is set to Categorized and the desc field has been added as the Value.  The different types of item have been added to the list by clicking on Classify. Note the different colours on the map." /></p>
+<p>Note that the attributes that you left as <code>NULL</code> in the attribute table have all been styled as a symbol listed as <em><code>all other...</code></em>.  It would be good to get rid of that as it isn&rsquo;t adding any useful information to the map.</p>
+<ul>
+<li>In the Layer Styling panel untick the box on the left of the <em><code>all other...</code></em> category.</li>
+</ul>
+<p>The NULL symbols should all disappear from the map.</p>
+<p>Note that the Layers panel on the left now acts as a key to your waypoints layer.</p>
+<h3 id="changing-to-svg-markers">Changing to svg markers</h3>
+<p>You can change the symbols by double-clicking on each symbol in turn and selecting different ones from the Gallery.</p>
+<p>At the moment all of your symbols are <code>Simple markers</code>.  It is easy to change them to <code>SVG markers</code> and have a wider range of symbols to choose from.</p>
+<ul>
+<li>Double click on the first symbol in your list in the Layer Styling panel (in my example it is <code>Bike shelter</code>)</li>
+<li>In the box at the top click where it says <code>Simple marker</code></li>
+<li>Below that change the <code>Symbol layer type</code> to <code>SVG marker</code></li>
+</ul>
+<p><code>SVG</code> stands for Scaleable Vector Graphics and is basically what it says.  In the context of QGIS it gives you a much greater range of pictorial symbols with which to style your map.</p>
+<ul>
+<li>Have a look at the SVG Image gallery at the bottom of the panel and select an appropriate symbol.</li>
+<li>You can use the settings above the change the size, colour, rotation etc.</li>
+<li>The symbols should appear on your map automatically, but if they don&rsquo;t click on <code>Apply</code></li>
+<li>When you&rsquo;ve finished click on the back arrow at the top of the panel to get back to the list.</li>
+</ul>
+<p><img alt="Choosing SVG markers to style your points." src="../images/gps/SVGMarkers_small.png" title="Choosing SVG markers to style your points." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Choose symbols for your points</strong></p>
+<p>Continue in the same way to select appropriate symbols for the rest of the categories of point.</p>
+</blockquote>
+<p><img alt="Symbols on the map - yours will probably look different as you'll have made different choices." src="../images/gps/SymbolsOnMap_small.png" title="Symbols on the map - yours will probably look different as you'll have made different choices." /></p>
+<h2 id="changing-the-coordinate-system-crs-of-data">Changing the coordinate system (CRS) of data</h2>
+<p>The GPS data that you have collected is in the WGS 84 geographic coordinate system.  Remember that you <a href="#using-the-browser-to-find-information-about-a-layer">checked this earlier</a>.  QGIS sets the project CRS to that of the first layer that you add to the map.  So in this case the map CRS is also WGS 84.</p>
+<p>Often you will need to use data in a local projected coordinate system.  The obvious example is if you are using Ordnance Survey maps from Digimap in the same project.  This is the example we will use now, but the same situation can arise if you are, for example, creating a map of Spain or Eire<sup id="fnref:302"><a class="footnote-ref" href="#fn:302">2</a></sup>.</p>
+<p>We&rsquo;ll set up a map project in British National Grid and add the gps data to that.</p>
+<ul>
+<li>Open QGIS from the start menu, but don&rsquo;t open a map.</li>
+<li>Use the browser panel to drag the <code>LocationBNG.shp</code> shapefile that you will have downloaded from Minerva to the Layers panel.  It should appear in your map area.  Remember that the first layer that you add to a map automatically sets the coordinate system.</li>
+<li>You may get a window like the one below asking about Transforms, just click <code>OK</code> on this for now.  This is to do with ways of &ldquo;transforming&rdquo; data from one CRS to another.
+<!-- TODO: Check the transform selection in version 3.10 --></li>
+</ul>
+<p><img alt="The Transform selection window.  Just click OK for now." src="../images/gps/TransformSelection_small.png" title="The Transform selection window.  Just click OK for now." /></p>
+<p>You should find that you have a map with two polygons in a random colour.  If you look at the bottom right of the map window you should be able to see the text <code>EPSG:27700</code>.  This is the code for British National Grid and confirms that your map is in the correct CRS.</p>
+<p><img alt="The two polygons on your map and the EPSG code - 27700." src="../images/gps/LocationBNG_small.png" title="The two polygons on your map and the EPSG code - 27700." /></p>
+<ul>
+<li>Save your map to the same folder as the previous map.  Call it something like <code>UniversityBNG.qgz</code> - BNG = British National Grid.</li>
+<li><a href="#installing-qgis-plugin-to-display-a-background-map">Add the <code>OSM monochrome</code> base map</a> to your map again.  You already have the plugin installed so don&rsquo;t need to do that again.</li>
+<li><a href="#styling-a-layer-as-a-single-symbol">Style the <code>LocationBNG</code> polygon layer</a> so that it has an outline but no fill.  You should be able to see the base map through it.  Styling a polygon layer is very similar to styling points so you should be able to use the previous instructions again.</li>
+</ul>
+<p>Now it should be possible to see that both polygons cover parts of the University, but the one that is relevant for this map is the one to the south which covers Chancellors Court.</p>
+<ul>
+<li>Zoom in to the polygon to the south.</li>
+<li>Now add the <code>Waypoints</code> layer from your geopackage to the Layers panel from the Browser.</li>
+</ul>
+<p>They should appear in the correct place, even though they have a CRS of WGS 84 and the map is in British National Grid.  You can check this in the layer properties if you want to.</p>
+<p>QGIS is projecting the layer &ldquo;on the fly&rdquo; using a <code>transformation</code>.  This is very convenient, and if you are just going to look at the map that is fine.  But if you need to do any analysis or measure anything then you really need to get this layer projected in to British National Grid as well.</p>
+<p>To project the layer permanently</p>
+<ul>
+<li>Right click on the <code>Waypoints</code> layer in the Layers panel or in the Browser</li>
+<li><code>Export &gt; Save features as...</code></li>
+<li>Fill in the <code>Save Vector Layer as...</code> dialog as follows<ul>
+<li>The <code>Format</code> should be <code>GeoPackage</code></li>
+<li>Click on the three dots button next to <code>File name</code> and browse to your existing Geopackage.</li>
+<li>Give the output a <code>Layer name</code> which will remind you what it contains, e.g. <code>WaypointsBNG</code></li>
+<li>Drop down the <code>CRS</code> and select <code>Project CRS: EPSG:27700 - OSGB 1936 / British National Grid</code>.</li>
+</ul>
+</li>
+<li>Finish by clicking <code>OK</code></li>
+</ul>
+<p><img alt="Filling in the Save Vector Layer as... dialog to save your waypoints as a new feature class with a projected CRS of British National Grid." src="../images/gps/ChangeCRS_small.png" title="Filling in the Save Vector Layer as... dialog to save your waypoints as a new feature class with a projected CRS of British National Grid." /></p>
+<p>Your map probably won&rsquo;t look much different but the new layer should have been added to the Layers panel.  If it hasn&rsquo;t drag it over from the Browser.</p>
+<ul>
+<li>Check the new CRS by right-clicking on the new layer and going to <code>Properties</code></li>
+<li>Look at the <code>Information</code> tab.</li>
+<li>The <code>CRS</code> heading should say <code>EPSG:27700 - OSGB 1936 / British National Grid - Projected</code>.  If it doesn&rsquo;t you may have to try again and check everything carefully as you go along.</li>
+<li><a href="/introduction/#removing-layers"><code>Remove</code> the original waypoints layer</a> from your Layers panel and <code>Save</code> your map.</li>
+</ul>
+<p>Now you have a map in British National Grid which shows your waypoints and which, because all layers match the map CRS, can be used for analysis.</p>
+<ul>
+<li>Make sure you have both of your maps of Chancellors Court open in QGIS</li>
+<li>If you compare your two maps you should be able to see that the different CRS gives a very different idea of the &ldquo;shape&rdquo; of Chancellors Court.</li>
+</ul>
+<p><img alt="Comparing British National Grid (left) and WGS 84 (right)." src="../images/gps/CompareCRS_small.png" title="Comparing British National Grid (left) and WGS 84 (right)." /></p>
+<h3 id="copying-styles">Copying styles</h3>
+<p>If you want to style the point symbols on your BNG map so that they are the same as the WGS 84 map try the following:</p>
+<ul>
+<li>In the WGS 84 map right-click on the waypoints layer and select <code>Styles &gt; Copy Style &gt; All style categories</code></li>
+<li>In the British National Grid map right-click on the waypoints layer and select <code>Styles &gt; Paste style &gt; All style categories</code></li>
+</ul>
+<p>Your styles should be copied across and your map is ready to go!</p>
+<h2 id="the-final-map">The final map</h2>
+<p>Set the symbols on your map so that you are happy with them and zoom out so that a bit more of the University is visible.</p>
+<p>You should export your map from QGIS as an image and upload it to your GIS Portfolio.  If you upload it within a week of the class I will give you feedback on your work.</p>
+<ul>
+<li>When you are happy with your map go to <code>Project &gt; Import / Export &gt; Export Map to Image</code></li>
+<li>In the <code>Save Map as Image</code> dialog set the extent by clicking on the <code>Map Canvas Extent</code> button</li>
+<li>Click on <code>Save</code></li>
+</ul>
+<p><img alt="Saving your map as an image." src="../images/gps/SaveMapAsImage.png" title="Saving your map as an image." /></p>
+<p>In a later chapter you&rsquo;ll find out how to create a full map layout with a key, scale bar, measured grid etc and print or export that properly, but for now this is fine.</p>
+<p><img alt="The final map exported as an image.  Yours will probably look different to this as you'll have made your own decisions about symbols and colours." src="../images/gps/ChanCourtBNG_small.png" title="The final map exported as an image.  Yours will probably look different to this as you'll have made your own decisions about symbols and colours." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Keep this project for the next chapter</strong></p>
+<p>In the next chapter you will be creating data in QGIS by digitising.  We will use the area of Chancellors Court again, so keep this project for that.</p>
+</blockquote>
+<h2 id="further-information-and-suggested-reading">Further information and suggested reading</h2>
+<p>Many of the books in the reading list<sup id="fnref:303"><a class="footnote-ref" href="#fn:303">3</a></sup> have a general introduction to GIS which explain what it is and how it is used.  Suggestions include the following:</p>
+<ul>
+<li>Chapter 2, <em>Spatial data</em> in Heywood, I., Cornelius, S. and Carver, S. (2011), pp.65-67 cover GPS. </li>
+<li>Chapter 4, <em>Georeferencing</em> in Longley, P.A. et al. (2015), pp. 77-98 covers latitude and longitude (from p.86),projections and coordinate systems (from p.88) and gps (from p.94).</li>
+</ul>
+<p>If you want to find out more about coordinate systems and projections in general then the definitive guide is the USGS Professional Paper 1395 by John P. Snyder (1987) called <a href="https://doi.org/10.3133/pp1395">Map Projections: A working manual</a>. This is downloadable as a pdf.</p>
+<p>The <strong>QGIS Documentation</strong> has a chapter on <code>Working with GPS data</code> which covers much more than we have been able to cover here.</p>
+<ul>
+<li><a href="https://docs.qgis.org/3.10/en/docs/user_manual/working_with_gps/index.html?highlight=gps">Working with GPS data for v. 3.10 of QGIS</a></li>
+<li><a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_gps/index.html?highlight=gps">Working with GPS data for v. 3.16 of QGIS</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:301">
+<p><strong>Metadata</strong> can be described as &ldquo;data about data&rdquo;.  A commonly quoted example is a library catalogue, which holds data about books.&#160;<a class="footnote-backref" href="#fnref:301" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:302">
+<p>If you want to find out more about coordinate systems and projections have a look at Heywood (2011) pp. 44-51 for a general introduction.&#160;<a class="footnote-backref" href="#fnref:302" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:303">
+<p>The reading list is available in Minerva and from the <a href="http://lib5.leeds.ac.uk/rlists/index.php">library</a> (search for the number of this module).&#160;<a class="footnote-backref" href="#fnref:303" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../creating_data/" class="btn btn-neutral float-right" title="Creating data by digitising">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../finding_data/" class="btn btn-neutral" title="Finding spatial data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy; Clare Gordon, University of Leeds 2020. This work is licensed under the Creative Commons Attribution-NonCommercial-Sharealike 4.0 International Licence.  To view a copy of this licence visit <a href="http://creativecommons.org/licences/by-nc-sa/4.0/" >http://creativecommons.org/licenses/by-nc-sa/4.0/</a> <br /> Icons downloaded from <a href="http://google.github.io/material-design-icons/">Materials Icons</a></p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/cgordon-gis/GIS-gp/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../finding_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../creating_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
