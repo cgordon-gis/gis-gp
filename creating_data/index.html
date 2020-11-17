@@ -80,14 +80,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#digitising-in-qgis">Digitising in QGIS</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#digitising-polygons">Digitising polygons</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#styling-your-layer">Styling your layer</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#transparency">Transparency</a>
+    <li class="toctree-l4"><a class="reference internal" href="#styling-your-layer">Styling your layer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-quality">Data quality</a>
     </li>
         </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#data-quality">Data quality</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#editing-features">Editing features</a>
     </li>
@@ -196,24 +194,34 @@
 <li>From the files you downloaded and unzipped add <code>se2934_rgb_250_01.jpg</code> to your map using the Browser.  (You may need to look in sub folders to find the file.) </li>
 <li>Turn off the waypoints, location and OSM Monochrome layers so they don&rsquo;t get in the way.</li>
 </ul>
-<p>You should have an aerial view of Chancellors Court on your map.  You will use this as a basis to digitise the buildings, paths and trees.</p>
+<p>You should already have an aerial view of Chancellors Court on your map.  You will use this as a basis to digitise the buildings, paths and trees.</p>
 <p><img alt="The aerial image open in QGIS." src="../images/creating_data/AerialMap_small.png" title="The aerial image open in QGIS." /></p>
 <h2 id="setting-up-geopackage-feature-classes-to-store-your-data">Setting up geopackage feature classes to store your data</h2>
 <p>The first thing you need to do is set up the storage for the data that you are about to create.  You already have a GeoPackage in your project, and you will use that to store this new data too.</p>
+<p>If you don&rsquo;t already have a geopackage or want to create a new one</p>
 <ul>
-<li>If you don&rsquo;t already have a geopackage or want to create a new one<ul>
 <li>In the <code>Browser</code> right-click on the folder in which you want to store the new geopackage or geopackage layer.  It&rsquo;s a good idea to use the <code>Project Home</code> folder if you have already saved your map.</li>
 <li><code>New &gt; GeoPackage</code></li>
 <li>Give your new Geopackage a name in the <code>Database</code> field - don&rsquo;t delete the path to it, just change the name.</li>
 </ul>
-</li>
-<li>If you already have a geopackage (which you should have in this case)<ul>
+<p>If you already have a geopackage (which you should have in this case - if you followed my suggestions it is called <code>University.gpkg</code>)</p>
+<ul>
+<li>In version 3.10 of QGIS<ul>
 <li>In the <code>Browser</code> right-click on the existing geopackage</li>
 <li><code>Create a New Layer or Table...</code></li>
 <li>You won&rsquo;t have the choice of changing the geopackage name here</li>
 </ul>
 </li>
-<li>For both: Fill in <code>Table name</code> with a name which will remind you what that table contains - in this case call it <code>Buildings</code></li>
+<li>In version 3.16 and above of QGIS<ul>
+<li>Right click on the folder that contains your geopackage</li>
+<li><code>New &gt; GeoPackage</code></li>
+<li>Browse to your existing geopackage</li>
+</ul>
+</li>
+</ul>
+<p>Whether you are creating a new geopackage or using an existing one the instructions are the same from here:</p>
+<ul>
+<li>Fill in <code>Table name</code> with a name which will remind you what that table contains - in this case call it <code>Buildings</code></li>
 <li>Choose a <code>Geometry type</code> - in this case <code>Polygon</code> (note that once this is set for a feature class you can&rsquo;t change it later)</li>
 <li>There is a drop down for the CRS (unlabelled) either drop that down and select <code>Project CRS: EPSG:27700 - OSGB 1936 / British National Grid</code> or use the button at the end of the line to search for the appropriate CRS.</li>
 <li>If you want to add any fields to contain attributes you can do so now - it is also possible to add fields later<ul>
@@ -223,11 +231,13 @@
 <li>Then click on the <code>Add to Fields List</code> button to add the new field to the list.  You can then add more fields if you need to, but we don&rsquo;t at the moment.</li>
 </ul>
 </li>
-<li>Once you&rsquo;ve added all of the fields click on <code>OK</code> to create the new feature class.
-<!-- TODO: This set of instructions looks rather daunting.  Can I streamline? --></li>
+<li>Once you&rsquo;ve added all of the fields click on <code>OK</code> to create the new feature class.</li>
 </ul>
+<p>If you are in version 3.16 and above it will ask whether you want to Overwrite the geopackage or create a new layer - click on <code>Add new layer</code>.</p>
 <p><img alt="Creating a new layer in a GeoPackage." src="../images/creating_data/NewGeopackageLayer_small.png" title="Creating a new layer in a GeoPackage." /></p>
-<p>The new feature class should be created in your GeoPackage and added to your map.  If it isn&rsquo;t added to your map drag it there from the Browser now.</p>
+<p>The new feature class should be created in your GeoPackage and added to your map.</p>
+<p>If you can&rsquo;t see the new layer in the geopackage you may need to select the top level folder and then click on the <code>Refresh</code> button at the to of the Browser.</p>
+<p>If the new layer isn&rsquo;t added to your map drag it there from the Browser now.</p>
 <blockquote>
 <p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Creating two more feature classes</strong></p>
 <p>Use the same instructions to create two further feature classes in the same geopackage.  Note that the <strong>Geometry type</strong> is different this time and remember that you must set these correctly or you have to create the feature classes again.</p>
@@ -239,7 +249,7 @@
 <h2 id="digitising-in-qgis">Digitising in QGIS</h2>
 <!-- TODO: Sort out heading levels under this.  Do they make sense at the moment? -->
 
-<p>You should already have an aerial view as a background for your map.  For these exercises you be <strong>digitising</strong> polygons, lines and points by tracing over features on this view.</p>
+<p>You should already have an aerial view as a background for your map.  For these exercises you will be <strong>digitising</strong> polygons, lines and points by tracing over features on this view.</p>
 <p>Before starting to digitise check that you have the <code>Digitising Toolbar</code> open.</p>
 <ul>
 <li><code>View &gt; Toolbars</code></li>
@@ -261,8 +271,12 @@
 <p>We&rsquo;ll digitise the School of Earth and Environment (SEE) building by drawing around the outline on the aerial photograph.  SEE is the building to the north of Chancellors Court<sup id="fnref:402"><a class="footnote-ref" href="#fn:402">2</a></sup>.</p>
 <ul>
 <li>Left-click on one corner of the SEE building, then on the next.  Keep left-clicking until you have outlined the building.  You can zoom in and out and pan as necessary (to pan easily hold down the mouse wheel and drag the map).</li>
+<li>As you progress around the shape you should see it as a transparent red with a stronger outline.</li>
+</ul>
+<p><img alt="Starting to digitise the School of Earth and Environment.  Note the transparent red area outlined in stronger red, this shows where you have already digitised." src="../images/creating_data/DigitisingInProgress_small.png" title="Starting to digitise the School of Earth and Environment.  Note the transparent red area outlined in stronger red, this shows where you have already digitised." /></p>
+<ul>
 <li>Each click creates a <code>vertex</code> or node.</li>
-<li>If you want to delete the previous vertex that you placed because it&rsquo;s not right just press the <code>Delete</code> or <code>Backspace</code> keys on your keyboard.</li>
+<li>If you want to delete the previous vertex that you placed, because it&rsquo;s not right, just press the <code>Delete</code> or <code>Backspace</code> keys on your keyboard.</li>
 <li>If you&rsquo;re not happy with the whole shape clicking on <code>Esc</code> will get rid of it completely.</li>
 <li>When you have placed a vertex on each corner of the building <code>right-click</code> to finish editing.</li>
 </ul>
@@ -280,10 +294,10 @@
 <ul>
 <li>When you have finished digitising and have saved your edits click on the <code>Toggle Editing</code> button again to finish.</li>
 </ul>
-<h3 id="styling-your-layer">Styling your layer</h3>
+<h4 id="styling-your-layer">Styling your layer</h4>
 <p>The previous chapter gave you instructions for <a href="/gps/#styling-the-point-layer">styling your point layer</a>.  Use those instructions again to style your layer in a way that you think is suitable for your data.  For example buildings are often styled as a pale brown colour.</p>
 <p>The original instructions apply to point symbols, polygons and lines are styled in a very similar way, so just have a go and see what you come up with.</p>
-<h4 id="transparency">Transparency</h4>
+<h5 id="transparency">Transparency</h5>
 <p>It can be useful to make your layers <code>transparent</code>.  As you draw your building polygons you&rsquo;ll gradually be covering up the layers underneath and it can be useful to see through the top layers.</p>
 <ul>
 <li>Click on the <code>Buildings</code> layer in the Layers pane</li>
@@ -294,7 +308,7 @@
 </ul>
 <p>Set the opacity so that you can see through your building polgons to the aerial imagery below.</p>
 <p><img alt="The SEE building with 70% opacity set." src="../images/creating_data/SEEOpacity_small.png" title="The SEE building with 70% opacity set." /></p>
-<h3 id="data-quality">Data quality</h3>
+<h4 id="data-quality">Data quality</h4>
 <blockquote>
 <p><img alt="Question" src="../images/svg/help_outline-black-24dp.png" /> <strong>Think about data quality issues</strong></p>
 <p>Stop and think about the digitising you have just done.  Can you think of any potential issues with the data that you have created in this way?</p>
@@ -347,7 +361,7 @@
 </ul>
 <p><img alt="The text panel of the Layer Styling panel.  Change fonts properties here." src="../images/creating_data/LayerStylingText_small.png" title="The text panel of the Layer Styling panel.  Change fonts properties here." /></p>
 <ul>
-<li>Click on the <code>Placement</code> tab and click on the button next to <code>Horizontal (slow)</code>.  This should move your labels within the polygon shapes.</li>
+<li>Click on the <code>Placement</code> tab and select <code>Horizontal</code> from the <code>Mode</code> dropdown list. Note that in QGIS 3.10 you need to click on the button next to <code>Horizontal (slow)</code>.  This should move your labels to within the polygon shapes.</li>
 </ul>
 <p><img alt="The Placement panel of the Layer Styling panel.  Change placement properties here." src="../images/creating_data/LayerStylingPlacement_small.png" title="The Placement panel of the Layer Styling panel.  Change placement properties here." /></p>
 <p>Feel free to try out the properties in the other tabs too.  There are lots of choices to help you make your labels clear and informative.</p>
@@ -391,7 +405,7 @@
 <li>Click on <code>Save</code></li>
 </ul>
 <p><img alt="Saving your map as an image." src="../images/gps/SaveMapAsImage.png" title="Saving your map as an image." /></p>
-<p>In a later chapter you&rsquo;ll find out how to create a full map layout with a key, scale bar, measured grid etc and print or export that properly, but for now this is fine and will enable me to give you feedback on your use of the tools you&rsquo;ve been introduced to today.</p>
+<p>In a later chapter you&rsquo;ll find out how to create a full map layout with a key, scale bar, measured grid etc and print or export that properly, but for now this is fine and will enable me to give you feedback on your use of the tools you have been introduced to today.</p>
 <p><img alt="The final map exported as an image. Yours will probably look different to this as you'll have made your own decisions about symbols and colours, and about which features to include." src="../images/creating_data/FinalMap_small.png" title="alt" /></p>
 <p>In the next chapter you&rsquo;ll be working on the North Wales map and you won&rsquo;t need this Chancellors Court map again.</p>
 <h2 id="further-information-and-suggested-reading">Further information and suggested reading</h2>

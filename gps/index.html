@@ -189,7 +189,7 @@
 <p>If you have access to a GPS unit you could go outside on your own and collect <strong>waypoints</strong>.  Note that this exercise doesn&rsquo;t make use of tracks or routes.  You should then download a <code>.gpx</code> file from your GPS and follow the instructions in the rest of this chapter.</p>
 <h2 id="data-to-download">Data to download</h2>
 <ul>
-<li>Download the file <code>GPS_dataCC.zip</code> from the Week 8 folder in Minerva</li>
+<li>Download the file <code>GPS_data_ChanCourt_2020.zip</code> from the Week 8 folder in Minerva</li>
 <li>Save the file to your disk and <a href="/introduction/#obtaining-the-data-for-this-chapter">unzip it</a></li>
 </ul>
 <p>The zip file should contain the following items</p>
@@ -225,16 +225,18 @@
 <li>Go to the <code>Browser</code> (if it isn&rsquo;t already open go to <code>View &gt; Panels</code> and put a tick next to <code>Browser</code>).</li>
 <li>Click on the little arrow next to <code>Project Home</code> to see the contents of the folder.  You should see all of the files that you unzipped earlier.</li>
 </ul>
+<p><img alt="The Browser panel showing the files and folders for this project listed under Project Home." src="../images/gps/Browser_small.png" title="The Browser panel showing the files and folders for this project listed under Project Home." /></p>
 <p>One of the benefits of the browser is being able to have a look at the details of your data before you add it to a map.</p>
 <p>If you are in version 3.16 or above of QGIS</p>
 <ul>
 <li>click on the little arrow next to <code>Waypoints_26-FEB-14.gpx</code></li>
 </ul>
 <p>You should see that the file includes several <strong>layers</strong>.  For this exercise the only one we want is <code>waypoints</code></p>
+<p><img alt="The layers within the gpx file as seen in version 3.16 of QGIS." src="../images/gps/GPXcontents_small.png" title="The layers within the gpx file as seen in version 3.16 of QGIS." /></p>
 <ul>
 <li>Right-click on the <code>waypoints</code> layer and go to <code>Layer Properties</code></li>
 </ul>
-<p>If you are in version 3.10 of QGIS</p>
+<p>If you are in version 3.10 of QGIS you won&rsquo;t be able to see the layers within the gpx file, but you can still get the right data.</p>
 <ul>
 <li>Right-click on the <code>Waypoints_26-FEB-14.gpx</code> layer and go to <code>Layer Properties</code></li>
 </ul>
@@ -243,7 +245,7 @@
 <li>Use the three tabs at the top of the layer properties - <code>Metadata</code><sup id="fnref:301"><a class="footnote-ref" href="#fn:301">1</a></sup>, <code>Preview</code> and <code>Attributes</code> - to have a look at your file.</li>
 </ul>
 <p><img alt="The layer properties showing metadata about the layer you right-clicked on." src="../images/gps/LayerProperties_small.png" title="The layer properties showing metadata about the layer you right-clicked on." /></p>
-<p>The <code>Metadata</code> tab tells you quite a lot, but the preview tab can confirm that your data looks correct, and the Attributes tab will let you see the table of data that you have.</p>
+<p>The <code>Metadata</code> tab tells you quite a lot, but the <code>Preview</code> tab can confirm that your data looks correct, and the <code>Attributes</code> tab will let you see the table of data that you have.</p>
 <blockquote>
 <p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Make a note of the CRS</strong></p>
 <p>One particularly important piece of information is the CRS, or Coordinate Reference System.  You&rsquo;ll need to know this later.</p>
@@ -265,7 +267,7 @@
 <p>You should now have a map showing small circles for each of the waypoints which looks something like the image below. (Your colours may be different.)</p>
 <p><img alt="The map once you have added the Waypoints.  Your colours may be different to these." src="../images/gps/WaypointsAdded.png" title="The map once you have added the Waypoints.  Your colours may be different to these." /></p>
 <h3 id="exporting-gpx-layer-to-a-geopackage">Exporting gpx layer to a geopackage</h3>
-<p>As they are at the moment, this is not a proper GIS layer. If you are going to use these points for further analysis you need to <strong>export</strong> them to a GIS format, such as a layer in a <code>Geopackage</code>. </p>
+<p>As the layer is stored at the moment, this is not a proper GIS layer. If you are going to use these points for further analysis or measurements you need to <strong>export</strong> them to a GIS format, such as a layer in a <code>Geopackage</code>. </p>
 <blockquote>
 <p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Geopackage format</strong></p>
 <p>A <code>geopackage</code> is a form of database designed to store spatial data.  It has been relatively recently developed but it&rsquo;s use as a GIS format has spread very quickly.  QGIS encourages the use of geopackages and it is increasingly possible to use them in other GIS software.</p>
@@ -289,14 +291,20 @@
 </ul>
 <p><img alt="Filling in the form to save your waypoints as a vector layer in a geopackage." src="../images/gps/SaveVectorLayerAs_small.png" title="Filling in the form to save your waypoints as a vector layer in a geopackage." /></p>
 <p>Your map won&rsquo;t look much different, though the dots may have changed colour.</p>
-<!-- TODO: Look at the data in the Geopackage to show it's there... Also in explorer to show single file? -->
-
+<p>The new GeoPackage should have appeared in the Browser in the folder you saved it to.  Have a look at that now and drop down the arrow next to the .gpkg file to check that the Waypoints layer is there.</p>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Components of a GeoPackage</strong></p>
+<p>If you have a look at the same .gpkg file in your file explorer outside of QGIS you&rsquo;ll probably see three files with the same name but slightly different extensions - <code>.gpkg</code>, <code>.gpkg-shm</code> and <code>.gpkg-wal</code>.  The last two are temporary files which appear when the geopackage is open in QGIS.  The geopackage itself is a single file and without appropriate software, such as QGIS, you can&rsquo;t open it and see the contents.</p>
+</blockquote>
+<p><img alt="The components of a geopackage viewed in a file explorer when the file is open in QGIS." src="../images/gps/GeopackageExplorer_small.png" title="The components of a geopackage viewed in a file explorer when the file is open in QGIS." /></p>
 <p>To keep the Layers panel tidy right click on the original waypoints layer and <code>Remove layer...</code></p>
 <h2 id="installing-qgis-plugin-to-display-a-background-map">Installing QGIS plugin to display a background map</h2>
-<p>At the moment you have your waypoints on a map, but can&rsquo;t check where they are located.</p>
+<p>At the moment you have your waypoints on a map, but can&rsquo;t check where they are located because the background is just plain white.</p>
 <p>One of the strengths of QGIS is that it has a wide variety of plugins that you can install to carry out extra tasks.  One of these plugins allows you to add maps from the web as background maps so we&rsquo;ll install that now.</p>
 <ul>
 <li>In the menu go to <code>Plugins &gt; Manage And Install Plugins...</code></li>
+<li>When it opens click on the <code>Installed</code> heading on the left to see the plugins that are already installed.</li>
+<li>If you click on a plugin you&rsquo;ll be able to see a bit about it in the panel on the right.</li>
 </ul>
 <p><img alt="The plugin manager showing the core plugins that are installed when you install QGIS." src="../images/gps/PluginsInstalled_small.png" title="The plugin manager showing the core plugins that are installed when you install QGIS." /></p>
 <p>To install a new plugin:</p>
@@ -320,6 +328,7 @@
 <p>Now that you&rsquo;ve added the OSM Standard basemap you should be able to see the details of Chancellors Court at the University with your waypoints shown on top.  If you can&rsquo;t see your waypoints check that they are above the basemap in the Layers pane.</p>
 <ul>
 <li>Zoom to 1:500 to see the buildings around Chancellors Court too.</li>
+<li>If your points are not appearing over Chancellors Court then there may have been something wrong with the CRS when you imported them.  Try importing them again and be careful with the settings.</li>
 </ul>
 <p><img alt="Your map, showing your waypoints on top of the OSM Standard basemap from QuickMapServices." src="../images/gps/QuickMapServicesOSM.png" title="Your map, showing your waypoints on top of the OSM Standard basemap from QuickMapServices." /></p>
 <blockquote>
@@ -331,6 +340,7 @@
 <p>OSM monochrome</p>
 </blockquote>
 <p>Finish with the <code>OSM monochrome</code> basemap on your map with all of the other basemap layers removed.  The monochrome (black and white) background map will make your data easier to see.</p>
+<p>Don&rsquo;t forget to <code>Save</code> your map regularly.</p>
 <h2 id="adding-extra-data-to-feature-classes">Adding extra data to feature classes</h2>
 <p>The layer that you have saved to a Geopackage is known in GIS terms as a <code>feature class</code>.  This contains your <code>features</code> and data for each one which are called <code>attributes</code>.</p>
 <ul>
@@ -349,7 +359,7 @@
 </ul>
 <p>To start adding attributes to a table you need to start <strong>editing</strong> the feature class.</p>
 <ul>
-<li>On the attribute table window click on the <code>Toggle Editing Mode</code> button at top right (see the annotated picture of the attribute table above, and remember that tool tips are visible if you hover over buttons).</li>
+<li>On the attribute table window click on the <code>Toggle Editing Mode</code> button at top left (see the annotated picture of the attribute table above, and remember that tool tips are visible if you hover over buttons).  If you&rsquo;re not sure whether a layer is editable have a look at the Layers panel - any layer toggled for editing will have a little pencil symbol on the left.</li>
 <li>Click in the space under <code>desc</code> for the point with the name <code>001</code> - the word <code>NULL</code> should be selected</li>
 <li>Look at the pdf map and find point <code>001</code> (it&rsquo;s top left of Chancellors Court) - what is the description of it?</li>
 <li>If you have trouble finding it try selecting the feature in the attribute table by clicking on the number in the grey space on the left.  The point will then be highlighted on your map in QGIS</li>
@@ -363,16 +373,16 @@
 <li>then close the attribute table by clicking on the cross in the top right.</li>
 </ul>
 <h2 id="styling-the-point-layer">Styling the point layer</h2>
-<p>Now that you have the description in your attribute table you can style your point layer.</p>
+<p>Now that you have the description in your attribute table you can style your point layer, initially as a single symbol but then with different symbols for different types of feature.</p>
 <h3 id="styling-a-layer-as-a-single-symbol">Styling a layer as a single symbol</h3>
 <p>The default styling is for single symbols.</p>
 <ul>
-<li>Select the <code>waypoints</code> layer in the Layers panel and click on the <code>Open the Layer Styling panel</code> button - at the top of the Layers panel on the left.</li>
+<li>Select the <code>waypoints</code> layer in the Layers panel and click on the <code>Open the Layer Styling panel</code> button - at the top of the Layers panel on the left or from the menu go to <code>View &gt; Panels' and put a tick next to</code>Layer Styling`.</li>
 <li>This should open on the right of the map window and gives you choices for the way your layer looks.</li>
 </ul>
 <p><img alt="The Layer Styling panel showing single symbols." src="../images/gps/Symbols_small.png" title="The Layer Styling panel showing single symbols." /></p>
-<p>In this view you can click on any of the symbols in the gallery and the symbols on your map will change to match them.  Try this now.</p>
-<p>The section at the top allows you to change the size, opacity and colour of the symbols.  Again, try changing the choices there and see what they do.</p>
+<p>In this view you can click on any of the symbols in the gallery and the symbols on your map will change to match them.  Try this now by picking any symbol from the gallery.</p>
+<p>The section at the top allows you to change the size, opacity and colour of the symbols.  Again, try changing the choices there and see what they do.  You get more choices if you click on the <code>Simple marker</code> symbol layer.</p>
 <h3 id="styling-a-layer-as-categories">Styling a layer as categories</h3>
 <p>So far you have a single coloured symbol representing every point.  Your map would be much more informative if each type of feature had it&rsquo;s own symbol.</p>
 <ul>
@@ -384,7 +394,7 @@
 <p><img alt="The Layer Styling on the right is set to Categorized and the desc field has been added as the Value.  The different types of item have been added to the list by clicking on Classify. Note the different colours on the map." src="../images/gps/SymbolsCategories_small.png" title="The Layer Styling on the right is set to Categorized and the desc field has been added as the Value.  The different types of item have been added to the list by clicking on Classify. Note the different colours on the map." /></p>
 <p>Note that the attributes that you left as <code>NULL</code> in the attribute table have all been styled as a symbol listed as <em><code>all other...</code></em>.  It would be good to get rid of that as it isn&rsquo;t adding any useful information to the map.</p>
 <ul>
-<li>In the Layer Styling panel untick the box on the left of the <em><code>all other...</code></em> category.</li>
+<li>In the Layer Styling panel untick the box on the left of the <em><code>all other...</code></em> category.  Alternatively you can click on this and then on the <code>Delete</code> button at the bottom of the panel to get rid of the symbol completely.</li>
 </ul>
 <p>The NULL symbols should all disappear from the map.</p>
 <p>Note that the Layers panel on the left now acts as a key to your waypoints layer.</p>
@@ -409,6 +419,7 @@
 <p>Continue in the same way to select appropriate symbols for the rest of the categories of point.</p>
 </blockquote>
 <p><img alt="Symbols on the map - yours will probably look different as you'll have made different choices." src="../images/gps/SymbolsOnMap_small.png" title="Symbols on the map - yours will probably look different as you'll have made different choices." /></p>
+<p>Once you&rsquo;ve finished setting the symbols for the waypoints, save your map and close it.</p>
 <h2 id="changing-the-coordinate-system-crs-of-data">Changing the coordinate system (CRS) of data</h2>
 <p>The GPS data that you have collected is in the WGS 84 geographic coordinate system.  Remember that you <a href="#using-the-browser-to-find-information-about-a-layer">checked this earlier</a>.  QGIS sets the project CRS to that of the first layer that you add to the map.  So in this case the map CRS is also WGS 84.</p>
 <p>Often you will need to use data in a local projected coordinate system.  The obvious example is if you are using Ordnance Survey maps from Digimap in the same project.  This is the example we will use now, but the same situation can arise if you are, for example, creating a map of Spain or Eire<sup id="fnref:302"><a class="footnote-ref" href="#fn:302">2</a></sup>.</p>
@@ -430,7 +441,7 @@
 <p>Now it should be possible to see that both polygons cover parts of the University, but the one that is relevant for this map is the one to the south which covers Chancellors Court.</p>
 <ul>
 <li>Zoom in to the polygon to the south.</li>
-<li>Now add the <code>Waypoints</code> layer from your geopackage to the Layers panel from the Browser.</li>
+<li>Now add the <code>Waypoints</code> layer from your geopackage (not from the original gpx file) to the Layers panel from the Browser.</li>
 </ul>
 <p>They should appear in the correct place, even though they have a CRS of WGS 84 and the map is in British National Grid.  You can check this in the layer properties if you want to.</p>
 <p>QGIS is projecting the layer &ldquo;on the fly&rdquo; using a <code>transformation</code>.  This is very convenient, and if you are just going to look at the map that is fine.  But if you need to do any analysis or measure anything then you really need to get this layer projected in to British National Grid as well.</p>
@@ -461,8 +472,9 @@
 <li>If you compare your two maps you should be able to see that the different CRS gives a very different idea of the &ldquo;shape&rdquo; of Chancellors Court.</li>
 </ul>
 <p><img alt="Comparing British National Grid (left) and WGS 84 (right)." src="../images/gps/CompareCRS_small.png" title="Comparing British National Grid (left) and WGS 84 (right)." /></p>
+<p>This is because the projected CRS, British National Grid, is designed to be best to display maps of Britain on a cartesian grid whereas the geographic CRS, WGS 84, is designed to display maps of the whole world in latitude and longitude.  This means that the mathematics behind each CRS is rather different.</p>
 <h3 id="copying-styles">Copying styles</h3>
-<p>If you want to style the point symbols on your BNG map so that they are the same as the WGS 84 map try the following:</p>
+<p>If you want to style the point symbols on your BNG map so that they are the same as the WGS 84 map try the following short cut:</p>
 <ul>
 <li>In the WGS 84 map right-click on the waypoints layer and select <code>Styles &gt; Copy Style &gt; All style categories</code></li>
 <li>In the British National Grid map right-click on the waypoints layer and select <code>Styles &gt; Paste style &gt; All style categories</code></li>
