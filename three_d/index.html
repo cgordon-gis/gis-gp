@@ -91,6 +91,16 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-a-profile-graph">Creating a profile graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-to-download">Data to download</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#download-dtm-files-from-digimap">Download DTM files from Digimap</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#producing-seamless-datasets-from-more-than-one-tile-of-dtm-data">Producing "seamless" datasets from more than one tile of dtm data</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -133,7 +143,31 @@
 <p>The background to viewing your data in 3D will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
 <h2 id="learning-outcomes">Learning outcomes</h2>
 <p>When you have completed this section of the workbook you should be able to</p>
+<!-- TODO: Intending to cover: profiles; 3D view - quick via native; 3D view via plugin; extruding points - boreholes. -->
+
+<!-- TODO: Students will need to download and merge the Terrain 5 dtm data. -->
+
+<!-- TODO: Layers to upload to Minerva - Boreholes.csv (more practice at importing csv) -->
+
 <h2 id="introduction">Introduction</h2>
+<h2 id="creating-a-profile-graph">Creating a profile graph</h2>
+<p>QGIS enables you to draw a profile graph across your map using <code>z values</code> in your surface raster files or heights above sea-level.</p>
+<h2 id="data-to-download">Data to download</h2>
+<p>Boreholes.csv from Minerva and load using previous instructions - cross-ref</p>
+<h3 id="download-dtm-files-from-digimap">Download DTM files from Digimap</h3>
+<p>You&rsquo;ll need to start by obtaining height data from Digimap and converting it for use in QGIS.</p>
+<p><strong>DTM</strong> stands for Digital Terrain Model.  You may also come across <strong>DEM</strong> which stands for Digital Elevation Model.  There are differences in the data but both can be treated in the same way.</p>
+<p>Use <a href="/finding_data/#downloading-data-from-digimap">Digimap O.S. Data Download</a></p>
+<ul>
+<li>Search for <code>Llanbedr</code> - it&rsquo;s the one in Gwynedd - and download data for at least the area shown below (a bit more than this doesn&rsquo;t matter, but don&rsquo;t download too much or the processing will take ages):</li>
+</ul>
+<p><img alt="The area for which to download data - OS Terrain 5 DTM." src="../images/analysis/DigimapDownloadDTM.png" title="The area for which to download data - OS Terrain 5 DTM." /></p>
+<ul>
+<li>When selecting data products go to <code>Land and Height Data</code> and select <code>OS Terrain 5 DTM</code> - make sure you select the DTM not the contours.</li>
+<li>Once you have the data in the basket select the download format as <code>ASC</code></li>
+</ul>
+<h2 id="producing-seamless-datasets-from-more-than-one-tile-of-dtm-data">Producing &ldquo;seamless&rdquo; datasets from more than one tile of dtm data</h2>
+<p>If you are using more than one tile of dtm data (which you should be for this exercise) follow the instructions below to combine the multiple files into one single one.  This will make it possible to use the files as a continuous surface in maps and 3D scenes.  During this process we will also convert the multiple asc or tif files into one single <code>tiff</code> file.</p>
               
             </div>
           </div>

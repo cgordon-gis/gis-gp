@@ -74,12 +74,20 @@
     <li class="toctree-l2"><a class="reference internal" href="#learning-outcomes">Learning outcomes</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#access-to-software">Access to software</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#data-to-download">Data to download</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#creating-xyz-files">Creating xyz files</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#import-points-from-xyz-file-to-qgis">Import points from xyz file to QGIS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#exporting-a-layer-to-a-geopackage">Exporting a layer to a geopackage</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -139,26 +147,34 @@
 <p>The background to importing point data from xyz files will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
 <h2 id="learning-outcomes">Learning outcomes</h2>
 <p>When you have completed this section of the workbook you should be able to</p>
-<!-- TODO: Need to fill in learning outcomes -->
-
+<ul>
+<li>demonstrate how to set up and format xyz files ready to be imported into QGIS</li>
+<li>Import a csv file into QGIS so that it appears in the correct location and display the data on a map</li>
+</ul>
 <h2 id="introduction">Introduction</h2>
-<p>The data that you collected using GPS imported in to QGIS shows you one way of adding point data.  You will almost certainly also come across point data as an Excel file or as a text file.  If these contain x and y coordinates they can easily be added to GIS.</p>
+<p>The data that was collected using GPS and that you <a href="/gps/">imported in to QGIS</a> shows you one way of adding point data to GIS.  You will almost certainly also come across point data as an Excel/spreadsheet file or as a text file.  If these contain x and y coordinates they can easily be added to GIS.</p>
+<h3 id="access-to-software">Access to software</h3>
+<p>Note that where the following instructions talk about Excel files, these can also be created and opened using <a href="https://www.openoffice.org/">OpenOffice Calc</a> and <a href="https://www.libreoffice.org/">LibreOffice Calc</a>.  Excel is available as part of the <a href="https://it.leeds.ac.uk/it?id=kb_article&amp;sysparm_article=KB0014078">Office365 suite</a> and you have access to that via the University.</p>
+<p>Csv files are a form of text file and can be opened in any text editor as well as Excel, OpenOffice or LibreOffice.  On Windows one recommendation is <a href="https://notepad-plus-plus.org/">Notepad++</a> which has more functionality than the basic Notepad, but there are plenty of options on all operating systems.</p>
 <h2 id="data-to-download">Data to download</h2>
 <p>You will be using the North Wales project that you created in the Introduction chapter.  If you no longer have that project then you can download another copy from the Week 7 folder in Minerva.</p>
 <ul>
 <li>The data that you downloaded in Week 7 should contain a folder called <code>GP_data</code></li>
-<li>That folder should contain an Excel spreadsheet called <code>LlanbedrGravity.xls</code></li>
+<li>That folder should contain an Excel spreadsheet called <code>LlanbedrGravity.xls</code>.  If you can no longer find that file you can download another copy from the Week 9 folder in Minerva.</li>
 </ul>
 <h2 id="creating-xyz-files">Creating xyz files</h2>
-<p>Xyz files can be either comma separated value text files (often with an extension of <code>.csv</code>) or Excel or OpenOffice spreadsheets.  They contain point data which includes coordinates for a geographic location either in two dimensions (x and y) or three (x,y and z).</p>
+<p>Xyz files can be either comma separated value text files (often with an extension of <code>.csv</code>) or Excel or OpenOffice/LibreOffice spreadsheets.  They contain point data which includes coordinates for a geographic location either in two dimensions (x and y) or three (x,y and z).</p>
 <ul>
-<li>Open the <code>LlanbedrGravity.xls</code> spreadsheet now and have a look at the data it contains.</li>
+<li>Open the <code>LlanbedrGravity.xls</code> in a spreadsheet program now and have a look at the data it contains.</li>
 </ul>
 <p><img alt="The first few rows of the spreadsheet containing the gravity data for this exercise." src="../images/import_xyz/LlanbedrGravitySpreadsheet_small.png" title="The first few rows of the spreadsheet containing the gravity data for this exercise." /></p>
-<p>QGIS can only import xyz data from <code>.csv</code> files either saved from Excel or OpenOffice or created in a text editor such as Notepad++ (not Word!).  So use Excel or OpenOffice to convert the Excel file to csv -</p>
+<p>QGIS can only import xyz data from <code>.csv</code> files.  You can either save the data as csv in Excel or OpenOffice or create it directly in a text editor such as Notepad++ (not Word!).</p>
 <ul>
+<li>Use Excel, OpenOffice or LibreOffice to convert the Excel file to csv -<ul>
 <li><code>File &gt; Save As...</code></li>
 <li>set the format to <code>CSV (Comma delimited) (*.csv)</code> (not to any of the other versions of csv)</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
@@ -166,10 +182,11 @@
 </blockquote>
 <p>In particular note the <code>Eastings</code> and <code>Northings</code> columns - these are in effect the x and y columns.  These are in <strong>British National Grid 1 m coordinates</strong> (The grid numbers such as SH or SJ have been replaced with numbers - 22 and 23).  Other numerical columns can be used for the z values, or the data.  In this case we&rsquo;ll be using the <code>CorrBA</code> (Corrected Bouguer Anomaly in mGal) as the z values.</p>
 <h2 id="import-points-from-xyz-file-to-qgis">Import points from xyz file to QGIS</h2>
-<p>Start by opening your map of Llanbedr in North Wales in QGIS.  You should have a view of the 1:25 000 raster map from Ordnance Survey.  If not, turn layers on and off as required.</p>
-<p>If you add the xyz file to your map directly it won&rsquo;t appear.  You need to tell QGIS which fields contain the x and y data before it can display it.</p>
+<p>Start by opening your map of Llanbedr in North Wales in QGIS.  You should have a view of the 1:25 000 raster map from Ordnance Survey.  If not, turn layers on and off as required, and add the 1:25 000 raster map from the Browser if necessary.</p>
+<p>If you add the xyz file to your map directly it won&rsquo;t appear.  QGIS will view it as a table without spatial information.  You need to tell QGIS which fields contain the x and y data before it can display it.</p>
 <ul>
 <li>Open the <code>Data Source Manager</code> - <code>Layer &gt; Data Source Manager</code></li>
+<li>Click on the <code>Delimited Text</code> tab on the left</li>
 <li>In the <code>File name</code> field at the top browse to your csv file and select it</li>
 <li>Under <code>Layer name</code> type a name for your new layer, e.g. <code>LlanbedrGravity</code></li>
 <li>Check that the <code>File Format</code> is set to <code>CSV</code></li>
@@ -184,7 +201,9 @@
 </ul>
 <p><img alt="The Data Source Manager set up to open an xyz file." src="../images/import_xyz/DataSourceManagerXY_small.png" title="The Data Source Manager set up to open an xyz file." /></p>
 <p>You should find that you have a series of dots spread across your map.  If you can&rsquo;t see them make sure that the new layer is above the background map in the Layers panel.</p>
-<p>At the moment this file is still not in a GIS format.  You need to export it to a geopackage to make it permanent.</p>
+<p><img alt="The locations of the gravity points in the new layer." src="../images/import_xyz/LlanbedrGravityLocations_small.png" title="The locations of the gravity points in the new layer." /></p>
+<h3 id="exporting-a-layer-to-a-geopackage">Exporting a layer to a geopackage</h3>
+<p>At the moment this file is still not in a GIS format.  You need to export it to a geopackage to make it permanent<sup id="fnref:501"><a class="footnote-ref" href="#fn:501">1</a></sup>.</p>
 <ul>
 <li>Right-click on the layer in the Layers panel</li>
 <li><code>Export &gt; Save Features As...</code><ul>
@@ -197,20 +216,29 @@
 <li>Check that <code>Add saved file to map</code> is ticked</li>
 <li>Click <code>OK</code> to export the layer to the geopackage.</li>
 </ul>
-<p><img alt="Filling in the form to save the spreadsheet as a geopackage layer." src="images/import_xy/SaveVectorLayerAs.png" title="Filling in the form to save the spreadsheet as a geopackage layer." /></p>
+<p><img alt="Filling in the form to save the spreadsheet as a geopackage layer." src="../images/import_xyz/SaveVectorLayerAs_small.png" title="Filling in the form to save the spreadsheet as a geopackage layer." /></p>
 <ul>
-<li>Remove the original gravity layer to keep your map tidy.</li>
+<li>Remove the original gravity point layer to keep your map tidy.</li>
 <li>Save your map.</li>
-<li><code>Zoom to layer</code> to check that your new layer is in the correct location.  Your map should look something like the one below.  Note that I&rsquo;ve changed the symbology so that the points are more visible.</li>
-</ul>
-<p><img alt="The locations of the gravity points in the new layer." src="../images/import_xyz/LlanbedrGravityLocations_small.png" title="The locations of the gravity points in the new layer." /></p>
-<ul>
-<li>Right-click on the <code>LlanbedrGravity</code> layer in the Layers panel and open the <code>Attribute table</code></li>
+<li>
+<p><code>Zoom to layer</code> to check that your new layer is in the correct location.  Your map should still look something like the map above - the locations won&rsquo;t have moved.  Note that I&rsquo;ve changed the symbology so that the points are more visible.</p>
+</li>
+<li>
+<p>Right-click on the <code>LlanbedrGravity</code> layer in the Layers panel and open the <code>Attribute table</code></p>
+</li>
 <li>Have a look at the table - it should basically look the same as the original spreadsheet except that is has gained a field called <code>fid</code> for Feature ID.</li>
 </ul>
 <p>You should finish this chapter with a project containing the points imported from the original spreadsheet with the 1:25 000 raster background from Ordnance Survey providing a background map.</p>
 <p>In the next chapter we&rsquo;ll look at how we can analyse the points and display the data in different ways.</p>
-<p>Make sure you have this project saved.</p>
+<p>Make sure you have this project saved and move on to the next chapter.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:501">
+<p>I&rsquo;ve used a geopackage here, but it could be exported to any GIS format such as a shapefile instead.&#160;<a class="footnote-backref" href="#fnref:501" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>

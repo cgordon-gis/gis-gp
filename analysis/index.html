@@ -79,7 +79,39 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-symbols-and-labels-to-analyse-data">Using symbols and labels to analyse data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#styling-the-point-layer">Styling the point layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#labelling-the-point-layer">Labelling the point layer</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#creating-a-raster-surface-from-your-point-data">Creating a raster surface from your point data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#change-the-symbology-of-the-raster-surface">Change the symbology of the raster surface</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-transparency-for-a-raster-layer">Setting transparency for a raster layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trying-out-a-different-method-of-interpolation">Trying out a different method of interpolation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comparing-the-raster-surfaces">Comparing the raster surfaces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deriving-contours-from-a-surface">Deriving contours from a surface</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-labels-to-contours">Adding labels to contours</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output-from-this-chapter">Output from this chapter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-information-analysis-in-gis">More information: Analysis in GIS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#more-information-on-techniques-in-qgis">More information on techniques in QGIS</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -135,21 +167,85 @@
 <p>The background to analysing and viewing point data will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
 <h2 id="learning-outcomes">Learning outcomes</h2>
 <p>When you have completed this section of the workbook you should be able to</p>
-<!-- TODO: Need to fill in the learning outcomes -->
+<ul>
+<li>demonstrate the use of symbology to analyse and display data on a map</li>
+<li>select appropriate tools to carry out geoprocessing tasks in GIS in order to answer specific questions</li>
+</ul>
+<!-- TODO: Revisit the analysis learning outcomes -->
 
 <h2 id="introduction">Introduction</h2>
-<p>This chapter continues working with the Llanbedr, North Wales map project, so <code>open</code> that now if it isn&rsquo;t already open.</p>
-<p>Now that you have the point data in QGIS you can start to analyse it and display it.</p>
-<p>At the moment you have data in point format.  That gives measurements for particular locations, but what happens if you want to know the measurement at a location between the samples?  This is where GIS analysis becomes essential.</p>
+<p>This chapter continues working with the Llanbedr, North Wales map project, so <code>open</code> that in QGIS now if it isn&rsquo;t already open.</p>
+<p>Now that you have the point data in QGIS you can start to analyse it and display it to answer questions.</p>
+<blockquote>
+<p><img alt="Video clip" src="../images/svg/videocam-black-24dp.png" /> <strong>Raster and vector</strong></p>
+<p>If you feel that you are still not clear about the difference between <strong>raster</strong> and <strong>vector</strong> GIS data it would be worth watching the video &ldquo;<a href="https://youtu.be/hbOGp51nYGI">Learn more about raster and vector map data</a>&rdquo; by the Ordnance Survey before you start on this chapter.</p>
+</blockquote>
+<h2 id="using-symbols-and-labels-to-analyse-data">Using symbols and labels to analyse data</h2>
+<p>We&rsquo;ll start by seeing what we can do to analyse the data by displaying it on a map.  In this way you can sometimes pick up patterns in the data.</p>
+<h3 id="styling-the-point-layer">Styling the point layer</h3>
+<ul>
+<li>Open the <code>Layer Styling</code> panel for the LlanbedrGravity layer (<code>View &gt; Panels</code> and tick next to <code>Layer Styling</code> or the button at the top left of the Layers panel - remember that tool tips will show if you hover over a button.)</li>
+<li>Make sure you are on the <code>Symbology</code> tab.</li>
+<li>At the top drop down where it says <code>Single Symbol</code> and select <code>Graduated</code></li>
+<li>Set the <code>Value</code> to <code>CorrBA</code></li>
+<li>At the bottom of the panel select <code>Classify</code></li>
+</ul>
+<p>Your points should now have a range of colours - the key in the Layers panel shows the range of values that these indicate.</p>
+<p><img alt="The Layer Styling panel set up for graduated colours.  Note the values in the classes list these can be changed using the Mode or manually." src="../images/analysis/LayerStylingGraduatedClasses_small.png" title="The Layer Styling panel set up for graduated colours.  Note the values in the classes list these can be changed using the Mode or manually." /></p>
+<ul>
+<li>There are a lot of settings in the Layer styling panel.  For example you can change the colour ramp</li>
+<li>or you can change the intervals by changing <code>Mode</code> and number of <code>Classes</code>.  </li>
+<li>You can change the class values manually by double-clicking in the <code>Values</code> column and filling in new Lower or Upper values. </li>
+<li>It is also possible to change the <code>Method</code> to show graduated size instead of graduated colour.</li>
+<li>Try clicking on <code>Load Values</code> in the <code>Histogram</code> tab and have a look at how your data values are distributed.</li>
+</ul>
+<p><img alt="The histogram tab showing the spread of your data." src="../images/analysis/LayerStylingGraduatedHistogram_small.png" title="The histogram tab showing the spread of your data." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Displaying your point data</strong></p>
+<p>Try out some of the settings in the Layer styling panel and see how they can help you to display and interpret your data.</p>
+<p>How well do you think this works for this data set?</p>
+<p>Use your knowledge as a scientist to display this data in a suitable manner using these tools.</p>
+</blockquote>
+<p>Sometimes turning off the background layer can help you to see the styles and labels.  Don&rsquo;t forget to turn it back on again later, though.</p>
+<p>If you&rsquo;re not happy with your symbology remember that it is always possible to remove the layer from your map then add it back in again and start from scratch.</p>
+<h3 id="labelling-the-point-layer">Labelling the point layer</h3>
+<p>Another way of displaying the data is to add labels to the points which show the actual values.</p>
+<ul>
+<li>In the Layer Styling panel go to the <code>Labels</code> tab (remember to hover over buttons or tabs to use tool tips)</li>
+<li>Drop down <code>No Labels</code> and choose <code>Single Labels</code> instead</li>
+<li>Set the <code>Value</code> to <code>CorrBA</code> and the labels should appear on your map.</li>
+</ul>
+<p>Again, play with the settings.  You have already tried out labelling polygons in the chapter on <a href="/creating_data/#labelling-features">Creating data</a>, now you have a chance to find out more about labelling points.</p>
+<ul>
+<li>Change the font and the font size on the <code>Text</code> tab.  You don&rsquo;t want these labels to be too large - they need to be visible but shouldn&rsquo;t dominate the map.</li>
+<li>How do the <code>Placement</code> settings (one of the tabs at the top of the panel - use the tooltips to find it again) affect the labels?  Try setting the <code>Mode</code> to <code>Cartographic</code> then increase the <code>Distance</code> of the label from the feature.</li>
+</ul>
+<p><img alt="The labelled and symbolised points.  Your points will almost certainly look different to mine as you will have made your own decisions about symbology, colours and labels." src="../images/analysis/LabelledPoints_small.png" title="The labelled and symbolised points.  Your points will almost certainly look different to mine as you will have made your own decisions about symbology, colours and labels." /></p>
+<p>When you are happy with the symbols and the labels save your map and continue.</p>
 <h2 id="creating-a-raster-surface-from-your-point-data">Creating a raster surface from your point data</h2>
-<p>QGIS can create a surface in raster format which is derived from point data.  This will show z values for the spaces between the observed points which QGIS will have work out from available data - a process known as <strong>interpolation</strong>.  Inevitably the accuracy of the surface will increase if you have more data points in a particular area, but it still works if your points are widely spaced.</p>
-<p>There are several different methods of interpolation available in QGIS.  The instructions below use IDW (Inverse Distance Weighted) as an example, but you&rsquo;ll get a chance to try others too and have a look at the differences.  Different methods work best for different data.</p>
-<p>ESRI, who make the ArcGIS software, have a useful <a href="http://www.esri.com/news/arcuser/0704/files/interpolating.pdf">article about interpolation</a> freely available online and you should refer to this during this chapter.</p>
+<p>At the moment you have data in point format.  That gives measurements for particular locations, but what happens if you want to know the measurement at a location between the samples?  This is where GIS analysis becomes essential.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Highest and lowest values</strong></p>
+<p>Before you start have a look at the <code>LlanbedrGravity</code> layer and make a note of the highest and lowest values in the <code>CorrBA</code> field.  You can do this either from the labels, or from the attribute table.</p>
+</blockquote>
+<p>QGIS can create a surface in raster format which is derived from point data.  This will show z values for the spaces between the observed points which QGIS processing tools will have worked out from available data - a process known as <strong>interpolation</strong>.  Inevitably the accuracy of the surface will increase if you have more data points in a particular area, but it still works if your points are widely spaced.</p>
+<p>There are a couple of different methods of interpolation available in QGIS.  The instructions below use IDW (Inverse Distance Weighted) as an example, but you&rsquo;ll get a chance to have a look at an alternative.  Different methods work best for different data.</p>
+<p>ESRI, who make the ArcGIS software that we&rsquo;re not using, have an article entitled <a href="https://www.esri.com/news/arcuser/0704/files/interpolating.pdf">Interpolating Surfaces in ArcGIS Spatial Analyst</a>.  Whilst that refers to their software not to QGIS, the principles are the same.  Have a look at the article and their discussion of IDW and Spline amongst others.</p>
 <p>The analysis tools in QGIS are available in the <code>Processing Toolbox</code>.</p>
 <ul>
-<li>Open the toolbox by going to `Processing &gt; Toolbox&rsquo;</li>
+<li>Open the toolbox by going to <code>Processing &gt; Toolbox</code></li>
 </ul>
+<p>The Processing Toolbox should open to the right of your map.</p>
+<p><img alt="The Processing Toolbox when you first open it showing the main tool providers." src="../images/analysis/ProcessingToolbox_small.png" title="The Processing Toolbox when you first open it showing the main tool providers." /></p>
 <p>There are a choice of tool providers in the toolbox.  Depending on your settings you should see a series of QGIS logos denoting native QGIS tools, but there may also be GDAL, GRASS and SAGA.</p>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>While you may appear to have GRASS and SAGA available, sometimes these need to be enabled correctly before they will actually work.</p>
+<p>For more information about the processing framework see the page in the <a href="https://docs.qgis.org/3.16/en/docs/user_manual/processing/index.html">QGIS User Guide</a>.</p>
+</blockquote>
+<!-- TODO: Anything obvious about enabling GRASS and SAGA? Because GRASS is required. -->
+
+<p>To use the tools:</p>
 <ul>
 <li>Start by searching for <code>IDW</code> in the box at the top of the toolbox</li>
 <li>Several options should appear, double-click on the one under the QGIS Interpolation heading called <code>IDW interpolation</code></li>
@@ -169,7 +265,171 @@
 <p><img alt="The IDW Interpolation form." src="../images/analysis/InterpolationIDW_small.png" title="The IDW Interpolation form." /></p>
 <p>Your new layer should be automatically added to your map.  If it isn&rsquo;t, drag it there from the Browser now.</p>
 <p>The tool will have interpolated the surface from your data points.  You should end up with something similar, but probably not identical, to the picture below.</p>
+<p>If your point labels are showing through feel free to turn off the LlanbedrGravity layer for now.  It will make it easier to work with the surface.</p>
 <p><img alt="The output of the IDW processing tool." src="../images/analysis/IDWoutput_small.png" title="The output of the IDW processing tool." /></p>
+<blockquote>
+<p><img alt="Question" src="../images/svg/help_outline-black-24dp.png" /> <strong>Looking at your data</strong></p>
+<p>If you look at the Layers panel you&rsquo;ll be able to see the low and high measurements for the surface that you&rsquo;ve just generated.  Do these measurements make sense in terms of the low and high of your original data?</p>
+<p>If you look at the <a href="http://www.esri.com/news/arcuser/0704/files/interpolating.pdf">ESRI article on interpolation</a> does that help you to understand why the surface may or may not vary from your data?</p>
+</blockquote>
+<h3 id="change-the-symbology-of-the-raster-surface">Change the symbology of the raster surface</h3>
+<p>QGIS has used a default black to white colour ramp to display the gravity surface but it should be possible to find a more successful symbology for this raster layer.</p>
+<ul>
+<li>Select your new IDW layer in the Layers panel and open the Layer Styling panel if it isn&rsquo;t already open.</li>
+<li>Use the dropdown to change <code>Singleband gray</code> to <code>Singleband pseudocolor</code>.  Your layer will disappear.</li>
+<li>Drop down the <code>Min / Max Value Settings</code> and check that <code>Min/max</code> is ticked.</li>
+<li><code>Interpolation</code> should be set to <code>Linear</code></li>
+<li>Drop down the <code>Color ramp</code> and go to <code>All Color Ramps &gt; RdBu</code> - this should be Red to Blue.</li>
+<li>Click on the <code>Color ramp</code> again, and this time select <code>Invert Color Ramp</code> - in general blue is seen as low and red as high so that fits this data better.</li>
+</ul>
+<p>Arc will display your gravity surface again.</p>
+<ul>
+<li>Add <code>mGal</code> as the <code>Label unit suffix</code> - you will probably want to put a space before it.</li>
+<li>Change <code>Label precision</code> to 2</li>
+<li>Then click <code>Apply</code> to apply those settings to the entry in the Layers panel.</li>
+</ul>
+<p><img alt="Setting the styling for the raster gravity surface." src="../images/analysis/RasterSymbology_small.png" title="Setting the styling for the raster gravity surface." /></p>
+<h3 id="setting-transparency-for-a-raster-layer">Setting transparency for a raster layer</h3>
+<p>At the moment your surface is fine for the colours, but it is covering up the background map.  You need to make that visible so that it is possible to see where measurements are located.</p>
+<ul>
+<li>In the Layer Styling panel click on the second tab down on the left - <code>Transparency</code></li>
+<li>Use the <code>Global Opacity</code> slider to make the layer transparent.  Try setting it to something like <code>80%</code></li>
+</ul>
+<p><img alt="Setting transparency for a raster layer." src="../images/analysis/RasterTransparency_small.png" title="Setting transparency for a raster layer." /></p>
+<p>Play with the slider until you are happy that your layer is suitably transparent so that the background layer shows through but the raster surface is still clear.</p>
+<p><img alt="The symbolised and transparent raster surface showing Corrected Bouguer Gravity Anomaly." src="../images/analysis/SymbolisedSurface_small.png" title="The symbolised and transparent raster surface showing Corrected Bouguer Gravity Anomaly." /></p>
+<h3 id="trying-out-a-different-method-of-interpolation">Trying out a different method of interpolation</h3>
+<p>There are multiple methods of interpolation but QGIS has a relatively limited choice.  Kriging is only available under the SAGA library in QGIS and that doesn&rsquo;t appear to be installed by default so I don&rsquo;t cover it here.</p>
+<p>For spline the best option is part of the GRASS toolbox, which should be installed.</p>
+<ul>
+<li>If the toolbox isn&rsquo;t already open go to <code>Processing &gt; Toolbox</code></li>
+<li>search for <code>v.surf.rst</code> - this will generate an interpolated map by splines (rst = Regularised splines with tension)</li>
+</ul>
+<p>The form for this does look rather complex but you don&rsquo;t need to fill in most of the choices.</p>
+<ul>
+<li>Set the <code>Input points layer</code> to <code>LlanbedrGravity</code></li>
+<li>The <code>Name of the attribute column...</code> is <code>CorrBA</code></li>
+</ul>
+<p><img alt="The top of the Interpolation RST form showing the input and attribute column fields." src="../images/analysis/InterpolationRST_top_small.png" title="The top of the Interpolation RST form showing the input and attribute column fields." /></p>
+<ul>
+<li>Then go down to the <code>Advanced parameters</code> and set <code>GRASS GIS 7 region cellsize</code> to <code>5</code> (the cellsize is basically the resolution of the resulting raster layer)</li>
+<li>Then go down again to <code>Interpolated RST [optional]</code> - this is the output file.<ul>
+<li>Click on the three dots button to the right and <code>Save to file...</code></li>
+<li>Choose where to save the file and give it a name, e.g. <code>RSTgrav.tif</code> then <code>Save</code></li>
+<li>Check that there is a tick in the box next to <code>Open output file after running algorithm</code></li>
+</ul>
+</li>
+<li>Then change all of the dropdown boxes below to <code>[Skip output]</code> to prevent those being created</li>
+<li>Then click on <code>Run</code></li>
+</ul>
+<p>I haven&rsquo;t put an image for the whole of this form as it won&rsquo;t fit on one page, but the image below shows the output section and the setting to save the Interpolated RST output, but none of the other layers.</p>
+<p><img alt="Setting the output for Interpolated RST." src="../images/analysis/InterpolationRST_output_small.png" title="Setting the output for Interpolated RST." /></p>
+<p>You may get quite a few red error messages while it runs - partly because we don&rsquo;t have a large number of points to base the interpolation on.  But QGIS should then add a new layer to your map.</p>
+<ul>
+<li>Follow the same instructions to <a href="#change-the-symbology-of-the-surface">symbolise this output as you did the IDW output</a> and <a href="#setting-transparency-for-a-raster-layer">make it transparent</a></li>
+</ul>
+<p><img alt="The symbolised and transparent Interpolated RST layer." src="../images/analysis/SymbolisedSurfaceRST_small.png" title="The symbolised and transparent Interpolated RST layer." /></p>
+<blockquote>
+<p><img alt="Question" src="../images/svg/help_outline-black-24dp.png" /> <strong>Looking at your data</strong></p>
+<p>If you look at the Layers panel you&rsquo;ll be able to see the low and high measurements for the RST surface that you&rsquo;ve just generated.  Do these measurements make sense in terms of the low and high of your original data?</p>
+<p>If you look at the <a href="http://www.esri.com/news/arcuser/0704/files/interpolating.pdf">ESRI article on interpolation</a> does that help you to understand why the surface may or may not vary from your data?</p>
+</blockquote>
+<h2 id="comparing-the-raster-surfaces">Comparing the raster surfaces</h2>
+<p>You can compare the values of each surface at various points by using the <code>Identify Features</code> tool from the Attributes toolbar.</p>
+<ul>
+<li>Make sure that the IDW and RST layers are both visible, and turn off all of the other layers in the map</li>
+<li>Check that the Attributes toolbar is visible by going to <code>View &gt; Toolbars</code> and checking that there is a tick next to it.</li>
+</ul>
+<p><img alt="The Attributes Toolbar.  The Identify Features button is highlighted." src="../images/analysis/AttributesToolbar_small.png" title="The Attributes Toolbar.  The Identify Features button is highlighted." /></p>
+<ul>
+<li>Click on the <code>Identify features</code> button (highlighted in the image above)</li>
+<li>Then click somewhere on your map and select <code>Identify All (2)</code></li>
+<li>The <code>Identify Results</code> window should pop up showing a tree view of the value of the two layers at that point as <code>Band 1</code>.</li>
+<li>Click in a few places and see how the values compare</li>
+</ul>
+<p><img alt="The Identify Results window showing the values for each layer." src="../images/analysis/IdentifyResults_small.png" title="The Identify Results window showing the values for each layer." /></p>
+<blockquote>
+<p><img alt="Question" src="../images/svg/help_outline-black-24dp.png" /> <strong>Which surface do you think is the most appropriate for this data?</strong></p>
+<p>Have another look at the ESRI article on <a href="https://www.esri.com/news/arcuser/0704/files/interpolating.pdf">Interpolating Surfaces in ArcGIS Spatial Analyst</a>.</p>
+<p>Think about which surface you think is most appropriate for the data you have here and use that surface for the rest of the exercises in this workbook.</p>
+<p><strong>Keep a note of why you have chosen the surface that you have as you&rsquo;ll need to include this explanation in the layout for the assessment at the end of this workbook.</strong></p>
+</blockquote>
+<p>Once you have decided which layer to use <a href="/introduction/#removing-layers">remove the other from your map</a> and turn the <code>raster-25k_3706482</code> layer back on so that it is visible.</p>
+<h2 id="deriving-contours-from-a-surface">Deriving contours from a surface</h2>
+<p>Once you have created a surface it is easy to derive contours to display the surface in 2D.  This can make patterns in the data more obvious.</p>
+<ul>
+<li>If the toolbox isn&rsquo;t already open go to <code>Processing &gt; Toolbox</code></li>
+<li>Search for <code>Contour</code></li>
+<li>You should find the correct tool under <code>GDAL &gt; Raster extraction &gt; Contour</code>.  Double-click on it to open.</li>
+<li>Fill in the form as follows:<ul>
+<li>The <code>Input layer</code> is the raster surface that you&rsquo;ve chosen to use, e.g. I&rsquo;ve used <code>IDWgrav</code> in the example.</li>
+<li>The <code>Interval between contour lines</code> depends on your data.  Look at the highest and lowest values and think what might be a reasonable interval.  If it doesn&rsquo;t look good first time it&rsquo;s easy to run the tool again.  I&rsquo;ve chosen to enter <code>1</code>.</li>
+<li>Under <code>Contours</code> click on the three dots button on the right <ul>
+<li>Click on <code>Save to file...</code></li>
+<li>Navigate to the folder in which you want to save your data.</li>
+<li>Choose <code>GPKG files (*.gpkg)</code> as the <code>Save as type:</code> and give your output a name, such as <code>Contours1.gpkg</code> (the &ldquo;1&rdquo; will show the contour interval) and <code>Save</code>.  Note that unfortunately this tool won&rsquo;t add the output to an existing geopackage.</li>
+</ul>
+</li>
+<li>Click on <code>Run</code></li>
+</ul>
+</li>
+</ul>
+<p><img alt="Filling in the form to generate contours from a raster surface." src="../images/analysis/ContoursForm_small.png" title="Filling in the form to generate contours from a raster surface." /></p>
+<p>QGIS should then generate contours and add them as a layer to your map.</p>
+<p><img alt="The contours generated from the IDW gravity surface.  Yours may look different to these." src="../images/analysis/ContoursGenerated_small.png" title="The contours generated from the IDW gravity surface.  Yours may look different to these." /></p>
+<p>Use the <a href="/gps/#styling-a-layer-as-a-single-symbol">Layer styling panel</a> to set the contours to a suitable colour and thickness.  They should be visible on your map, but not stand out too much.  This is a map people will be looking at in close up, not a poster.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Sizing symbols to the output scale</strong></p>
+<p>Try setting the scale of the map to 1:25000 (the scale you&rsquo;ll be using for the output) then in the layer styling panel set the <code>Unit</code> to <code>Map Units</code>, which in this case are metres.  You&rsquo;ll then be able to control how the <code>Width</code> of the line appears at that scale as that unit &ldquo;on the ground&rdquo;.</p>
+<p>If the Unit is set to a measurement, such as pixels, then the lines stay the same width on the screen whatever your zoom level.  Try it out and see.</p>
+</blockquote>
+<h3 id="adding-labels-to-contours">Adding labels to contours</h3>
+<p>Contours for any surface don&rsquo;t help much if you don&rsquo;t know the value of each of them.  QGIS is able to label features in a map with any field from the attribute table, as you saw in the <a href="/creating_data/#labelling-features">exercises on digitising data</a>.</p>
+<ul>
+<li>Right-click on your contours layer in the contents pane and select to <code>Open Attribute Table</code>.</li>
+</ul>
+<blockquote>
+<p><img alt="Question" src="../images/svg/help_outline-black-24dp.png" /> <strong>What is the name of the field that shows the height of each contour?</strong></p>
+<p>The attribute table will show the information, or attributes, about the features in this layer and should enable you to see which field holds the height, or elevation, data.</p>
+</blockquote>
+<p>To add labels to your contours do the following:</p>
+<ul>
+<li>In the <a href="/gps/#styling-a-layer-as-a-single-symbol">Layer styling panel</a> click on the <code>Labels</code> tab on the left.</li>
+<li>Check that you have your contours layer selected at the top</li>
+<li>Drop down the list where it currently says <code>No Labels</code> and select <code>Single Labels</code> instead</li>
+<li>In the <code>Value</code> field select the field you made a note of above.  The one which contains your heights.  In my case this field is <code>ELEV</code></li>
+</ul>
+<p>The labels will appear on your map, but they are too big, too black and not on top of the lines!  Use the settings in the various tabs of the Layer styling panel to </p>
+<ul>
+<li>make the labels smaller - they need to be readable, but not to dominate the map.  Again, you can change the units to <code>Map Units</code> to have more control over the size when printed.</li>
+<li>change the font if you think a different font would be clearer</li>
+<li>make the labels a paler colour</li>
+<li>use the <code>Placement</code> tab to move the labels <code>On line</code></li>
+</ul>
+<p><img alt="The contours symbolised and labelled more appropriately." src="../images/analysis/ContoursLabelled_small.png" title="The contours symbolised and labelled more appropriately." /></p>
+<p>You could also try labelling your data points, if you think that it would be useful to someone else looking at your map.</p>
+<h2 id="output-from-this-chapter">Output from this chapter</h2>
+<p>The example below shows the possible output from this chapter.  Your layout should look different.  You will have made your own decisions about what to include and how to symbolise and label your data.  You&rsquo;ll learn more about layouts in a future chapter and will get a chance to apply those techniques to this map to produce a professional-looking map layout.</p>
+<p><img alt="The final output from this chapter.  Yours may not look the same as mine as  you'll have made your own decisions about some of the processing output and about colours and labels." src="../images/analysis/FinalMap_small.png" title="The final output from this chapter.  Yours may not look the same as mine as  you'll have made your own decisions about some of the processing output and about colours and labels." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Save your map project for next week</strong></p>
+<p>Keep this North Wales map project safely as you&rsquo;ll need it for future chapters and for the module assessment.</p>
+</blockquote>
+<h2 id="more-information-analysis-in-gis">More information: Analysis in GIS</h2>
+<p>There is more about data analysis in GIS in the module reading list<sup id="fnref:510"><a class="footnote-ref" href="#fn:510">1</a></sup>.  In particular have a look at the following:</p>
+<p><a href="https://leeds.primo.exlibrisgroup.com/discovery/search?query=any,contains,991012676609705181&amp;tab=AlmostEverything&amp;search_scope=My_Inst_CI_not_ebsco&amp;vid=44LEE_INST:VU1&amp;offset=0">Heywood, Cornelius and Carver</a> (2011) chapter 6 on page 174 and following.</p>
+<p><a href="https://leeds.primo.exlibrisgroup.com/discovery/search?query=any,contains,991019433304805181&amp;tab=AlmostEverything&amp;search_scope=My_Inst_CI_not_ebsco&amp;vid=44LEE_INST:VU1&amp;offset=0">Longley et al.</a> (2015) Part III is all about analysis, but in particular have a look at chapter 13 on page 290 and following.</p>
+<h3 id="more-information-on-techniques-in-qgis">More information on techniques in QGIS</h3>
+<p>The <a href="https://docs.qgis.org/3.16/en/docs/training_manual/index.html">QGIS Training Manual</a> includes a lot of information on both <a href="https://docs.qgis.org/3.16/en/docs/training_manual/vector_analysis/index.html">vector analysis</a> and <a href="https://docs.qgis.org/3.16/en/docs/training_manual/rasters/index.html">raster analysis</a> in QGIS.  If you are looking for ideas of how to use QGIS with your data in future this is a key resource.</p>
+<p>If you prefer to learn from videos then Hans van der Kwast from the IHE Delft Institute for Water Education has a very good range on <a href="https://www.youtube.com/c/HansvanderKwast/videos">YouTube</a>.  His main interest is hydrology but the techniques he uses will work for other data too.  He also has <a href="https://ocw.un-ihe.org/course/view.php?id=11">GIS OpenCourseWare for Hydrological Applications</a> online which provide a lot of resources for learning GIS with QGIS.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:510">
+<p>Reading list available from Minerva and from the module catalogue.&#160;<a class="footnote-backref" href="#fnref:510" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>

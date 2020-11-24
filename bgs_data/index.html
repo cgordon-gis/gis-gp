@@ -83,6 +83,20 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#data-to-download">Data to download</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#downloading-style-files">Downloading style files</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-bgs-data-to-your-map">Adding BGS data to your map</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-style-files-in-qgis">Using style files in QGIS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#copyright-notice">Copyright notice</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#final-map">Final map</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -133,7 +147,116 @@
 <p>The background to using BGS data from Digimap will be covered in the lecture segment at the beginning of the class, and the presentation and any other supporting materials will be available in Minerva.  The lecture segment should help you to understand <strong>why</strong> you are doing these exercises.  If you still aren&rsquo;t sure, please ask <a href="mailto:c.e.gordon@leeds.ac.uk">Clare</a>.</p>
 <h2 id="learning-outcomes">Learning outcomes</h2>
 <p>When you have completed this section of the workbook you should be able to</p>
+<ul>
+<li>Demonstrate how to find BGS data in Digimap and download data for a particular area.</li>
+<li>Explain how to add BGS geological data to GIS and symbolise the data using BGS standard symbols/colours.</li>
+</ul>
 <h2 id="introduction">Introduction</h2>
+<p>It is possible to download shapefiles containing British Geological Survey (BGS) data at varous scales from the Digimap service.  These can be added to GIS in the usual way.  Once data has been added to a map symbolising the data can be an issue.  This chapter gives you some suggestions for how to display the data.</p>
+<p>Please refer to the <a href="/finding_data/#digimap">Digimap chapter of these exercises</a> for more information about how to use the Digimap download services.</p>
+<h2 id="data-to-download">Data to download</h2>
+<p>Log in to <a href="https://digimap.edina.ac.uk/">Digimap</a> and download tiles of geological data in shapefile format for the area below from the <code>Geology Data Download section</code>.</p>
+<p>You should download <code>1:50 000 Geology</code> from the <code>Onshore Geology</code> section of the menu.  Unfortunately 1:25 000 data is not available for this area.</p>
+<p><img alt="The area to download data for in Geology Data Download.  You need to select to download 1:50 000 Geology." src="../images/bgs_data/GeologyDownload_small.png" title="The area to download data for in Geology Data Download.  You need to select to download 1:50 000 Geology." /></p>
+<p>Once you have downloaded the zip file containing your data save it to the folder with the rest of the data for this map then <a href="/introduction/#obtaining-the-data-for-this-chapter">unzip it</a>.  Remember you can&rsquo;t use data in QGIS until it has been unzipped.</p>
+<h3 id="downloading-style-files">Downloading style files</h3>
+<p>Digimap also provide style files so that you can use standard colours for the layers in the geology data that they provide.</p>
+<ul>
+<li>While you are in Digimap return to the home page and click on <code>Resources</code> at the top right</li>
+<li>Scroll down the resource centre page and look under <code>Help by Service</code></li>
+<li>Click on <code>Geology Digimap Help</code></li>
+<li>Next click on <code>Using map data with GIS</code> in the left-hand menu</li>
+<li>Then click on <code>Geology Colour Schemes</code></li>
+</ul>
+<p>This page gives links to style files for use with a range of BGS data and in a range of GIS software.</p>
+<ul>
+<li>For the data and GIS that you are using download <code>1:50,000 Scale QML.zip</code> and save it in your GIS folder.</li>
+</ul>
+<p>You will be using this file later so remember where you saved it to.</p>
+<h2 id="adding-bgs-data-to-your-map">Adding BGS data to your map</h2>
+<p>The geological data from Digimap is provided in shapefile format in tiles which match the <a href="http://mapapps.bgs.ac.uk/mapshop/home.html?layers=4">printed map sheets</a>.  Luckily the area we are working on is covered by a single sheet - sheet 135 for Harlech.</p>
+<ul>
+<li>If your North Wales map isn&rsquo;t already open in QGIS, open it now.</li>
+<li>Find the unzipped <code>bgs-50k</code> folder in your Browser panel and have a look at the contents of the <code>ew135</code> folder.  The name refers to the map sheet number and England and Wales.</li>
+</ul>
+<p><img alt="The contents of the bgs-50k folder seen in the Browser panel in QGIS.  Note that there are three shapefiles for the Harlech area." src="../images/bgs_data/GeologyContents_small.png" title="The contents of the bgs-50k folder seen in the Browser panel in QGIS.  Note that there are three shapefiles for the Harlech area." /></p>
+<p>You should see that the Harlech area has three shapefiles containing data.  These cover bedrock geology, linear geology and superficial geology.  Some sheets also have other layers.</p>
+<p>Note that these layers will cover a larger area than the rest of your map layers - this doesn&rsquo;t matter.  When you create a layout you will set the view so that you only see the area you actually want and anything outside of that just won&rsquo;t be seen.</p>
+<ul>
+<li>Add all three of these layers to your map by dragging them into the Layers panel</li>
+<li>Group the geology layers by selecting all three and right-clicking</li>
+<li>Select to <code>Group Selected</code> then give the group a name like <code>Geology</code>.</li>
+</ul>
+<p>Once the layers are grouped you&rsquo;ll be able to move them around together, or turn them on and off just by clicking next to the group heading.</p>
+<ul>
+<li>Drag and drop the layers as necessary in the Layers panel so that they are in the order shown in the image below</li>
+</ul>
+<p><img alt="Order the geology layers within the Geology group as shown here - linear above superficial, superficial above bedrock." src="../images/bgs_data/GeologyLayers_small.png" title="Order the geology layers within the Geology group as shown here - linear above superficial, superficial above bedrock." /></p>
+<ul>
+<li>Have a look at the attribute table for the <code>ew135_harlech_bedrock</code> layer</li>
+</ul>
+<p>The attribute table has a lot of columns and looks rather confusing.  If you want to know more about the data the user guide is available as part of your download from Digimap - look in the <code>bgs-50k &gt; docs</code> folder for the <code>User_Guide_BGS_Geology...pdf</code> file.</p>
+<p><img alt="Part of the attribute table for the bedrock layer." src="../images/bgs_data/BGSAttributeTable_small.png" title="Part of the attribute table for the bedrock layer." /></p>
+<p>The data will be symbolised as single symbols and in random colours.  You&rsquo;ve seen previously how to set up categories for colours and symbology, but  having seen the attribute table you&rsquo;ll realise that doing that for these datasets would be time consuming.</p>
+<p>Don&rsquo;t worry - there is an easy way!</p>
+<h2 id="using-style-files-in-qgis">Using style files in QGIS</h2>
+<p>Earlier you downloaded the QGIS style files to match the 1:50 000 data from Digimap.</p>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>The bedrock style file is missing a key rock type for this area.  Please go to Minerva and download the <code>gb_50k_bedrock.zip</code> file from the week 9 section.  Unzip it and replace the downloaded qml file with the one you download from Minerva before following the instructions below.
+<!-- TODO: Upload my version of the style file to Minerva --></p>
+</blockquote>
+<ul>
+<li>If you haven&rsquo;t already unzipped the download file <code>50k_qml.zip</code> make sure that you unzip it to the same folder as your Llanbedr map.</li>
+<li>Either double-click on the <code>ew135_harlech_bedrock</code> layer in the Layers panel or right-click and select <code>Properties</code>.</li>
+<li>Go to the <code>Symbology</code> tab of the properties</li>
+<li>At the bottom left of the symbology is a button which says <code>Style</code>.  Click on this button and select <code>Load Style...</code></li>
+<li>This opens the <code>Database Styles Manager</code>.  Make sure that <code>Load style</code> is set to <code>From File</code></li>
+<li>Click on the three dots button next to <code>File</code> and navigate to where you unzipped your qml files</li>
+<li>Select the file called <code>gb_50k_bedrock.qml</code> (i.e. the one which matches the file you need to symbolise) and click <code>Open</code></li>
+<li>Back in the <code>Database Styles Manager</code> click on <code>Load Style</code></li>
+</ul>
+<p>The Symbology menu should change to <code>Categorized</code> and show you a long list of Symbols and values.</p>
+<p><img alt="The top of the Categorized list of values once you've loaded the style file for Bedrock." src="../images/bgs_data/LoadingStyles_small.png" title="The top of the Categorized list of values once you've loaded the style file for Bedrock." /></p>
+<ul>
+<li>Now click on <code>OK</code> and the Bedrock layer should be symbolised.</li>
+</ul>
+<p>You may not see it clearly at the moment as the superficial geology is covering a lot of the area.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Apply the style files to the superficial and linear geology</strong></p>
+<p>Repeat the instructions above to apply the appropriate style files to the superficial and linear geology layers.</p>
+<p>You should have qml files called <code>gb_50k_superficial_deposits.qml</code> and <code>gb_50k_linear.qml</code>.</p>
+</blockquote>
+<p>Once you have applied all three style files to the relevant layers you should have a map which looks like the following image.</p>
+<p><img alt="The symbolised geological map showing the bedrock, superficial and linear geology." src="../images/bgs_data/GeologyMap_small.png" title="The symbolised geological map showing the bedrock, superficial and linear geology." /></p>
+<p>This looks a lot better, but a geological map needs a background map showing places and other features of the location.</p>
+<ul>
+<li>Zoom in to <code>1:50 000</code> using the scale dropdown below the map</li>
+<li>Superficial geology isn&rsquo;t necessary on this map so turn off that layer or remove it from your map</li>
+<li>Turn off the <code>raster_25k_3706482</code> layer - this is too detailed for a geological map at this scale</li>
+<li>Instead turn back on the <code>Places</code>, <code>Line features</code>, <code>Polygon features</code> and <code>Tidal water</code> layers.</li>
+<li>Make the <code>ew135_harlech_bedrock</code> layer <a href="/creating_data/#transparency">transparent</a> so that you can see the 25k layer through it.</li>
+</ul>
+<h2 id="copyright-notice">Copyright notice</h2>
+<p>All maps produced from BGS data downloaded from Digimap must carry a copyright acknowledgement.  You signed up to this when you agreed to the licence conditions.</p>
+<p>You can check the Resources page in Digimap to find the current required acknowledgement.  As of November 2020 the text was the following:</p>
+<blockquote>
+<p>Geological Map Data BGS &copy; UKRI 20yy</p>
+</blockquote>
+<p>Where <code>yy</code> is replaced by the current year.</p>
+<p>Maps that also include OS data must <strong>in addition</strong> carry the OS copyright acknowledgment.  This is currently:</p>
+<blockquote>
+<p>&copy; Crown copyright and database rights 2020. Ordnance Survey (100025252)</p>
+</blockquote>
+<p>The Places, Line features, Polygon features and Tidal water layers are all sourced from <a href="https://www.openstreetmap.org/">OpenStreetMap</a> and should be acknowledged as follows:</p>
+<blockquote>
+<p>&copy; OpenStreetMap Contributors</p>
+</blockquote>
+<h2 id="final-map">Final map</h2>
+<p>When you&rsquo;ve finished symbolising your map and are happy with it export it as an image and upload it to your GIS portfolio notebook for feedback.</p>
+<p>The image below shows a suggested final version of your map.  Your map may not look identical to this and that is not a problem as you will have made some of your own decisions about colours and symbology.</p>
+<p><img alt="The symbolised geological map with transparency and a background layer." src="../images/bgs_data/GeologyMapFinal_small.png" title="The symbolised geological map with transparency and a background layer." /></p>
+<p>Keep your Llanbedr, North Wales project for the next set of exercises.</p>
               
             </div>
           </div>
