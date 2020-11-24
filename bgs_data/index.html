@@ -95,6 +95,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#copyright-notice">Copyright notice</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#identifying-the-features-on-the-map">Identifying the features on the map</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#final-map">Final map</a>
     </li>
     </ul>
@@ -149,14 +151,14 @@
 <p>When you have completed this section of the workbook you should be able to</p>
 <ul>
 <li>Demonstrate how to find BGS data in Digimap and download data for a particular area.</li>
-<li>Explain how to add BGS geological data to GIS and symbolise the data using BGS standard symbols/colours.</li>
+<li>Explain how to add BGS geological data to GIS and symbolise the data using BGS standard symbols/colours imported from an external style file.</li>
 </ul>
 <h2 id="introduction">Introduction</h2>
-<p>It is possible to download shapefiles containing British Geological Survey (BGS) data at varous scales from the Digimap service.  These can be added to GIS in the usual way.  Once data has been added to a map symbolising the data can be an issue.  This chapter gives you some suggestions for how to display the data.</p>
+<p>It is possible to download shapefiles containing British Geological Survey (BGS) data at various scales from the Digimap service.  These can be added to GIS in the usual way.  Once data has been added to a map symbolising the data can be an issue.  This chapter gives you some suggestions for how to display the data.</p>
 <p>Please refer to the <a href="/finding_data/#digimap">Digimap chapter of these exercises</a> for more information about how to use the Digimap download services.</p>
 <h2 id="data-to-download">Data to download</h2>
 <p>Log in to <a href="https://digimap.edina.ac.uk/">Digimap</a> and download tiles of geological data in shapefile format for the area below from the <code>Geology Data Download section</code>.</p>
-<p>You should download <code>1:50 000 Geology</code> from the <code>Onshore Geology</code> section of the menu.  Unfortunately 1:25 000 data is not available for this area.</p>
+<p>You should download <code>1:50 000 Geology</code> from the <code>Onshore Geology</code> section of the menu.  Unfortunately 1:25 000 data is not available for this area but a 1:50 000 map will be sufficient for our purposes.</p>
 <p><img alt="The area to download data for in Geology Data Download.  You need to select to download 1:50 000 Geology." src="../images/bgs_data/GeologyDownload_small.png" title="The area to download data for in Geology Data Download.  You need to select to download 1:50 000 Geology." /></p>
 <p>Once you have downloaded the zip file containing your data save it to the folder with the rest of the data for this map then <a href="/introduction/#obtaining-the-data-for-this-chapter">unzip it</a>.  Remember you can&rsquo;t use data in QGIS until it has been unzipped.</p>
 <h3 id="downloading-style-files">Downloading style files</h3>
@@ -171,8 +173,13 @@
 <p>This page gives links to style files for use with a range of BGS data and in a range of GIS software.</p>
 <ul>
 <li>For the data and GIS that you are using download <code>1:50,000 Scale QML.zip</code> and save it in your GIS folder.</li>
+<li>Unzip the downloaded folder - you should end up with a folder containing several files with an extension of <code>.qml</code>.</li>
 </ul>
 <p>You will be using this file later so remember where you saved it to.</p>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>The bedrock style file is missing a key rock type for this area.  Please go to Minerva and download the <code>gb_50k_bedrock.zip</code> file from the week 9 section.  Unzip it and replace the downloaded <code>gb_50k.qml</code> file with the one you download from Minerva before following the instructions below.</p>
+</blockquote>
 <h2 id="adding-bgs-data-to-your-map">Adding BGS data to your map</h2>
 <p>The geological data from Digimap is provided in shapefile format in tiles which match the <a href="http://mapapps.bgs.ac.uk/mapshop/home.html?layers=4">printed map sheets</a>.  Luckily the area we are working on is covered by a single sheet - sheet 135 for Harlech.</p>
 <ul>
@@ -184,7 +191,7 @@
 <p>Note that these layers will cover a larger area than the rest of your map layers - this doesn&rsquo;t matter.  When you create a layout you will set the view so that you only see the area you actually want and anything outside of that just won&rsquo;t be seen.</p>
 <ul>
 <li>Add all three of these layers to your map by dragging them into the Layers panel</li>
-<li>Group the geology layers by selecting all three and right-clicking</li>
+<li><strong>Group</strong> the geology layers by selecting all three and right-clicking</li>
 <li>Select to <code>Group Selected</code> then give the group a name like <code>Geology</code>.</li>
 </ul>
 <p>Once the layers are grouped you&rsquo;ll be able to move them around together, or turn them on and off just by clicking next to the group heading.</p>
@@ -197,18 +204,19 @@
 </ul>
 <p>The attribute table has a lot of columns and looks rather confusing.  If you want to know more about the data the user guide is available as part of your download from Digimap - look in the <code>bgs-50k &gt; docs</code> folder for the <code>User_Guide_BGS_Geology...pdf</code> file.</p>
 <p><img alt="Part of the attribute table for the bedrock layer." src="../images/bgs_data/BGSAttributeTable_small.png" title="Part of the attribute table for the bedrock layer." /></p>
-<p>The data will be symbolised as single symbols and in random colours.  You&rsquo;ve seen previously how to set up categories for colours and symbology, but  having seen the attribute table you&rsquo;ll realise that doing that for these datasets would be time consuming.</p>
+<p>By default the data will be symbolised as single symbols and in random colours.  You&rsquo;ve seen previously how to set up categories for colours and symbology, but  having seen the attribute table you&rsquo;ll realise that doing that for these datasets would be time consuming.</p>
 <p>Don&rsquo;t worry - there is an easy way!</p>
 <h2 id="using-style-files-in-qgis">Using style files in QGIS</h2>
 <p>Earlier you downloaded the QGIS style files to match the 1:50 000 data from Digimap.</p>
+<ul>
+<li>If you haven&rsquo;t already unzipped the download file <code>50k_qml.zip</code> make sure that you unzip it to the same folder as your Llanbedr map and data.</li>
+</ul>
 <blockquote>
 <p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
-<p>The bedrock style file is missing a key rock type for this area.  Please go to Minerva and download the <code>gb_50k_bedrock.zip</code> file from the week 9 section.  Unzip it and replace the downloaded qml file with the one you download from Minerva before following the instructions below.
-<!-- TODO: Upload my version of the style file to Minerva --></p>
+<p>The bedrock style file is missing a key rock type for this area.  If you haven&rsquo;t already please go to Minerva and download the <code>gb_50k_bedrock.zip</code> file from the week 9 section.  Unzip it and replace the previously downloaded <code>gb_50k_bedrock.qml</code> file with the one you download from Minerva before following the instructions below.</p>
 </blockquote>
 <ul>
-<li>If you haven&rsquo;t already unzipped the download file <code>50k_qml.zip</code> make sure that you unzip it to the same folder as your Llanbedr map.</li>
-<li>Either double-click on the <code>ew135_harlech_bedrock</code> layer in the Layers panel or right-click and select <code>Properties</code>.</li>
+<li>Either double-click on the <code>ew135_harlech_bedrock</code> layer in the Layers panel or right-click and select <code>Properties</code>. You can&rsquo;t import styles from the Layer styling panel.</li>
 <li>Go to the <code>Symbology</code> tab of the properties</li>
 <li>At the bottom left of the symbology is a button which says <code>Style</code>.  Click on this button and select <code>Load Style...</code></li>
 <li>This opens the <code>Database Styles Manager</code>.  Make sure that <code>Load style</code> is set to <code>From File</code></li>
@@ -216,12 +224,15 @@
 <li>Select the file called <code>gb_50k_bedrock.qml</code> (i.e. the one which matches the file you need to symbolise) and click <code>Open</code></li>
 <li>Back in the <code>Database Styles Manager</code> click on <code>Load Style</code></li>
 </ul>
+<p>You may have to wait a bit at this stage - QGIS is loading a lot of styles for this layer.</p>
 <p>The Symbology menu should change to <code>Categorized</code> and show you a long list of Symbols and values.</p>
 <p><img alt="The top of the Categorized list of values once you've loaded the style file for Bedrock." src="../images/bgs_data/LoadingStyles_small.png" title="The top of the Categorized list of values once you've loaded the style file for Bedrock." /></p>
 <ul>
-<li>Now click on <code>OK</code> and the Bedrock layer should be symbolised.</li>
+<li>Now click on <code>OK</code> and the Bedrock layer should be symbolised.  Again, you might have to wait for a while for this to happen.</li>
 </ul>
-<p>You may not see it clearly at the moment as the superficial geology is covering a lot of the area.</p>
+<p>If it looks a bit as if QGIS is going to crash at any point it&rsquo;s worth just waiting - don&rsquo;t try clicking on anything as that will make it worse!</p>
+<p>You may not see the newly symbolised bedrock layer clearly at the moment as the superficial geology is covering a lot of the area.</p>
+<p>Make sure you save your map at this stage.</p>
 <blockquote>
 <p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Apply the style files to the superficial and linear geology</strong></p>
 <p>Repeat the instructions above to apply the appropriate style files to the superficial and linear geology layers.</p>
@@ -232,10 +243,10 @@
 <p>This looks a lot better, but a geological map needs a background map showing places and other features of the location.</p>
 <ul>
 <li>Zoom in to <code>1:50 000</code> using the scale dropdown below the map</li>
-<li>Superficial geology isn&rsquo;t necessary on this map so turn off that layer or remove it from your map</li>
+<li><code>Superficial geology</code> isn&rsquo;t necessary on this map so turn off that layer or remove it from your map</li>
 <li>Turn off the <code>raster_25k_3706482</code> layer - this is too detailed for a geological map at this scale</li>
 <li>Instead turn back on the <code>Places</code>, <code>Line features</code>, <code>Polygon features</code> and <code>Tidal water</code> layers.</li>
-<li>Make the <code>ew135_harlech_bedrock</code> layer <a href="/creating_data/#transparency">transparent</a> so that you can see the 25k layer through it.</li>
+<li>Make the <code>ew135_harlech_bedrock</code> layer <a href="/creating_data/#transparency">transparent</a> so that you can see the background layer through it.</li>
 </ul>
 <h2 id="copyright-notice">Copyright notice</h2>
 <p>All maps produced from BGS data downloaded from Digimap must carry a copyright acknowledgement.  You signed up to this when you agreed to the licence conditions.</p>
@@ -252,8 +263,32 @@
 <blockquote>
 <p>&copy; OpenStreetMap Contributors</p>
 </blockquote>
+<h2 id="identifying-the-features-on-the-map">Identifying the features on the map</h2>
+<p>Because there are so many categories for the bedrock on this map (all UK rock formations!) it is difficult to create a key, or to use the list in the Layers panel to identify the bedrock geology.</p>
+<p>Instead you can use the <code>Identify</code> tool.  You saw how to use the <a href="/analysis/#comparing-the-raster-surfaces">identify tool to compare the raster surfaces</a> in the Analysis chapter but I&rsquo;ll put the instructions here too to show you the tool in use for a vector layer.</p>
+<ul>
+<li>Select the <code>ew135_harlech_bedrock</code> layer in the Layers panel</li>
+<li>Check that the Attributes toolbar is visible by going to <code>View &gt; Toolbars</code> and checking that there is a tick next to it.</li>
+</ul>
+<p><img alt="The Attributes Toolbar.  The Identify Features button is highlighted." src="../images/analysis/AttributesToolbar_small.png" title="The Attributes Toolbar.  The Identify Features button is highlighted." /></p>
+<ul>
+<li>Click on the <code>Identify features</code> button (highlighted in the image above)</li>
+<li>Then click somewhere on your map and select <code>ew135_harlech_bedrock (50000)</code></li>
+<li>The <code>Identify Results</code> window should pop up showing a tree view of the value of the bedrock geology layer.</li>
+</ul>
+<p><img alt="The Identify Results window showing results for one of the Bedrock features." src="../images/bgs_data/IdentifyResultsBedrock_small.png" title="The Identify Results window showing results for one of the Bedrock features." /></p>
+<p>There is a lot of information here.  Have a look down the list - this matches the attribute table that you looked at earlier in the chapter.</p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Finding out the rock types</strong></p>
+<p>Have a look at the information for several of the rock features on the map.  Make a note of the age, formation name and age for some of them.  This will be relevant to your description and explanation of the relationship between the gravity and the geology for the assessment.  It&rsquo;s worth having a look at the linear features too.</p>
+</blockquote>
+<p>If you just close the window when you finish you&rsquo;ll find that you&rsquo;re left with one of the features coloured red on the map.  To return it to normal view:</p>
+<ul>
+<li>Click on the <code>Clear Results</code> button on the Identify Results window toolbar.</li>
+<li>Then close the Identify Results window.</li>
+</ul>
 <h2 id="final-map">Final map</h2>
-<p>When you&rsquo;ve finished symbolising your map and are happy with it export it as an image and upload it to your GIS portfolio notebook for feedback.</p>
+<p>When you&rsquo;ve finished symbolising your map and are happy with it, <a href="/gps/#the-final-map">export it as an image</a> and upload it to your GIS portfolio notebook for feedback.</p>
 <p>The image below shows a suggested final version of your map.  Your map may not look identical to this and that is not a problem as you will have made some of your own decisions about colours and symbology.</p>
 <p><img alt="The symbolised geological map with transparency and a background layer." src="../images/bgs_data/GeologyMapFinal_small.png" title="The symbolised geological map with transparency and a background layer." /></p>
 <p>Keep your Llanbedr, North Wales project for the next set of exercises.</p>
