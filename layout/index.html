@@ -101,6 +101,98 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#adding-a-map-to-a-layout">Adding a map to a layout</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#size-and-scale-of-pages-and-maps">Size and scale of pages and maps</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#page-size-and-orientation">Page size and orientation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resizing-the-map-in-a-layout">Resizing the map in a layout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#moving-the-map-within-a-map-frame">Moving the map within a map frame</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#controlling-the-map-with-the-item-properties">Controlling the map with the Item Properties</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-items-to-a-layout">Adding items to a layout</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#selecting-items-on-a-layout">Selecting items on a layout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scale-bar-and-scale-text">Scale bar and scale text</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#to-add-a-scale-bar">To add a scale bar</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#to-add-scale-text">To add scale text</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#text-or-labels">Text or labels</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#static-text">Static text</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-legend-or-key">A legend or key</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-measured-grid">A measured grid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#north-arrows">North arrows</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#north-arrow-grid-north-map-north">North arrow: Grid north / Map north</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#north-arrow-true-north">North arrow: True north</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#north-arrow-magnetic-north-calculated-by-grid-magnetic-angle">North arrow: Magnetic north calculated by grid magnetic angle</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiple-maps-on-one-page">Multiple maps on one page</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#different-areas-of-the-same-map">Different areas of the same map</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#maps-showing-different-content">Maps showing different content</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extent-indicator-or-locator-map">Extent indicator or locator map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inserting-photographs-and-images">Inserting photographs and images</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#to-add-a-raster-image">To add a raster image</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#to-add-an-svg-image">To add an SVG image</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checking-your-map">Checking your map</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#suggestions-for-things-to-check">Suggestions for things to check</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#printing-a-copy-to-pdf-to-check">Printing a copy to pdf to check</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#printing-and-exporting-map-layouts">Printing and exporting map layouts</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#printing-a-map-layout-from-qgis">Printing a map layout from QGIS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exporting-a-map-layout-from-qgis">Exporting a map layout from QGIS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exporting-to-pdf">Exporting to pdf</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exporting-a-map-to-import-to-word-and-powerpoint">Exporting a map to import to Word and PowerPoint</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recommended-reading-layout-and-presentation">Recommended reading: layout and presentation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#further-information-and-inspiration">Further information and inspiration</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -160,6 +252,7 @@
 </blockquote>
 <p>You won&rsquo;t need to use all of the elements and features outlined here for every map.  Equally this is not an exhaustive list of possible elements.  You should already have some idea of what elements are useful, and should be able to make a decision for each case based on your existing knowledge of maps.  If you think that you need to add something that is not listed here, e.g. a report based on a table, then use the extra information available at the end of the chapter and search on-line to find out how to add it.</p>
 <p>So this chapter isn&rsquo;t necessarily for working through in order.  Make sure that you are aware of the contents and of what QGIS is able to do, and then make your own decisions about what you need to include based on the principles that will be covered in class.</p>
+<p>Note that the examples in the images use a general map which isn&rsquo;t the same as the one you will be working on.  The techniques and the buttons in QGIS are still the same, though.</p>
 <h2 id="the-data-for-this-chapter">The data for this chapter</h2>
 <p>You should use the map of the Llanbedr area that you have been creating in previous chapters.  Try out all of the techniques listed below and then decide which you need to include on this layout before you export it.</p>
 <h2 id="creating-and-saving-layouts">Creating and saving layouts</h2>
@@ -173,12 +266,10 @@
 <li>Click <code>OK</code></li>
 </ul>
 <p>QGIS will open your new blank layout in a new window.  It should look something like the image below - though your toolbars may be in different places.</p>
-<p><img alt="Your new print layout showing a blank page." src="../images/layout/NewPrintLayout_small.png" title="Your new print layout showing a blank page." /></p>
-<!-- TODO: Annotate blank print layout? -->
-
+<p><img alt="Your new print layout showing a blank page." src="../images/layout/NewPrintLayout_anno.png" title="Your new print layout showing a blank page." /></p>
 <p>In this view you will see your map laid out as it will be when it is finally printed or exported.  You&rsquo;ll see the page outlined on screen and, once you have started adding elements you will see the content as it will look on the page.</p>
 <h3 id="opening-existing-print-layouts">Opening existing print layouts</h3>
-<p>Once you have created a print layout you can close it and open it again.</p>
+<p>Once you have created a print layout you can close it and open it again without losing it.</p>
 <ul>
 <li>Close the window containing the print layout (<code>Layout &gt; Close</code>)</li>
 <li>To reopen it go to <code>Project &gt; Layouts</code> and select your layout from the list - there is only one there at the moment so click on that.</li>
@@ -188,8 +279,445 @@
 <p>For now:</p>
 <ul>
 <li>Click on the <code>Save</code> button in the layout window.</li>
+<li>Or <code>Layout &gt; Save Project</code></li>
 </ul>
 <h2 id="adding-a-map-to-a-layout">Adding a map to a layout</h2>
+<p>At the moment all you have is a blank page.  To add a map to a layout:</p>
+<ul>
+<li>Click on the <code>Add Map</code> button on the Toolbox</li>
+<li>Or <code>Add Item &gt; Add Map</code></li>
+<li>Then use the mouse cursor to drag a box across the page.  It doesn&rsquo;t matter about the size at the moment you can change it later.</li>
+</ul>
+<p>You should now be able to see a section of the map from your main project window.  The <code>Item Properties</code> on the right will now give options for the map.  You&rsquo;ll explore these in more detail later.</p>
+<h2 id="size-and-scale-of-pages-and-maps">Size and scale of pages and maps</h2>
+<p>The size of the page and of the map &ldquo;window&rdquo; will affect the scale and extent of the map.  These are all linked so if you change one remember to check that your map is either still at the correct scale, or still covers the correct area.</p>
+<h3 id="page-size-and-orientation">Page size and orientation</h3>
+<p>The page that you see in the layout window shows how the page will look when you export or print your map.  Remember to check the paper size and set it correctly before you spend time arranging your layout.</p>
+<p>To change the paper size and orientation:</p>
+<ul>
+<li>Right-click somewhere on the &ldquo;page&rdquo; and go to <code>Page Properties</code></li>
+</ul>
+<p>The page properties should open in the Item Properties on the right.</p>
+<ul>
+<li>The <code>Size</code> setting allows you to choose from a wide range of standard sizes, e.g. A4, A3 etc.</li>
+<li>The <code>Orientation</code> setting allows you to choose between portrait and landscape orientation.</li>
+<li>You can also set the page measurements manually by changing the <code>Width</code> and <code>Height</code> in the boxes below.</li>
+<li>The page in the main view should change automatically when you change a setting.</li>
+</ul>
+<p><img alt="The page properties set to an A3 Portrait page." src="../images/layout/PaperProperties_small.png" title="The page properties set to an A3 Portrait page." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Changing paper size and orientation</strong></p>
+<p>Change your page size and orientation to A3 Landscape.  This will give you more space to experiment with adding other elements to your page.</p>
+</blockquote>
+<p>Once you have changed the paper size you may find that you can no longer see the whole page in the layout view.  To zoom in or out use the buttons on the toolbar at the top.  In particular use the <code>Zoom full</code> button.</p>
+<h3 id="resizing-the-map-in-a-layout">Resizing the map in a layout</h3>
+<p>When you first set up a layout the size of the map may not be the size that you want it to be eventually.  Changing the size of the frame is easy, but can take a little experimentation.  You will also need to look at this in conjunction with the instructions on changing paper size in the previous section.</p>
+<ul>
+<li>Make sure that the map frame is selected in the layout by clicking on it.</li>
+<li>When the map frame is selected you should be able to see that there are small boxes at the corners and on each side.</li>
+</ul>
+<p><img alt="Using the &quot;handles&quot; on each corner and side of a map to resize a map frame in a layout." src="../images/layout/ResizeMapFrame_small.png" title="Using the &quot;handles&quot; on each corner and side of a map to resize a map frame in a layout." /></p>
+<ul>
+<li>Use the boxes as &ldquo;handles&rdquo; to resize the map frame by dragging them</li>
+<li>Keep an eye on the scale in the map Item Properties.  If you need to make a map at a particular scale you may need to keep putting this back to the correct scale each time you resize the map.</li>
+</ul>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>This process can take patience to get the map frame the correct size for the scale and area.  There don&rsquo;t appear to be any short cuts so just stick with it and keep repeating the process!</p>
+</blockquote>
+<h3 id="moving-the-map-within-a-map-frame">Moving the map within a map frame</h3>
+<p>If you need to move the map itself within the frame, e.g. so that you see a different part of it:</p>
+<ul>
+<li>Click on the <code>Move Item Content</code> button on the Toolbox</li>
+<li>You&rsquo;ll now be able to use the mouse cursor to move the map around within the frame.</li>
+<li>Remember to click back onto the <code>Select/Move Item</code> button to be able to select items again.</li>
+</ul>
+<h3 id="controlling-the-map-with-the-item-properties">Controlling the map with the Item Properties</h3>
+<p>If the map is selected on the layout you will see its properties in the <code>Item Properties</code> panel on the right.  You can use these to control various settings for the map.  The ones you need to know now are:</p>
+<ul>
+<li>The most obvious is <code>Scale</code>.  Use this box to type the scale that you want your map to print at.</li>
+<li><code>Extents</code> is useful if you don&rsquo;t need to worry about the scale, but do need to show a map covering a particular area.  You can type the east, south, west and north coordinates and the map frame will change accordingly.</li>
+<li>The <code>Frame</code> setting allows you to put an outline around the outside of your map.  This can make the map look more professional.</li>
+</ul>
+<h2 id="adding-items-to-a-layout">Adding items to a layout</h2>
+<p>The information below includes details on adding many different items to a layout.  Not all of these will be appropriate to every layout, but it is up to you to decide which items to use depending on the purpose and audience of your map and any guidelines specified for assessments or reports.  Some of the references on the reading list, particularly Darkes and Spence (2017), should help you with this.</p>
+<p>Remember that the <a href="https://qgis.org/en/docs/index.html">QGIS Documentation</a> will provide you with plenty of extra information on how to add items to a layout.</p>
+<p>Most items are added to a layout in a similar way to each other using the buttons on the Toolbox.  In most cases you&rsquo;ll then be able to use the Item Properties to make changes to the item.</p>
+<h3 id="selecting-items-on-a-layout">Selecting items on a layout</h3>
+<p>There are a couple of ways of selecting items on a layout.</p>
+<ul>
+<li>Click the <code>Select/Move Item</code> button on the Toolbox then click on the item you wish to select</li>
+<li>Alternatively use the <code>Items</code> panel.  As you add more items to your map they will be added to this panel.  All you need to do then is click on them in this list to select them on the map.</li>
+</ul>
+<p>You can also use the items panel to lock items in place and make them invisible.</p>
+<p><img alt="The Items panel showing that Map 1 is select and locked, while the attribute table frame is invisible." src="../images/layout/ItemsPanel_small.png" title="The Items panel showing that Map 1 is select and locked, while the attribute table frame is invisible." /></p>
+<p>Once an item is selected it will have the little &ldquo;handles&rdquo; visible for resizing.</p>
+<h3 id="scale-bar-and-scale-text">Scale bar and scale text</h3>
+<p>Some indication of scale should always be added to both printed and screen maps.  A scale bar is a useful convention for both.  Scale text (e.g. 1:50,000 or 1 cm = 1 km) is only relevant for printed maps, not for maps on screen where someone can zoom to any scale.  If you add scale text you must also ensure that you print or export the map at the correct scale.</p>
+<h4 id="to-add-a-scale-bar">To add a scale bar</h4>
+<ul>
+<li>Click on <code>Add Scale Bar</code> on the Toolbox</li>
+<li>Click on the layout in roughly the position you want the scale bar (you can always move it later)</li>
+<li>Select <code>OK</code> on the <code>New Item Properties</code> box that pops up</li>
+</ul>
+<p>The scale bar should appear on your layout.  You can now go to the <code>Item Properties</code> to change various parameters.</p>
+<ul>
+<li>The <code>Map</code> dropdown is where you check that the scale bar is set for the correct map</li>
+<li>Use the <code>Style</code> dropdown to select how you want the scale bar to appear - try a few of these and see what effect they have</li>
+<li>The <code>Scalebar units</code> should be set to something appropriate for your map</li>
+<li>You can use the settings under <code>Segments</code> to change the length and intervals of your scale bar.  Try these out and see what happens.</li>
+</ul>
+<p><img alt="The most important settings for the scale bar." src="../images/layout/ScaleBarProperties_small.png" title="The most important settings for the scale bar." /></p>
+<p>There are a lot more settings so just explore these and see what they do.  In particular you may want to change the <code>Font</code> under the <code>Display</code> settings.  You can always remove the scale bar and start again!</p>
+<h4 id="to-add-scale-text">To add scale text</h4>
+<ul>
+<li>Click on <code>Add Scale Bar</code> on the Toolbox</li>
+<li>Click on the layout in roughly the position you want the scale bar (you can always move it later)</li>
+<li>Select <code>OK</code> on the <code>New Item Properties</code> box that pops up</li>
+</ul>
+<p>A scale bar should appear on your layout.  You can now go to the <code>Item Properties</code> to change this to numbers.</p>
+<ul>
+<li>The <code>Map</code> dropdown is where you check that the scale text is set for the correct map</li>
+<li>Use the <code>Style</code> dropdown to select <code>Numeric</code></li>
+</ul>
+<p>The text should appear and automatically match the scale of your map.  There are far fewer options for this - mainly just the Font settings.</p>
+<h3 id="text-or-labels">Text or labels</h3>
+<p>Text is an essential part of any map layout.  Maps need an informative title to show the audience what the map is about.  You should include your name (or for an assessment your student ID) as creator of the map.  Copyright statements are essential if you have used data from other sources and you may also want to include acknowledgements and further explanations of your maps and data.</p>
+<p>There are two main ways to add text, static text and dynamic text.  The instructions for static text are shown below.  Dynamic is more complex and won&rsquo;t be covered here.  If you are interested in using it you can look at the tutorial on <a href="https://docs.qgis.org/3.10/en/docs/training_manual/map_composer/dynamic_layout.html">Creating a Dynamic Print Layout</a> in the QGIS Training Manual.</p>
+<h4 id="static-text">Static text</h4>
+<p>Static text is text that you type into the box on the Item Properties.  This stays the same once you have added it.  Most of the text that you add to your layout will be of this type.  For example, a title or subtitles to individual maps, your name or ID as the creator of the map, copyright text etc.</p>
+<h5 id="to-add-static-text">To add static text:</h5>
+<ul>
+<li>Click on the <code>Add Label</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your text to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+<li>A new label item should appear on your layout.  By default the text will be &ldquo;Lorem Ipsum&rdquo; (placeholder text).</li>
+<li>Type your text in the box on the <code>Item Properties</code> panel</li>
+<li>The options on the panel will also allow you to change the font, font size and colour, the alignment, and add a frame.</li>
+</ul>
+<p><img alt="Item Properties for text.  Note the large box to type your text and the options in the Appearance section below." src="../images/layout/TextProperties_small.png" title="Item Properties for text.  Note the large box to type your text and the options in the Appearance section below." /></p>
+<h5 id="copyright-acknowledgements">Copyright acknowledgements</h5>
+<p>Copyright is important.  Remember that most data providers ask you to sign up to conditions that include an obligation to add a copyright acknowledgement to your map.  Check what that copyright statement is and make sure that you add it.</p>
+<p>For example, when you signed up to use the Digimap collections you agreed to add copyright acknowledgements whenever you created a map with the data.  These acknowledgements do change from time to time so it&rsquo;s worth knowing how to check what they are for yourself.</p>
+<ul>
+<li>To find the Digimap copyright acknowledgements go to the <code>Digimap Resource Centre</code> (<strong>Resources</strong> at the top of the main Digimap page)</li>
+<li>Look for a link to <code>Digimap Licence Agreements</code> and click on it.</li>
+<li>Click on the End User or Sub-licence agreement for the data that you&rsquo;ve used.  Some of these are pdf documents that you need to download.</li>
+<li>Then look for the information under <code>In return, you must:</code> - that gives you the acknowledgement text.</li>
+</ul>
+<p>For example, from April 2019, when you use <strong>Ordnance Survey</strong> data obtained from Digimap you are expected to add the following text to your map.</p>
+<blockquote>
+<p>&copy; Crown copyright and database rights <em>year</em>.  Ordnance Survey (100025252).</p>
+</blockquote>
+<p>Where <em>year</em> is replaced by the current year.</p>
+<p>Remember that you do have to acknowledge each different dataset that you use and will have signed up to that when your registered.</p>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Adding the copyright symbol to your text</strong></p>
+<p>To add the copyright symbol (&copy;) to your text (Windows computers)</p>
+<p>Check that the <code>Num lock</code> is on on the keyboard</p>
+<p>Hold down the <code>Alt</code> key</p>
+<p>Use the number pad to type <code>0</code>+<code>1</code>+<code>6</code>+<code>9</code></p>
+<p>Release the <code>Alt</code> key</p>
+</blockquote>
+<p>If you are <strong>not</strong> using U.K. Ordnance Survey data this is <strong>not</strong> the correct copyright acknowledgement to use.  For example, if you are using data for Spain or the United States, or indeed UK data that you haven&rsquo;t downloaded from Digimap.  You&rsquo;ll need to find the correct copyright acknowledgement for yourself.  You can often find this sort of information on files that come with the data or on the webpage you downloaded it from.</p>
+<p>Digimap also give advice on <a href="https://digimap.edina.ac.uk/webhelp/digimapsupport/about.htm#license_and_terms_of_service/citation.htm">citing Digimap data</a> as opposed to the copyright acknowledgement.</p>
+<p>GIS Lounge have an article about <a href="https://www.gislounge.com/how-to-cite-gis-materials/">How to Cite GIS Materials</a> which includes the software as well as the data and the maps.</p>
+<h3 id="a-legend-or-key">A legend or key</h3>
+<p>You will have added various data to your map and it is necessary for you to explain to anyone looking at your map what those layers and symbols show.  To do this you&rsquo;ll need to add a legend or key.</p>
+<p>Start by using the default options to create a legend.  Once you have the basic legend it is possible to make alterations later.</p>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Save your map and take a backup copy of your project folder before you start doing this.</p>
+<p>While it is usually fine, if you have a lot of big layers on your map QGIS can crash when you first add a key and you don&rsquo;t want to lose the work you&rsquo;ve already done.</p>
+<p>There are ways to get around this if you have this problem.
+<!-- TODO: Make sure I add ways to get around legends crashing QGIS --></p>
+</blockquote>
+<p>To add a legend / key:</p>
+<ul>
+<li>Click on the <code>Add Legend</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a legend which includes all of the items from all of the layers on your map.  This is likely to be rather a lot!  The first thing to do is to remove any that you don&rsquo;t need.</p>
+<p>As usual, while the legend is selected, the <code>Item Properties</code> will show the specific properties for this element.</p>
+<ul>
+<li>In the <code>Item Properties</code> start by checking that the legend is referring to the correct map on your layout - use the dropdown box next to <code>Map</code> to select the correct one if you have more than one.</li>
+<li>You can give your legend / key a title if you wish, but note that this isn&rsquo;t always necessary.</li>
+<li>Then move down to the <code>Legend Items</code> heading<ul>
+<li>If you don&rsquo;t want all of your layers to appear then untick <code>Auto update</code> - you can always click on the <code>Update All</code> button later if you change symbols etc on your map.</li>
+<li>Now you can select layers and then click on the red minus button under the list to remove them.</li>
+<li>To only show elements which appear on your map tick next to <code>Only show items inside linked map</code> - this can be a great help to remove surplus symbols.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Setting the legend properties to control the layers and symbols on the key." src="../images/layout/LegendPropertiesLayers_small.png" title="Setting the legend properties to control the layers and symbols on the key." /></p>
+<p>Once you have just the layers that you want on your key you can then use the rest of the properties to set fonts, backgrounds etc.</p>
+<ul>
+<li>It is possible to drag and drop the layers in the Items list and rearrange them.</li>
+<li>The <code>Columns</code> section allows you to split your legend into two or more columns.</li>
+<li>The <code>Symbol</code> section will let you change the size of symbol, or patch, on the legend - sometimes it is useful to be able to enlarge the &ldquo;patch&rdquo;.</li>
+<li>To change layer names in the legend without changing them on your map you can select the item in the list and click on the pencil icon below.</li>
+<li>Alternatively you can change the names in the Layers panel in map view then click on the <code>Refresh</code> button in layout view to refresh the map and all associated items.</li>
+</ul>
+<p>There is a limit to what you can do with the automatic functions and properties.  Do as much as you can.  Once you have finalised everything on your layout it is possible to export the map as pdf or svg format then edit the legend in a vector graphics editing program such as Inkscape, CorelDraw or Adobe Illustrator.</p>
+<!-- TODO: Check whether exporting really is the only way to edit legend... -->
+
+<h3 id="a-measured-grid">A measured grid</h3>
+<p>Measured grids add labelled grid lines to a map.  If you are using Ordnance Survey or other UK data projected in British National Grid then you can easily add National Grid lines and numbers to your map.  The O.S. Raster tiff files already have grid lines marked, but adding a measured grid allows you to include coordinates around the edge of your map - making it possible to read grid references.</p>
+<ul>
+<li>Click on the map to which you want to add grid lines.</li>
+<li>In the <code>Item Properties</code> scroll down until you reach the <code>Grids</code> heading and click on the little arrow next to it.</li>
+<li>Click on the <code>+</code> (plus) button below the Grids heading to add a Grid to the list below.</li>
+<li>Select the Grid in the list and click on <code>Modify Grid...</code></li>
+</ul>
+<p>The Item Properties will change to show the properties for the grid.</p>
+<ul>
+<li>Under <code>Interval</code> set the <code>X</code> and <code>Y</code> boxes to the interval that you want between the lines.  This depends on the scale of your map and you can experiment to see what looks best and would be most useful.  For now try <code>1000</code> - this is in map units which for British National Grid will be metres.</li>
+<li>The lines are often too bold, so click on the <code>Line style</code> dropdown and select a paler shade of grey.  You could also make the lines thinner.</li>
+</ul>
+<p><img alt="The top of the Map Grid Properties showing the interval and the paler line style." src="../images/layout/MapGridProperties1_small.png" title="The top of the Map Grid Properties showing the interval and the paler line style." /></p>
+<ul>
+<li>Scroll down and tick next to <code>Draw Coordinates</code> - this adds the numbers.</li>
+<li>I usually change the Left and Right coordinates from Horizontal to <code>Vertical</code> so that they follow the edge of the frame.</li>
+<li>Alter the <code>Font</code> as you wish - don&rsquo;t make the coordinates large.  They need to be visible, but not intrusive.</li>
+<li>Change the <code>Coordinate precision</code> to <code>0</code></li>
+</ul>
+<p><img alt="The Draw Coordinates part of the Map Grid properties showing the Vertical setting for Left and Right and Coordinate Precision set to 0." src="../images/layout/MapGridProperties2_small.png" title="The Draw Coordinates part of the Map Grid properties showing the Vertical setting for Left and Right and Coordinate Precision set to 0." /></p>
+<p>Note that the grid that QGIS adds is fully numeric, you may be more used to seeing grid letters for 100 km grid squares, e.g. the University grid <strong>reference</strong> is similar to SE 2934 3444, the University grid <strong>coordinates</strong> are similar to 42934 43444. It is the latter that will appear on a measured grid generated by QGIS.</p>
+<p><img alt="A map with a measured grid that shows British National Grid coordinates on a 1000 m grid." src="../images/layout/MapGrid_small.png" title="A map with a measured grid that shows British National Grid coordinates on a 1000 m grid." /></p>
+<h3 id="north-arrows">North arrows</h3>
+<p>Before adding a north arrow to your layout stop and think about how you need to indicate north on your map.  If you look at the technical information on an Ordnance Survey Landranger (1:50 000) map you&rsquo;ll see a diagram showing Grid north, True north and Magnetic North.  The information given there shows how to plot the difference of magnetic north from grid north.  Adding this to your own maps can be useful, particularly if you, or anyone else, are going to be using the map in the field.</p>
+<p>If you are taking strike and dip measurements in the field you should have corrected your compass-clino for declination (the horizontal angular difference between true north and magnetic north) anyway.  When you plot the measurements on your map it isn&rsquo;t worth worrying too much about whether you are plotting against grid or true north as the difference on any grid, not just the British National Grid, is unlikely to be that big.  See the image below for the different types of north and the declination.</p>
+<p><img alt="The different types of North that you will find on a map set to a projected coordinate system, such as British National Grid." src="../images/layout/LONorthVersions.png" title="The different types of North that you will find on a map set to a projected coordinate system, such as British National Grid." /></p>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Labelling north arrows</strong></p>
+<p>If you add any north arrows to your layout do remember to label them in some way which shows which version of north each one is showing.</p>
+</blockquote>
+<h4 id="north-arrow-grid-north-map-north">North arrow: Grid north / Map north</h4>
+<p>If a map is in a projected coordinate system QGIS will automatically lay it out aligned with the grid.  So for example, any map set to British National Grid will be aligned to grid north.</p>
+<p>In this case it isn&rsquo;t strictly necessary to add a north arrow to show grid north if you also include a measured grid on your map, but it doesn&rsquo;t hurt.</p>
+<ul>
+<li>Click on the <code>Add North Arrow</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a default north arrow to your layout and open the Item Properties.</p>
+<ul>
+<li>Under <code>Picture</code> check that <code>SVG image</code> is selected</li>
+<li>In the box below scroll down to <code>svg &gt; arrows</code> to select a different north arrow.  Note that it&rsquo;s usually a good idea to keep these simple.</li>
+<li>Change the colours and stroke width under <code>SVG Parameters</code> if required</li>
+<li>Under <code>Image Rotation</code> the <code>North alignment</code> should be set to <code>Grid North</code> by default - if it isn&rsquo;t set that now.</li>
+</ul>
+<p><img alt="The Item Properties for a north arrow showing Grid North." src="../images/layout/NorthArrowGrid_small.png" title="The Item Properties for a north arrow showing Grid North." /></p>
+<p>If you check this against your measured grid lines you should find that it matches exactly.</p>
+<h4 id="north-arrow-true-north">North arrow: True north</h4>
+<p>True north is the direction from the area of your map to the North Pole.  In the east/west centre of a grid, such as that set for the British National Grid, it may well be the same as grid north, e.g. in Leeds the difference is extremely slight.  As you go further east or west towards the edges of an area covered by a grid the difference becomes more noticeable, e.g. at Lands End in Cornwall, or in Norfolk.</p>
+<ul>
+<li>Click on the <code>Add North Arrow</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a default north arrow to your layout and open the Item Properties.</p>
+<ul>
+<li>Under <code>Picture</code> check that <code>SVG image</code> is selected</li>
+<li>In the box below scroll down to <code>svg &gt; arrows</code> to select a different north arrow.  Note that it&rsquo;s usually a good idea to keep these simple.</li>
+<li>Change the colours and stroke width under <code>SVG Parameters</code> if required</li>
+<li>Under <code>Image Rotation</code> set the <code>North alignment</code> to <code>True north</code></li>
+</ul>
+<p>You should see the rotation in the box above change to a slightly different number.</p>
+<p>If you check this north arrow against your measured grid lines you may well find that the north arrow is slightly tilted.</p>
+<h4 id="north-arrow-magnetic-north-calculated-by-grid-magnetic-angle">North arrow: Magnetic north calculated by grid magnetic angle</h4>
+<p>Magnetic north is the direction from the area of your map to the <strong>magnetic</strong> north pole.  This is the number that is given on the corner of Ordnance Survey maps and the one geologists need for setting their compass-clinos in the field, so it is worth making a note of this on your map too.</p>
+<h5 id="finding-the-grid-magnetic-angle">Finding the grid magnetic angle</h5>
+<p>First you need to find the grid magnetic angle.</p>
+<ul>
+<li>Go to the World Magnetic Model 2020 Calculator on the <a href="http://www.geomag.bgs.ac.uk/data_service/models_compass/wmm_calc.html">BGS Geomagnetism Group web pages</a></li>
+<li>Use the map to select your area and click on the map to retrieve the data</li>
+<li>Make a note of the figure shown as <code>degrees east</code> and round it to the nearest two decimal places.  Degrees east is in the row headed <code>MF</code> and the column headed <code>D</code>.</li>
+</ul>
+<p>The website above will give you the grid magnetic angle for anywhere in the world.</p>
+<h5 id="to-set-magnetic-north">To set magnetic north</h5>
+<ul>
+<li>Click on the <code>Add North Arrow</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a default north arrow to your layout and open the Item Properties.</p>
+<ul>
+<li>Under <code>Picture</code> check that <code>SVG image</code> is selected</li>
+<li>In the box below scroll down to <code>svg &gt; arrows</code> to select a different north arrow.  Note that it&rsquo;s usually a good idea to keep these simple.</li>
+<li>Change the colours and stroke width under <code>SVG Parameters</code> if required</li>
+<li>Under <code>Image Rotation</code> set the <code>North alignment</code> to <code>Grid north</code> as grid magnetic angle is the angle from Grid north to Magnetic north.</li>
+<li><!-- TODO: Need to sort out how to set magnetic north --></li>
+</ul>
+<h3 id="multiple-maps-on-one-page">Multiple maps on one page</h3>
+<p>It can be very useful to be able to place more than one map or map view on a single page, either so that you can show a different area, or a different zoom level for the same area.  You can also use this to set up an automatic extent indicator which marks your study area on a map of a country.</p>
+<h4 id="different-areas-of-the-same-map">Different areas of the same map</h4>
+<p>You can add multiple maps to your layout using the <code>Add Map</code> command in the same way you <a href="#adding-a-map-to-a-layout">added a single map</a> earlier.</p>
+<p>If you add them directly both maps will show the same data and styling.  You can then change the scale and extent on each one individually using the <code>Item Properties</code> and the <code>Move Item Content</code> button.</p>
+<h4 id="maps-showing-different-content">Maps showing different content</h4>
+<p>If you want to add further maps to your layout but have them showing different content you can do that too.</p>
+<ul>
+<li>Select the initial map frame on the layout</li>
+<li>Make sure that it shows the content that you want it to show and it is all styled correctly</li>
+<li>In the <code>Item Properties</code> go to the <code>Layers</code> subheading and tick on <code>Lock layers</code></li>
+<li>Once you&rsquo;ve done that you&rsquo;ll have the option to tick <code>Lock styles for layers</code> too.  This stops your styles from changing if you change them in the main map.</li>
+</ul>
+<p>Now go back in to the map view and set up the map and layers so that they are as you want them for the second map.</p>
+<ul>
+<li>Back in layout view <a href="#adding-a-map-to-a-layout">add a new map frame as before</a>.  This should reflect the map that you have open in the map view now.</li>
+<li>Once you are happy with this view in the <code>Item Properties</code> go to the <code>Layers</code> subheading and tick on <code>Lock layers</code></li>
+<li>Once you&rsquo;ve done that you&rsquo;ll have the option to tick <code>Lock styles for layers</code> too.  This stops your styles from changing if you change them in the main map.</li>
+</ul>
+<p>As both of your maps are locked you will have to remember to unlock them if you need to make any changes to the styles or combinations of layers.</p>
+<p><img alt="Two views from the same map with layers locked." src="../images/layout/MultipleMaps_small.png" title="Two views from the same map with layers locked." /></p>
+<h3 id="extent-indicator-or-locator-map">Extent indicator or locator map</h3>
+<p>For some maps, particularly large scale (detailed) maps of very small areas, it is useful to show a small scale map of the general area with the area of the main map marked, as in the figure below.</p>
+<p><img alt="A map of a small area with an extent indicator or locator map to give context." src="../images/layout/ExtentIndicator_small.png" title="A map of a small area with an extent indicator or locator map to give context." /></p>
+<p>To do this you need to obtain small scale data and add it to your map.  You really only need a general map, even just an outline of a whole country, so it can be best to use <a href="/finding_data/#natural-earth-data">data from Natural Earth</a>. Download the Countries data from <code>Medium scale data, 1:50m &gt; Cultural &gt; Admin 0 - Countries</code> - click on the <code>Download countries</code> button to download a zip file containing a shapefile.</p>
+<p>Using a screenshot from Google Earth or Google Maps (or similar) with a marker on it doesn&rsquo;t look professional and should be avoided.  Not least it is surprisingly easy to end up with the marker in the wrong place.</p>
+<p>Note that the extent indicator does not need to be large, but should be a small map which doesn&rsquo;t take up too much space on the layout.</p>
+<ul>
+<li>Set up your main map and lock the layers on the layout.</li>
+<li>Add the Countries outline to your map and turn off the other layers</li>
+<li>Symbolise the countries as a thin black outline and zoom in to the country containing your study area</li>
+<li>Add a new map to your layout and resize it as appropriate so that it shows the country as a small map.</li>
+<li>Make sure that the small map is selected then go to the <code>Item Properties</code> panel</li>
+<li>Scroll down to the <code>Overviews</code> section and click on the little arrow next to it to open it out</li>
+<li>Click on the <code>+</code> (plus) button then select the new Overview title that appears</li>
+<li>Check that <code>Draw "Overview 1" overview</code> (or whatever your new Overview is called) is ticked.</li>
+</ul>
+<p>The properties to change how the overview looks are below.</p>
+<ul>
+<li>Under <code>Map frame</code> select your main map - the one of the smaller area.</li>
+</ul>
+<p><img alt="The Overview properties in the Item Properties for the small map." src="../images/layout/OverviewsProperties_small.png" title="The Overview properties in the Item Properties for the small map." /></p>
+<ul>
+<li>Set the <code>Frame style</code> as you wish.  If you can&rsquo;t see the frame on the indicator map because it is too small<ul>
+<li>I found that setting the <code>Simple fill</code> Stroke style to <code>Solid Line</code> in the Symbol Settings</li>
+<li>then giving it a thicker <code>Stroke width</code> and setting the <code>Join style</code> to <code>Round</code> gave the effect of a dot on the map.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Using the Symbol Settings to make the overview frame look like a dot." src="../images/layout/OverviewDot_small.png" title="Using the Symbol Settings to make the overview frame look like a dot." /></p>
+<p>You should now have a map with a marker showing the location covered by your main map.  If you move the main map the &ldquo;frame&rdquo; on the smaller map will automatically update to reflect the new location.</p>
+<h3 id="inserting-photographs-and-images">Inserting photographs and images</h3>
+<p>You may want to include photographs and diagrams on your map layouts.  Geological cross-sections will come under this category too.</p>
+<h4 id="to-add-a-raster-image">To add a raster image</h4>
+<p>This includes photographs or any image in a format such as jpg, png, tiff, gif.</p>
+<ul>
+<li>Click on the <code>Add Picture</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a blank picture place holder to your layout and open the Item Properties.</p>
+<ul>
+<li>In the <code>Item Properties</code> click to add a <code>Raster Image</code></li>
+<li>Use the three dots button to navigate to and select your picture file then click <code>Open</code></li>
+</ul>
+<p>Your picture should appear on your layout.  As usual you can resize it and move it on the layout and change the properties in <code>Item Properties</code></p>
+<h4 id="to-add-an-svg-image">To add an SVG image</h4>
+<p>SVG stands for Scaleable Vector Graphics.  It is the native editing format for the vector graphics program <a href="https://inkscape.org/">Inkscape</a>.  If you have used Inkscape to draw your diagrams you can import them as follows:</p>
+<ul>
+<li>Click on the <code>Add Picture</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a blank picture place holder to your layout and open the Item Properties.</p>
+<ul>
+<li>In the <code>Item Properties</code> click to add a <code>SVG Image</code></li>
+<li>Use the three dots button to navigate to and select your picture file then click <code>Open</code></li>
+</ul>
+<p>Your picture should appear on your layout.  As usual you can resize it and move it on the layout and change the properties in <code>Item Properties</code></p>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Unfortunately svg images with gradient fills don&rsquo;t seem to work well in QGIS.  In many cases it will be better to export your diagram from Inkscape as a png file then import that to QGIS as a raster image.</p>
+<p>Alternatively you can export the layout from QGIS when you have finished adding all of the map elements and then open it in Inkscape and add your diagrams there.  This is usually a better option and instructions will be given for exporting from QGIS later in this chapter.</p>
+</blockquote>
+<h2 id="checking-your-map">Checking your map</h2>
+<p>Checking your map is a very important stage but one that can easily be forgotten if you are in a hurry.</p>
+<p>In addition to the points below have a look at Darkes (2017) which gives a lot of quick tips on map layout and presentation.  On pages 92 and 93 Darkes includes a section with quick wins for improving your map before publication if you have 5, 15 or 50 minutes.</p>
+<h3 id="suggestions-for-things-to-check">Suggestions for things to check</h3>
+<ul>
+<li>Check spelling.  It&rsquo;s easy to miss something obvious so if possible print your map out, or put it on screen and stand back a bit then have a look at it.  In particular check geological and geographical names and any technical terms.</li>
+<li>Check that you have included everything you need to include.  If this is an assignment reread the instructions and check that you haven&rsquo;t forgotten to do anything.</li>
+<li>Check that your map doesn&rsquo;t include anything that you don&rsquo;t want to include!  Did you add some experimental polygons when you were editing, then forgot to delete them?  Have you added text boxes and then not removed any that you don&rsquo;t need?</li>
+<li>Look at the article on <a href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/using-a-mapmaking-checklist-for-map-design/?rmedium=redirect&amp;rsource=blogs.esri.com/esri/arcgis/2012/05/03/using-a-mapmaking-checklist-for-map-design">Using a mapmaking checklist for map design</a> on the ESRI blog.  Read about what makes a map great, then click on the link to the checklist and use the questions there to evaluate your own map.  Have you included everything you need to include, or do you have a good reason if something is not on your map?  Have you taken care with your presentation?</li>
+</ul>
+<h3 id="printing-a-copy-to-pdf-to-check">Printing a copy to pdf to check</h3>
+<p>Almost inevitably you&rsquo;ll notice something not quite right with your map after you have printed it.  To minimize the chances of this happening if you are printing an expensive A0 copy it is a good idea to print your map at A3 and have a close look at it.  This isn&rsquo;t such an issue if your map is only A3 or A4 when full size.</p>
+<ul>
+<li><a href="#exporting-a-map-layout-from-qgis">Export your layout as a pdf file</a> following the instructions below.</li>
+<li>Open your pdf map file in your usual pdf reader (instructions below are for Acrobat Reader but you should be able to find similar commands in other programs)</li>
+<li><code>File &gt; Print</code></li>
+<li>Choose your printer and use the printer properties to set the paper size to A3 then choose to print in colour.</li>
+<li>In the <code>Page Handling</code> section set <code>Page Scaling</code> to <code>Fit to Printable Area</code>.  In Acrobat this should show you a small preview of how your file will print.</li>
+<li>When you are happy with the settings send your file to the printer.</li>
+</ul>
+<h2 id="printing-and-exporting-map-layouts">Printing and exporting map layouts</h2>
+<p>When you have finished creating your map layout in QGIS you will often need to export it to pdf for printing.  The following instructions should help to ensure that your map is the correct size and scale.</p>
+<h3 id="printing-a-map-layout-from-qgis">Printing a map layout from QGIS</h3>
+<p>The best quality output is probably obtained by printing directly from QGIS, though this isn&rsquo;t always possible.  If it is, print as follows:</p>
+<ul>
+<li>Start by checking that the <a href="#size-and-scale-of-pages-and-maps">page size and the map scale</a> are correct.</li>
+<li>Go to <code>Layout &gt; Page Setup</code> and check that the paper size matches the size you set in the layout properties.</li>
+<li>Then <code>Layout &gt; Print</code> to actually print your map.</li>
+</ul>
+<p>You&rsquo;ll need to set up the printer as you usually would.  This is system and printer specific so I can&rsquo;t include fuller instructions here.</p>
+<h3 id="exporting-a-map-layout-from-qgis">Exporting a map layout from QGIS</h3>
+<h4 id="exporting-to-pdf">Exporting to pdf</h4>
+<p>These instructions show you how to export the map to pdf - the format that is usually required if you are having the map professionally printed.</p>
+<ul>
+<li>Start by checking that the <a href="#size-and-scale-of-pages-and-maps">page size and the map scale</a> are correct.</li>
+<li>You should also check the <code>Export Settings</code> under <code>Layout</code> (the next tab to the left of the Item Properties.  Check that the <code>Resolution</code> is set appropriately - too high and you&rsquo;ll have an enormous file, too low and the print quality won&rsquo;t be good.  Try <code>300 dpi</code> and see how that goes.</li>
+<li>In a layout go to <code>Layout &gt; Export as PDF...</code> or click the button on the toolbar.</li>
+<li>Select where you want to save your output and give it a name</li>
+<li>Then click on <code>Save</code></li>
+<li>The <code>PDF Export Options</code> should open.  The defaults are fine, so stick with those</li>
+<li>Click <code>Save</code> to export the pdf.</li>
+</ul>
+<p>You should get a message saying that your layout was successfully exported.</p>
+<p>At this stage open the pdf and make sure it looks as you expect it to.</p>
+<h5 id="important-note-on-printing-a-map-layout-from-pdf">Important note on printing a map layout from pdf</h5>
+<p>If you are printing your final copy from pdf double-check in the pdf reader you use that the <code>Page Scaling</code> or <code>Zoom</code> is set to <code>Actual size...</code> or <code>None</code>.  The actual terminology depends on which pdf application you are using.</p>
+<p>This is important to ensure that your map is printed at the scale at which you intend it to be printed.  This is particularly important if you are printing maps to be used as field slips.  Major problems with measurements can be caused if your map is reduced by even a tiny amount.</p>
+<h5 id="importing-a-pdf-map-layout-in-to-inkscape">Importing a pdf map layout in to Inkscape</h5>
+<blockquote>
+<p><img alt="Information" src="../images/svg/info-black-24dp.png" /> <strong>Export pdf and import to Inkscape</strong></p>
+<p>It is possible to export a map layout to svg which would work in Inkscape, but at the moment the export is rather unreliable.  If you want to open your map layout in Inkscape to finish it off it is better to export pdf and import that to Inkscape.</p>
+</blockquote>
+<p>If you are importing the pdf in to Inkscape and if your map is going to be part of a bigger presentation where scale is important, such as the Geology degree final dissertation map, be very careful to import it without changing scale, size or proportions.  The Interactive Inkscape exercises<sup id="fnref:805"><a class="footnote-ref" href="#fn:805">1</a></sup> have a section on how to import a map layout. </p>
+<h4 id="exporting-a-map-to-import-to-word-and-powerpoint">Exporting a map to import to Word and PowerPoint</h4>
+<p>You can also export the layout to include in programs such as Word or PowerPoint if you are intending it to accompany a report.</p>
+<ul>
+<li>Start by checking that the <a href="#size-and-scale-of-pages-and-maps">page size and the map scale</a> are correct.</li>
+<li>You should also check the <code>Export Settings</code> under <code>Layout</code> (the next tab to the left of the Item Properties.  Check that the <code>Resolution</code> is set appropriately - too high and you&rsquo;ll have an enormous file, too low and the print quality won&rsquo;t be good.  Try <code>300 dpi</code> and see how that goes.</li>
+<li>In a layout go to <code>Layout &gt; Export as image</code> or click the button on the toolbar.</li>
+<li>The <code>Image Export Options</code> will open.  This gives you another chance to check the resolution.</li>
+<li>It&rsquo;s usually worth ticking <code>Enable antialiasing</code> - but if your map looks very blurred it will be worth trying again with this unticked.</li>
+<li>If you are likely to want to open your output in GIS again click to <code>Generate world file</code></li>
+<li>Click <code>Save</code> and wait for your file to be exported.  You&rsquo;ll get a message when it finishes.</li>
+</ul>
+<p>Be aware that it is a good idea to create your layout at the correct size in QGIS before you export it.  You can resize jpg or png files in Word and PowerPoint but you&rsquo;ll lose some of the quality.</p>
+<h2 id="recommended-reading-layout-and-presentation">Recommended reading: layout and presentation</h2>
+<p>The following references from the reading list<sup id="fnref:888"><a class="footnote-ref" href="#fn:888">2</a></sup> will give you information on the principles behind producing a professional layout.</p>
+<p><strong>Darkes and Spence (2017)</strong> - large parts of this book are particularly relevant but it is formatted as a quick reference guide so it&rsquo;s easy to get quick information about what ever you are looking for.  If you can&rsquo;t get hold of the 2017 version the link to the downloadable pdf of the 2011 edition is available on the reading list too.</p>
+<p>Particularly useful in the Darkes and Spence book are the pages at the end titled &ldquo;Better mapping in 5, 15 and 50 minutes&rdquo;.</p>
+<p>The article by <strong>Frye (2001)</strong> gives you quick information about communicating with maps.</p>
+<h3 id="further-information-and-inspiration">Further information and inspiration</h3>
+<p>For examples and ideas look at the <a href="https://www.esri.com/en-us/esri-map-book/maps#/list">ESRI Map Book Gallery</a>.</p>
+<p>The British Geological Survey printed maps are available online via the <a href="https://webapps.bgs.ac.uk/data/maps/">BGS Maps Portal</a> and it&rsquo;s worth having a look at the layout of some of the more modern sheets, such as the <a href="http://www.largeimages.bgs.ac.uk/iip/mapsportal.html?id=1009336">Glossop sheet</a> or the <a href="http://www.largeimages.bgs.ac.uk/iip/mapsportal.html?id=1004283">Bath sheet</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:805">
+<p>If you are not a Geology student but would like to learn how to use Inkscape for drawing and for finishing maps please contact <a href="mailto:C.E.Gordon@leeds.ac.uk">Clare Gordon</a> to obtain a copy of the exercises.&#160;<a class="footnote-backref" href="#fnref:805" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:888">
+<p>Available in Minerva and via the <a href="http://lib5.leeds.ac.uk/rlists/">University Library reading list page</a> - just search for the module number.&#160;<a class="footnote-backref" href="#fnref:888" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>

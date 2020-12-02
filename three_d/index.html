@@ -91,15 +91,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#creating-a-profile-graph">Creating a profile graph</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#data-to-download">Data to download</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#borehole-data">Borehole data</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#download-dtm-files-from-digimap">Download DTM files from Digimap</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#producing-seamless-datasets-from-more-than-one-tile-of-dtm-data">Producing "seamless" datasets from more than one tile of dtm data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-a-profile-graph">Creating a profile graph</a>
     </li>
     </ul>
                     </li>
@@ -147,13 +149,15 @@
 
 <!-- TODO: Students will need to download and merge the Terrain 5 dtm data. -->
 
+<!-- TODO: BUT do GP students actually need to use the DTM? -->
+
 <!-- TODO: Layers to upload to Minerva - Boreholes.csv (more practice at importing csv) -->
 
 <h2 id="introduction">Introduction</h2>
-<h2 id="creating-a-profile-graph">Creating a profile graph</h2>
-<p>QGIS enables you to draw a profile graph across your map using <code>z values</code> in your surface raster files or heights above sea-level.</p>
+<p>Once you have created features and data in GIS you can view the map in 3D and see how your data relates to other features.  You&rsquo;ll be able to export 3D views from QGIS to include in other reports and layouts.</p>
 <h2 id="data-to-download">Data to download</h2>
-<p>Boreholes.csv from Minerva and load using previous instructions - cross-ref</p>
+<h3 id="borehole-data">Borehole data</h3>
+<p>Download the <code>Boreholes.csv</code> file from Minerva and load into QGIS using the instructions you used to <a href="/import_xyz/#import-points-from-xyz-file-to-qgis">load the gravity data points</a>.</p>
 <h3 id="download-dtm-files-from-digimap">Download DTM files from Digimap</h3>
 <p>You&rsquo;ll need to start by obtaining height data from Digimap and converting it for use in QGIS.</p>
 <p><strong>DTM</strong> stands for Digital Terrain Model.  You may also come across <strong>DEM</strong> which stands for Digital Elevation Model.  There are differences in the data but both can be treated in the same way.</p>
@@ -166,8 +170,52 @@
 <li>When selecting data products go to <code>Land and Height Data</code> and select <code>OS Terrain 5 DTM</code> - make sure you select the DTM not the contours.</li>
 <li>Once you have the data in the basket select the download format as <code>ASC</code></li>
 </ul>
+<p>Save the resulting download to your disk and unzip it.</p>
 <h2 id="producing-seamless-datasets-from-more-than-one-tile-of-dtm-data">Producing &ldquo;seamless&rdquo; datasets from more than one tile of dtm data</h2>
 <p>If you are using more than one tile of dtm data (which you should be for this exercise) follow the instructions below to combine the multiple files into one single one.  This will make it possible to use the files as a continuous surface in maps and 3D scenes.  During this process we will also convert the multiple asc or tif files into one single <code>tiff</code> file.</p>
+<ul>
+<li>If QGIS isn&rsquo;t already open, open it now.</li>
+<li>Use the Browser panel to find the dtm files that you downloaded from Digimap and check the <code>Layer Properties</code> of one of the <code>.asc</code> files.</li>
+<li>In particular look for the<code>CRS</code> and the <code>Data type</code> and make a note of both then close the layer properties.</li>
+</ul>
+<p><img alt="The layer properties for one of the .asc dtm files.  Note particularly the CRS and the Data type - you'll need these later." src="../images/three_d/DTMLayerProperties_small.png" title="The layer properties for one of the .asc dtm files.  Note particularly the CRS and the Data type - you'll need these later." /></p>
+<ul>
+<li>Go to <code>Raster &gt; Miscellaneous &gt; Merge...</code></li>
+</ul>
+<p>This opens one of the QGIS tools.</p>
+<ul>
+<li>In the Merge dialog click on the three dots button next to the <code>Input Layers</code></li>
+<li>Click on <code>Add File(s)...</code> and navigate to the folder containing your dtm data</li>
+<li>Use the dropdown next to <code>File name:</code> to select <code>Arc/Info ASCII Grid (*.asc *.ASC)</code> - this will restrict the files that you&rsquo;ll see to just that extension</li>
+<li>Add all of the files with an extension of <code>.asc</code> by selecting them and clicking on <code>Open</code>.  They should appear on a list and each of them should be ticked.</li>
+<li>Click on <code>OK</code> to add them to the tool.</li>
+</ul>
+<p>The <code>Input layers</code> field of the Merge dialog should now tell you the number of input layers that you have added.</p>
+<ul>
+<li>For the <code>Output data type</code> select the data type that you found in the Layer Properties above.  In my case this is <code>Float64</code></li>
+<li>Go down to the <code>Merged</code> field which currently says <code>[Save to temporary file]</code> and use the button at the end of the field to select <code>Save to file...</code></li>
+<li>Browse to the folder in which you want to store the file and give it a name, such as <code>MergedDTM</code></li>
+<li>The file will automatically be given the extension of <code>tif</code></li>
+<li>Click <code>Save</code></li>
+<li>Then click to <code>Run</code></li>
+</ul>
+<p><img alt="The Merge dialog for raster tiles." src="../images/three_d/MergeDTM_small.png" title="The Merge dialog for raster tiles." /></p>
+<p>The tool should run and add a new layer to your map.  You can <code>Close</code> the dialog when it runs successfully.</p>
+<p><img alt="Part of the merged DTM - it should look like a single continuous greyscale file." src="../images/three_d/MergedDTM_small.png" title="Part of the merged DTM - it should look like a single continuous greyscale file." /></p>
+<p>Check that the file looks OK, and also check that the coordinate reference system is set correctly</p>
+<ul>
+<li>Right-click on the layer and go to <code>Properties</code></li>
+<li>Look at the <code>Information</code> tab and check that the <code>CRS</code> is correct.</li>
+</ul>
+<p>If it isn&rsquo;t you will need to <a href="/gps/#changing-the-coordinate-system-crs-of-data">reproject the file to the same CRS as your map</a>.</p>
+<p>You don&rsquo;t need this layer to be visible so move it to the bottom of the list in the Layers panel and turn it off.</p>
+<h2 id="creating-a-profile-graph">Creating a profile graph</h2>
+<p>QGIS enables you to draw a profile graph across your map using <code>z values</code> in your surface raster files or heights above sea-level.  You now have both of these layers on your map so can try both of them.</p>
+<ul>
+<li>You&rsquo;ll need to start by installing the <code>Profile tool</code> plugin by going to <code>Plugins &gt; Plugin Manager</code> in the same way as you <a href="/gps/#installing-qgis-plugin-to-display-a-background-map">installed the QuickMapServices plugin</a>.</li>
+<li>Once you have the plugin installed you will gain a button the toolbar which has the tooltip <code>Terrain profile</code></li>
+</ul>
+<p><img alt="The Terrain Profile button from the toolbar." src="../images/three_d/TerrainProfileButton_small.png" title="The Terrain Profile button from the toolbar." /></p>
               
             </div>
           </div>
