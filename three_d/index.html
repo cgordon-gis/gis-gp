@@ -109,6 +109,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#adding-annotation-to-a-profile-graph">Adding annotation to a profile graph</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#further-information">Further information</a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#viewing-3d-topography-in-qgis">Viewing 3D topography in QGIS</a>
@@ -123,7 +125,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#creating-a-3d-view">Creating a 3D view</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exporting-an-image">Exporting an image</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extruding-vector-layers">Extruding vector layers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#further-information_1">Further information</a>
+    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recommended-reading-elevation-and-3d-mapping">Recommended reading: Elevation and 3D mapping</a>
     </li>
     </ul>
                     </li>
@@ -290,6 +300,10 @@
 <li>Navigate to where you want to save the graph and give it a name.</li>
 </ul>
 <p>Once you have the SVG format graph you can open it in a vector graphics program, such as <a href="https://inkscape.org/">Inkscape</a><sup id="fnref:901"><a class="footnote-ref" href="#fn:901">1</a></sup>, CorelDraw or Adobe Illustrator, then edit it as required.</p>
+<h3 id="further-information">Further information</h3>
+<ul>
+<li>For a video on the Profile plugin see <a href="https://youtu.be/UD0Oumv5y1w">Using the Profile Tool plugin in QGIS</a> by Hans van der Kwast.</li>
+</ul>
 <h2 id="viewing-3d-topography-in-qgis">Viewing 3D topography in QGIS</h2>
 <p>Sometimes being able to view your data in 3D can really help you to interpret it.  QGIS has a couple of effective ways of allowing you to do this.</p>
 <ul>
@@ -331,11 +345,84 @@
 <p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
 <p>Note that if you have already run the QGIS 3D viewer you will need to close it, then close QGIS and reopen your map before you run the Qgis2threejs plugin.</p>
 </blockquote>
+<ul>
+<li>You can open the plugin either by clicking on the button on the toolbar or by going to <code>Web &gt; Qgis2threejs &gt; Qgis2threejs Exporter</code></li>
+</ul>
+<p>The window that opens will have a blank main window and a list of your layers on the left.</p>
+<ul>
+<li>Under the <code>DEM</code> heading in the layers on the left click to put a tick next to your merged DTM layer (remember to some extent DEM and DTM are the same thing).</li>
+</ul>
+<p>Your map should appear and should already be shown as a 3D view.</p>
+<p><img alt="The Qgis2threejs exporter with the Merged DTM ticked in the Layers." src="../images/three_d/Qgis2threejsExporter_small.png" title="The Qgis2threejs exporter with the Merged DTM ticked in the Layers." /></p>
+<ul>
+<li>Use your mouse to navigate in the scene.  The mouse wheel will let you zoom in and out.  If you click on the map you get a pop-up menu with the coordinates at that point and an option to zoom in to that point or orbit around it (press <code>Esc</code> to stop orbiting).  Just have a go!</li>
+<li>Press <code>F5</code> (reset) to get back to the original view</li>
+<li>Go to <code>Scene &gt; Scene settings...</code>.  In this view you can change the <code>Vertical exaggeration</code> - set it to <code>3.0</code> and click <code>Apply</code> to see what happens.  Use this setting with care - for a scientific map it&rsquo;s usually best to stay at <code>1.0</code> which is the actual vertical setting.</li>
+</ul>
+<h3 id="exporting-an-image">Exporting an image</h3>
+<p>Once you have a view that shows your data in a way that will enhance the interpretation you can export it as an image.  The image can then be included in reports and map layouts.</p>
+<ul>
+<li><code>File &gt; Save Scene as... &gt; Image (.png)</code></li>
+<li>You can change the output size here if you wish, then click on <code>Save</code></li>
+<li>Navigate to wherever you wish to save the image and give it a name then click on <code>Save</code>.</li>
+</ul>
+<h3 id="extruding-vector-layers">Extruding vector layers</h3>
+<p>It is possible to show vector layers in 3D.  A popular use for this is to extrude building polygons if you have the height of the roof.  In this case we&rsquo;ll extrude the depth of boreholes for this area.</p>
+<ul>
+<li>At the beginning of this chapter you downloaded borehole data for Llanbedr from Minerva in the form of a csv file.  If you haven&rsquo;t already added this to your map do so now.  Remember that you&rsquo;ll need to add this in the <a href="/import_xyz/#import-points-from-xyz-file-to-qgis">same way that you did the gravity points</a>.</li>
+<li>Have a look at the attribute table and in particular the <code>LENGTH</code> field - this is the depth of the borehole below ground-level.</li>
+</ul>
+<p>Now you have the vector layer ready to extrude.</p>
+<ul>
+<li>Open the Qgis2threejs plugin again.  Your borehole layer should be visible in the left-hand menu now.</li>
+<li>Put a tick in the box next to the layer.  You should be able to see a series of spheres above your map.</li>
+<li>Right-click on the boreholes layer in the Layers list and go to <code>Properties</code><ul>
+<li>Change the <code>Object type</code> to <code>Cylinder</code></li>
+<li>Under <code>Z coordinate</code> change <code>Mode</code> to <code>Relative to "MergedDTM" layer</code> (or whatever your DTM layer is called)</li>
+<li>Under <code>Style</code> you can change the colour and opacity</li>
+<li>Under the <code>Height</code> box drop down the box and select the <code>HEIGHT</code> field</li>
+</ul>
+</li>
+<li>If you click <code>Apply</code> now you should see your points extruded above the map.  But these are boreholes - they should go downwards&hellip;<ul>
+<li>The <code>Height</code> field is set to <code>Expression</code> so there is an <code>E</code> symbol on a button to the right of the field.  Click on this now and enter the following expression.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&ldquo;LENGTH&rdquo; * -1</p>
+</blockquote>
+<ul>
+<li>Once you&rsquo;ve done that click <code>OK</code> and then click on <code>OK</code> again.</li>
+</ul>
+<p><img alt="The properties dialog for the extruded layer." src="../images/three_d/BoreholesProperties_small.png" title="The properties dialog for the extruded layer." /></p>
+<p>Your cylinders should disappear leaving only a patch on the terrain. If you use the mouse to navigate to under the land surface you will be able to see the longest borehole - this is the <a href="https://webapps.bgs.ac.uk/data/publications/pubs.cfc?method=viewRecord&amp;publnId=19864509">Mochras Borehole</a>.  But what about the others?</p>
+<ul>
+<li>Right-click on the DTM layer in the Layers list and go to <code>Properties</code></li>
+<li>Untick <code>Build sides</code> and tick <code>Build frame</code></li>
+<li>Click <code>OK</code></li>
+</ul>
+<p>Your scene should redraw and you should be able to see all of the points extruded downwards.  You can make these more obvious by changing the expression in the properties of the point layer to increase all of them, e.g. by doing <code>* -2</code> instead of <code>* -1</code>, but that does make the Mochras Borehole very long indeed!</p>
+<p><img alt="The extruded boreholes seen from below the map." src="../images/three_d/BoreholesBelow_small.png" title="The extruded boreholes seen from below the map." /></p>
+<p>Again, this can be exported as an image by going to <code>File &gt; Save scene as... &gt; Image (.png)</code>.</p>
+<h3 id="further-information_1">Further information</h3>
+<ul>
+<li>If you want to find out more about Qgis2threejs see the <a href="http://www.statsmapsnpix.com/2018/11/how-to-create-interactive-3d-landscape.html">tutorial by Alasdair Rae</a>.</li>
+</ul>
+<h2 id="recommended-reading-elevation-and-3d-mapping">Recommended reading: Elevation and 3D mapping</h2>
+<p>The general books in the module reading list<sup id="fnref:1010"><a class="footnote-ref" href="#fn:1010">2</a></sup> include sections on elevation and 3D mapping.</p>
+<ul>
+<li>For a quick overview look at Darkes (2017) - pages 46-47 look at Relief.</li>
+<li>Heywood (2011) has a section on Modelling the Third Dimension on pages 99-100.</li>
+<li>Longley (2015) covers User Interation and Representation in 2.5-D and 3-D on pages 282-284.</li>
+</ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:901">
 <p><a href="https://inkscape.org/">Inkscape</a> is OpenSource and freely available to download and install on Windows, Mac and Linux.  If you want to learn how to use it I have created <a href="https://cgordon-gis.github.io/downloads.htm#heading_toc_j_2">Interactive Inkscape worksheets</a> which can be downloaded from my website.&#160;<a class="footnote-backref" href="#fnref:901" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:1010">
+<p>Reading list available from Minerva and from the module catalogue.&#160;<a class="footnote-backref" href="#fnref:1010" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
