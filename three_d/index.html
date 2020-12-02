@@ -102,6 +102,28 @@
     <li class="toctree-l2"><a class="reference internal" href="#producing-seamless-datasets-from-more-than-one-tile-of-dtm-data">Producing "seamless" datasets from more than one tile of dtm data</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#creating-a-profile-graph">Creating a profile graph</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-a-feature-class-for-the-line-on-the-map">Using a feature class for the line on the map</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#saving-the-profile-graph">Saving the profile graph</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-annotation-to-a-profile-graph">Adding annotation to a profile graph</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#viewing-3d-topography-in-qgis">Viewing 3D topography in QGIS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#3d-map-view">3D Map View</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-qgis2threejs-plugin">The Qgis2threejs plugin</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-the-plugin">Installing the plugin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-3d-view">Creating a 3D view</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -213,9 +235,110 @@
 <p>QGIS enables you to draw a profile graph across your map using <code>z values</code> in your surface raster files or heights above sea-level.  You now have both of these layers on your map so can try both of them.</p>
 <ul>
 <li>You&rsquo;ll need to start by installing the <code>Profile tool</code> plugin by going to <code>Plugins &gt; Plugin Manager</code> in the same way as you <a href="/gps/#installing-qgis-plugin-to-display-a-background-map">installed the QuickMapServices plugin</a>.</li>
-<li>Once you have the plugin installed you will gain a button the toolbar which has the tooltip <code>Terrain profile</code></li>
+<li>Once you have the plugin installed you will gain a button on the toolbar which has the tooltip <code>Terrain profile</code></li>
 </ul>
 <p><img alt="The Terrain Profile button from the toolbar." src="../images/three_d/TerrainProfileButton_small.png" title="The Terrain Profile button from the toolbar." /></p>
+<ul>
+<li>Click on the <code>Terrain Profile</code> button</li>
+</ul>
+<p>The Profile Tool window should open at the bottom of your screen.</p>
+<p>The first thing you need to do is select the layer that contains your <code>z</code> or height data.  In this case you have two possible layers on your map.</p>
+<ul>
+<li>Select your gravity surface in the Layers panel - mine is called <code>IDWgrav</code> yours may be something different</li>
+<li>On the Profile Tool panel click <code>Add Layer</code> under the box on the right - the layer should appear in the box</li>
+<li>Now check that under <code>Options</code> the <code>Selection</code> is set to <code>Temporary polyline</code></li>
+<li>Left-click somewhere on the map on the west of your gravity layer</li>
+<li>Then double-click (to end the line) somewhere on the east of your gravity layer</li>
+</ul>
+<p>Immediately a profile should be drawn in the window on the Profile tool panel.</p>
+<p><img alt="The profile tool panel showing a profile across the IDWgrav layer from west to east." src="../images/three_d/ProfileToolPanel_small.png" title="The profile tool panel showing a profile across the IDWgrav layer from west to east." /></p>
+<blockquote>
+<p><img alt="Instruction" src="../images/svg/create-black-24dp.png" /> <strong>Adding a second elevation surface</strong></p>
+<p>Now try adding the <code>MergedDTM</code> layer too (you may have called it something different).  You do it in exactly the same way, except that you already have a line across your map.</p>
+<p>If you click on the colour patch next to the MergedDTM layer you can change it to a different colour so you can see which profile refers to which data surface.</p>
+</blockquote>
+<p>Unfortunately it isn&rsquo;t possible to edit the y axes independently so that you have the two profiles on different scales.</p>
+<ul>
+<li>For the assessment you only need to include the profile across the gravity surface, so for now click on <code>Remove Layer</code> and remove the DTM layer.</li>
+</ul>
+<h3 id="using-a-feature-class-for-the-line-on-the-map">Using a feature class for the line on the map</h3>
+<p>So far you&rsquo;ve only used a temporary line on the map for the line of the profile.  When you close your map this line will disappear.  If you are going to include the profile on the map layout you also need to show the line of the profile on the map.  To do this you can <a href="/creating_data/#setting-up-geopackage-feature-classes-to-store-your-data">create a feature class</a> and <a href="/creating_data/#digitising-line-features">digitise a line across the map</a>.  Refer back to the chapter on <a href="/creating_data/">Creating data by digitising</a> for a reminder of how to do this.</p>
+<p>Once you have a digitised line</p>
+<ul>
+<li>Select the line layer in the Layers panel and then use <code>Select Features by Area or Single Click</code> from the toolbar at the top to click on the line and select it (it should turn bright yellow)</li>
+<li>Open the Profile Graph panel and add your gravity surface as before</li>
+<li>Under <code>Selection</code> click on <code>Selected polyline</code> or <code>Selected layer</code></li>
+</ul>
+<p>The Profile should appear in the window to the left.</p>
+<h3 id="saving-the-profile-graph">Saving the profile graph</h3>
+<p>You can save your profile graph to an image to add to other work</p>
+<ul>
+<li>It&rsquo;s a good idea to untick <code>Show Cursor</code> before you save the graph</li>
+<li>Use the dropdown at the bottom of the profile to select <code>Graph - PNG</code></li>
+<li>Then click on the <code>Save as</code> button</li>
+<li>Navigate to where you want to save the graph and give it a name.</li>
+</ul>
+<p>The result png file can be added to reports or map layouts - but see below.</p>
+<p>If you have selected a line on the map it is a good idea to <code>Clear selections</code> once you have saved the graph.</p>
+<h3 id="adding-annotation-to-a-profile-graph">Adding annotation to a profile graph</h3>
+<p>This plugin is fairly basic.  It simply allows you to draw a line across a map and show the profile.  If you are going to include a profile graph on a map layout or in a report you will need to annotate it with titles, labels etc.</p>
+<p>To do this you need to save the graph as <code>SVG</code> format</p>
+<ul>
+<li>It&rsquo;s a good idea to untick <code>Show Cursor</code> before you save the graph</li>
+<li>Use the dropdown at the bottom of the profile to select <code>Graph - SVG</code></li>
+<li>Then click on the <code>Save as</code> button</li>
+<li>Navigate to where you want to save the graph and give it a name.</li>
+</ul>
+<p>Once you have the SVG format graph you can open it in a vector graphics program, such as <a href="https://inkscape.org/">Inkscape</a><sup id="fnref:901"><a class="footnote-ref" href="#fn:901">1</a></sup>, CorelDraw or Adobe Illustrator, then edit it as required.</p>
+<h2 id="viewing-3d-topography-in-qgis">Viewing 3D topography in QGIS</h2>
+<p>Sometimes being able to view your data in 3D can really help you to interpret it.  QGIS has a couple of effective ways of allowing you to do this.</p>
+<ul>
+<li>Start with your map set up to show the 1:25 000 background map and the gravity surface.</li>
+<li>Make sure you have the merged DTM in your project, but it doesn&rsquo;t need to be visible.</li>
+</ul>
+<h3 id="3d-map-view">3D Map View</h3>
+<p>The simplest way to view a map in 3D is to use the inbuilt tool.  This is fine, but fairly limited.</p>
+<ul>
+<li>Click on <code>View &gt; New 3D Map View</code></li>
+</ul>
+<p>On my computer this always opens far too small so I have to use the mouse to extend the window.</p>
+<p>The initial view looks the same as the map in the main view.  You have to tell it where to get the 3D elevation data from.</p>
+<ul>
+<li>Click on the button with the little spanner on the toolbar - this gives you the <code>3D Configuration</code> window.</li>
+<li>Select <code>Terrain</code></li>
+<li>Drop down the <code>Type</code> box and select <code>DEM (Raster Layer)</code></li>
+<li>In the <code>Elevation</code> box select your merged DTM layer.</li>
+<li>Click <code>OK</code></li>
+</ul>
+<p><img alt="The 3D configuration settings set up to show the terrain (DTM)." src="../images/three_d/3DConfiguration_small.png" title="The 3D configuration settings set up to show the terrain (DTM)." /></p>
+<p>You should notice a slight difference, but as you are still looking down on the view from above you won&rsquo;t see the full 3D effect yet.</p>
+<p>Use the mouse wheel and buttons, or the controls in the top right of the window to have a look at your 3D scene.</p>
+<p>You can try out some of the other settings from the 3D Configuration settings to see what happens.</p>
+<p>It is possible to export this view as an image</p>
+<ul>
+<li>click on the <code>Save as image...</code> button on the toolbar.</li>
+</ul>
+<p>Close the view by clicking on the cross at top right.</p>
+<h2 id="the-qgis2threejs-plugin">The Qgis2threejs plugin</h2>
+<p>QGIS has a plugin which gives more options for viewing your data in 3D, including extruding vector layers, and it is worth installing this and trying it out.</p>
+<h3 id="installing-the-plugin">Installing the plugin</h3>
+<ul>
+<li>Install the <code>Qgis2threejs</code> plugin in the same way you&rsquo;ve used for other plugins</li>
+</ul>
+<p><img alt="Installing the Qgis2threejs plugin." src="../images/three_d/InstallQgis2threejsPlugin_small.png" title="Installing the Qgis2threejs plugin." /></p>
+<h3 id="creating-a-3d-view">Creating a 3D view</h3>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Note that if you have already run the QGIS 3D viewer you will need to close it, then close QGIS and reopen your map before you run the Qgis2threejs plugin.</p>
+</blockquote>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:901">
+<p><a href="https://inkscape.org/">Inkscape</a> is OpenSource and freely available to download and install on Windows, Mac and Linux.  If you want to learn how to use it I have created <a href="https://cgordon-gis.github.io/downloads.htm#heading_toc_j_2">Interactive Inkscape worksheets</a> which can be downloaded from my website.&#160;<a class="footnote-backref" href="#fnref:901" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
               
             </div>
           </div>
