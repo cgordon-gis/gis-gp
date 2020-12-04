@@ -117,6 +117,12 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#selecting-items-on-a-layout">Selecting items on a layout</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-legend-or-key">A legend or key</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#preventing-the-legend-from-crashing-qgis">Preventing the legend from crashing QGIS</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#scale-bar-and-scale-text">Scale bar and scale text</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#to-add-a-scale-bar">To add a scale bar</a>
@@ -130,8 +136,6 @@
     <li class="toctree-l4"><a class="reference internal" href="#static-text">Static text</a>
     </li>
         </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#a-legend-or-key">A legend or key</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#a-measured-grid">A measured grid</a>
     </li>
@@ -352,6 +356,66 @@
 <p>You can also use the items panel to lock items in place and make them invisible.</p>
 <p><img alt="The Items panel showing that Map 1 is select and locked, while the attribute table frame is invisible." src="../images/layout/ItemsPanel_small.png" title="The Items panel showing that Map 1 is select and locked, while the attribute table frame is invisible." /></p>
 <p>Once an item is selected it will have the little &ldquo;handles&rdquo; visible for resizing.</p>
+<h3 id="a-legend-or-key">A legend or key</h3>
+<p>You will have added various data to your map and it is necessary for you to explain to anyone looking at your map what those layers and symbols show.  To do this you&rsquo;ll need to add a legend or key.</p>
+<p>Start by using the default options to create a legend.  Once you have the basic legend it is possible to make alterations later.</p>
+<blockquote>
+<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
+<p>Save your map and take a backup copy of your project folder before you start doing this.</p>
+<p>While it is usually fine, if you have a lot of big layers on your map QGIS can crash when you first add a key and you don&rsquo;t want to lose the work you&rsquo;ve already done.</p>
+<p>There are ways to get around this if you have this problem.</p>
+</blockquote>
+<p>To add a legend / key:</p>
+<ul>
+<li>Click on the <code>Add Legend</code> button on the Toolbox</li>
+<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
+<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
+</ul>
+<p>QGIS will add a legend which includes all of the items from all of the layers on your map.  This is likely to be rather a lot!  The first thing to do is to remove any that you don&rsquo;t need.</p>
+<p>As usual, while the legend is selected, the <code>Item Properties</code> will show the specific properties for this element.</p>
+<ul>
+<li>In the <code>Item Properties</code> start by checking that the legend is referring to the correct map on your layout - use the dropdown box next to <code>Map</code> to select the correct one if you have more than one.</li>
+<li>You can give your legend / key a title if you wish, but note that this isn&rsquo;t always necessary.</li>
+<li>Then move down to the <code>Legend Items</code> heading<ul>
+<li>If you don&rsquo;t want all of your layers to appear then untick <code>Auto update</code> - you can always click on the <code>Update All</code> button later if you change symbols etc on your map.</li>
+<li>Now you can select layers and then click on the red minus button under the list to remove them.</li>
+<li>To only show elements which appear on your map tick next to <code>Only show items inside linked map</code> - this can be a great help to remove surplus symbols.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Setting the legend properties to control the layers and symbols on the key." src="../images/layout/LegendPropertiesLayers_small.png" title="Setting the legend properties to control the layers and symbols on the key." /></p>
+<p>Once you have just the layers that you want on your key you can then use the rest of the properties to set fonts, backgrounds etc.</p>
+<ul>
+<li>It is possible to drag and drop the layers in the Items list and rearrange them.</li>
+<li>The <code>Columns</code> section allows you to split your legend into two or more columns.</li>
+<li>The <code>Symbol</code> section will let you change the size of symbol, or patch, on the legend - sometimes it is useful to be able to enlarge the &ldquo;patch&rdquo;.</li>
+<li>To change layer names in the legend without changing them on your map you can select the item in the list and click on the pencil icon below.</li>
+<li>Alternatively you can change the names in the Layers panel in map view then click on the <code>Refresh</code> button in layout view to refresh the map and all associated items.</li>
+</ul>
+<p>There is a limit to what you can do with the automatic functions and properties.  Do as much as you can.</p>
+<p>Once you have finalised everything on your layout it is possible to export the map as pdf or svg format then edit the legend in a vector graphics editing program such as Inkscape, CorelDraw or Adobe Illustrator.</p>
+<h4 id="preventing-the-legend-from-crashing-qgis">Preventing the legend from crashing QGIS</h4>
+<p>If you have a problem with adding a legend causing QGIS to crash try the following:</p>
+<ul>
+<li>Open a new, empty project in QGIS</li>
+<li>Create a new layout as you did above.</li>
+<li>Add a legend to the layout.</li>
+<li>Untick the box in the legend properties that says <code>auto-update</code></li>
+<li>It&rsquo;s a good idea to add a title and a frame to the legend so that you can find it again!</li>
+<li>Save the layout as a template (<code>Save as template</code> button on the toolbar)</li>
+<li>Close the blank project and reopen your real project</li>
+<li>Create a new layout use the template that you saved by doing the following:<ul>
+<li><code>Project &gt; Layout Manager</code></li>
+<li>Under <code>New from Template</code> select <code>Specific</code> from the dropdown</li>
+<li>then click on the three dots button next to the blank field</li>
+<li>Select the template that you just created and <code>Open</code></li>
+<li>Click on the <code>Create...</code> button and you&rsquo;ll be asked for a name for your layout</li>
+</ul>
+</li>
+</ul>
+<p>Once you have the layout open add a map frame.  You&rsquo;ll then need to associate the map frame with the legend by selecting the legend and setting the <code>Map</code> to the correct map.</p>
+<p>Now use the <code>+</code> (plus) button below the <code>Legend Items</code> to add the layers that you do want to be included.  Ticking <code>Only show items inside linked map</code> will also help.</p>
+<p>This is a fiddle and not ideal, but if it stops your QGIS project from crashing hopefully it is worth it!</p>
 <h3 id="scale-bar-and-scale-text">Scale bar and scale text</h3>
 <p>Some indication of scale should always be added to both printed and screen maps.  A scale bar is a useful convention for both.  Scale text (e.g. 1:50,000 or 1 cm = 1 km) is only relevant for printed maps, not for maps on screen where someone can zoom to any scale.  If you add scale text you must also ensure that you print or export the map at the correct scale.</p>
 <h4 id="to-add-a-scale-bar">To add a scale bar</h4>
@@ -422,46 +486,6 @@
 <p>If you are <strong>not</strong> using U.K. Ordnance Survey data this is <strong>not</strong> the correct copyright acknowledgement to use.  For example, if you are using data for Spain or the United States, or indeed UK data that you haven&rsquo;t downloaded from Digimap.  You&rsquo;ll need to find the correct copyright acknowledgement for yourself.  You can often find this sort of information on files that come with the data or on the webpage you downloaded it from.</p>
 <p>Digimap also give advice on <a href="https://digimap.edina.ac.uk/webhelp/digimapsupport/about.htm#license_and_terms_of_service/citation.htm">citing Digimap data</a> as opposed to the copyright acknowledgement.</p>
 <p>GIS Lounge have an article about <a href="https://www.gislounge.com/how-to-cite-gis-materials/">How to Cite GIS Materials</a> which includes the software as well as the data and the maps.</p>
-<h3 id="a-legend-or-key">A legend or key</h3>
-<p>You will have added various data to your map and it is necessary for you to explain to anyone looking at your map what those layers and symbols show.  To do this you&rsquo;ll need to add a legend or key.</p>
-<p>Start by using the default options to create a legend.  Once you have the basic legend it is possible to make alterations later.</p>
-<blockquote>
-<p><img alt="Warning" src="../images/svg/warning-black-24dp.png" /> <strong>Warning</strong></p>
-<p>Save your map and take a backup copy of your project folder before you start doing this.</p>
-<p>While it is usually fine, if you have a lot of big layers on your map QGIS can crash when you first add a key and you don&rsquo;t want to lose the work you&rsquo;ve already done.</p>
-<p>There are ways to get around this if you have this problem.
-<!-- TODO: Make sure I add ways to get around legends crashing QGIS --></p>
-</blockquote>
-<p>To add a legend / key:</p>
-<ul>
-<li>Click on the <code>Add Legend</code> button on the Toolbox</li>
-<li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
-<li>If the <code>New Item Properties</code> dialog appears click <code>OK</code></li>
-</ul>
-<p>QGIS will add a legend which includes all of the items from all of the layers on your map.  This is likely to be rather a lot!  The first thing to do is to remove any that you don&rsquo;t need.</p>
-<p>As usual, while the legend is selected, the <code>Item Properties</code> will show the specific properties for this element.</p>
-<ul>
-<li>In the <code>Item Properties</code> start by checking that the legend is referring to the correct map on your layout - use the dropdown box next to <code>Map</code> to select the correct one if you have more than one.</li>
-<li>You can give your legend / key a title if you wish, but note that this isn&rsquo;t always necessary.</li>
-<li>Then move down to the <code>Legend Items</code> heading<ul>
-<li>If you don&rsquo;t want all of your layers to appear then untick <code>Auto update</code> - you can always click on the <code>Update All</code> button later if you change symbols etc on your map.</li>
-<li>Now you can select layers and then click on the red minus button under the list to remove them.</li>
-<li>To only show elements which appear on your map tick next to <code>Only show items inside linked map</code> - this can be a great help to remove surplus symbols.</li>
-</ul>
-</li>
-</ul>
-<p><img alt="Setting the legend properties to control the layers and symbols on the key." src="../images/layout/LegendPropertiesLayers_small.png" title="Setting the legend properties to control the layers and symbols on the key." /></p>
-<p>Once you have just the layers that you want on your key you can then use the rest of the properties to set fonts, backgrounds etc.</p>
-<ul>
-<li>It is possible to drag and drop the layers in the Items list and rearrange them.</li>
-<li>The <code>Columns</code> section allows you to split your legend into two or more columns.</li>
-<li>The <code>Symbol</code> section will let you change the size of symbol, or patch, on the legend - sometimes it is useful to be able to enlarge the &ldquo;patch&rdquo;.</li>
-<li>To change layer names in the legend without changing them on your map you can select the item in the list and click on the pencil icon below.</li>
-<li>Alternatively you can change the names in the Layers panel in map view then click on the <code>Refresh</code> button in layout view to refresh the map and all associated items.</li>
-</ul>
-<p>There is a limit to what you can do with the automatic functions and properties.  Do as much as you can.  Once you have finalised everything on your layout it is possible to export the map as pdf or svg format then edit the legend in a vector graphics editing program such as Inkscape, CorelDraw or Adobe Illustrator.</p>
-<!-- TODO: Check whether exporting really is the only way to edit legend... -->
-
 <h3 id="a-measured-grid">A measured grid</h3>
 <p>Measured grids add labelled grid lines to a map.  If you are using Ordnance Survey or other UK data projected in British National Grid then you can easily add National Grid lines and numbers to your map.  The O.S. Raster tiff files already have grid lines marked, but adding a measured grid allows you to include coordinates around the edge of your map - making it possible to read grid references.</p>
 <ul>
@@ -531,12 +555,12 @@
 <h5 id="finding-the-grid-magnetic-angle">Finding the grid magnetic angle</h5>
 <p>First you need to find the grid magnetic angle.</p>
 <ul>
-<li>Go to the World Magnetic Model 2020 Calculator on the <a href="http://www.geomag.bgs.ac.uk/data_service/models_compass/wmm_calc.html">BGS Geomagnetism Group web pages</a></li>
-<li>Use the map to select your area and click on the map to retrieve the data</li>
-<li>Make a note of the figure shown as <code>degrees east</code> and round it to the nearest two decimal places.  Degrees east is in the row headed <code>MF</code> and the column headed <code>D</code>.</li>
+<li>Go to the Grid Magnetic Model 2020 Calculator on the <a href="http://geomag.bgs.ac.uk/data_service/models_compass/gma_calc.html">BGS Geomagnetism Group web pages</a></li>
+<li>fill in the form - you can get the <code>British National Grid in metres</code> coordinates by looking at your map in QGIS.  The coordinates at the tip of the cursor are shown at the bottom of the map.</li>
+<li>Once you submit the form you will be shown the result in text which includes magnetic north and the date - make a note of both of these.</li>
 </ul>
-<p>The website above will give you the grid magnetic angle for anywhere in the world.</p>
-<h5 id="to-set-magnetic-north">To set magnetic north</h5>
+<p>The website above will only give you the grid magnetic angle for the UK.</p>
+<h5 id="to-set-magnetic-north-on-a-layout">To set magnetic north on a layout</h5>
 <ul>
 <li>Click on the <code>Add North Arrow</code> button on the Toolbox</li>
 <li>Click on your layout in roughly the location that you want your legend to appear.  You can move and resize it later.  You can also &ldquo;drag&rdquo; the box to the correct size as you add it.</li>
@@ -548,8 +572,11 @@
 <li>In the box below scroll down to <code>svg &gt; arrows</code> to select a different north arrow.  Note that it&rsquo;s usually a good idea to keep these simple.</li>
 <li>Change the colours and stroke width under <code>SVG Parameters</code> if required</li>
 <li>Under <code>Image Rotation</code> set the <code>North alignment</code> to <code>Grid north</code> as grid magnetic angle is the angle from Grid north to Magnetic north.</li>
-<li><!-- TODO: Need to sort out how to set magnetic north --></li>
+<li>In the <code>Offset</code> field enter the angle that you obtained from the BGS website.  If the angle was <code>EAST</code> of grid north enter a positive figure, if <code>WEST</code> enter a negative figure.</li>
 </ul>
+<p><img alt="Setting the image rotation for a magnetic north arrow.  The grid magnetic angle is 0.9 degrees EAST, so is positive." src="../images/layout/MagNorthImageRotation_small.png" title="Setting the image rotation for a magnetic north arrow.  The grid magnetic angle is 0.9 degrees EAST, so is positive." /></p>
+<p>Don&rsquo;t forget to add text to your map showing the date of the reading.  It changes with time.</p>
+<p>For more about how the <a href="http://britgeopeople.blogspot.com/2014/01/somethings-happening-to-magnetic-north.html">magnetic north pole is moving see the BGS blog</a>.</p>
 <h3 id="multiple-maps-on-one-page">Multiple maps on one page</h3>
 <p>It can be very useful to be able to place more than one map or map view on a single page, either so that you can show a different area, or a different zoom level for the same area.  You can also use this to set up an automatic extent indicator which marks your study area on a map of a country.</p>
 <h4 id="different-areas-of-the-same-map">Different areas of the same map</h4>
